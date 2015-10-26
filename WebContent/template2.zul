@@ -1,0 +1,10 @@
+<zk>
+  <borderlayout>
+  	<north self="@{insert(header)}" height="10%"/>
+  
+    <center self="@{insert(left)}" />
+		
+   
+    <east width="75%" self="@{insert(right)}" style="background: #368" />
+  </borderlayout>
+</zk>

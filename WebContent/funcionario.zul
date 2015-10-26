@@ -1,0 +1,9 @@
+<?page title="Funcionario" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="template3.zul"?>
+<zk>
+	
+	<div self="@{define(right)}" align="center">
+		<label value="Pagina do Funcionario"></label>
+	</div>
+
+</zk>

@@ -1,0 +1,8 @@
+<zk>
+  <borderlayout>
+    <center self="@{insert(left)}"/>
+
+   
+    <east width="70%" self="@{insert(right)}" style="background:gray" />
+  </borderlayout>
+</zk>

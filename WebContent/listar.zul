@@ -1,0 +1,6 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="template4.zul" ?>
+<zk>
+	<div self="@{define(right)}">
+		<label value="Listar"></label>
+	</div>
+</zk>

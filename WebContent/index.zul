@@ -1,0 +1,16 @@
+<?page title="Pagina Incial" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="template3.zul" ?>
+<zk>
+	<style>
+		.inicio{
+			Background:#E3DEDB;
+		}
+	</style>
+	
+ 	
+<div self="@{define(right)}" align="center">
+	<label value="Seja bem vindo" style="font-size:32px;"></label>
+	
+    
+</div>
+</zk>

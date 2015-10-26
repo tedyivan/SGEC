@@ -1,0 +1,20 @@
+<?page title="Registo de Funcionario" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="templateFuncionario.zul" ?>
+<zk>
+<style>
+			
+			.funcionario{
+				Background:#E3DEDB;
+			}
+			.registar{
+				Background:#E3DEDB;
+			}
+		</style>
+		<div self="@define(right)">
+			<label value="Listar Funcionario"></label>
+			
+		
+		</div>
+
+
+</zk>

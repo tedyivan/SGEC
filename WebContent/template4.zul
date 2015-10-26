@@ -1,0 +1,23 @@
+<zk>
+  <borderlayout>
+  	<north self="@{insert(header)}" height="10%">
+  		<include src="header.zul"></include>
+  	</north>
+  
+    <west self="@{insert(left)}" width="10%">
+    	<include src="left.zul"></include>
+    </west> 
+     
+       
+    <center self="@{insert(buttoes)}"/>
+    	
+		
+   
+    <east width="80%" self="@{insert(right)}" style="background:EAE5E5"/>
+    
+    
+    
+  
+  
+  </borderlayout>
+</zk>

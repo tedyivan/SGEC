@@ -1,0 +1,41 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+
+
+<zk>
+
+
+	<window title="Registo Material" border="normal" closable="true" width="50%" height="50%" >
+	<div align="center" >
+	<label value="Selecione o tipo de material a registar" style="font-size:28px;"/>
+	
+	<hlayout spacing="70px" >
+		
+		<vlayout>
+			<space height="7%"/>
+			<button height="100px" width="100px" href="material_teorico_registo.zul" image="/images/17.1.png"/>
+				<label value="Material para"/>
+				<label value="Aulas teoricas"/>
+			
+		</vlayout>
+		
+		<vlayout>
+			<space height="7%"/>
+			<button height="100px" width="100px" href="material_pratico_registo.zul" image="/images/15.2.png"/>
+				<label value="Material para"/>
+				<label value="Aulas praticas"/>
+					
+		</vlayout>
+		
+		<vlayout>	
+			<space height="7%"/>
+			<button height="100px" width="100px" href="material_veiculo_registo.zul" image="/images/16.1.png"/>
+				
+			<label value="Veiculos"/>
+		</vlayout>
+		
+	</hlayout>
+	</div>
+</window>
+
+
+</zk>

@@ -1,0 +1,57 @@
+<?page title="Pagina do Instruendo" contentType="text/html;charset=UTF-8" ?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="template4.zul" ?>
+
+<zk>
+		
+		
+		<div self="@{define(buttoes)}" align="center" >
+			
+			<vlayout spacing="15px" apply="mz.gov.sgec.controller.InstruendoController">
+				<label value="opcoes"></label>
+				<button label="Listar" width="100px" height="30px"/>
+				<button id="btn_reg" label="Registar" width="100px" height="30px"/>
+				<button label="Listar" width="100px" height="30px"/>
+			</vlayout>
+		</div>
+		
+		
+		<div self="@{define(right)}" align="center" id="registar">
+			<div id="registo">
+			<label value="Pagina do instruendo" style = "font-size:20pt"/>
+			<div>
+				<vlayout>
+					<hlayout>
+						<label value="Nome"/>
+						<textbox id="nome"/>
+						<label value="Apelido"/>
+						<textbox id="apelido"/>
+					</hlayout>
+					
+					<hlayout>
+						<label value="Numero de BI"/>
+						<textbox id="nrbi"/>
+						<label value="Nuit"/>
+						<textbox id="nuit"/>
+					</hlayout>
+				
+				
+				
+				
+				</vlayout>
+			
+			
+			
+			</div>
+			</div>
+			
+		</div>
+
+
+</zk>
+
+
+
+
+
+
+

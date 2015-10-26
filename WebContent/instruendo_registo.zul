@@ -1,0 +1,220 @@
+<?page title="Registo de Instruendo" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="templateInstruendo.zul" ?>
+<zk>
+		<style>
+			
+			.instruendo{
+				Background:#E3DEDB;
+			}
+			.registo{
+				Background:#E3DEDB;
+			}
+		</style>
+		<div id="registo" self="@define(right)" width = "100%" height="100%" style = "border: 1px solid red">
+			
+	 
+		<vlayout height="100%" >
+			<div  width = "100%" align = "center" vflex = "1">
+			    <label value = "Registo do Instruendo"  style = "font-size:20pt"/>
+			</div>
+			<div vflex = "3">
+				<hlayout>
+					<div hflex="1">					
+					</div>
+					<div hflex="2">
+					<vlayout  spacing = "10px">
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Nomes:" />
+							</div>
+							<div hflex="2" align = "left">
+								<textbox id="txt_rnome" width="80%" constraint="no empty" />							
+							</div>
+						</hlayout>
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Data de nascimento:" />
+							</div>
+							<div hflex="2" align = "left">
+								<datebox id="txt_rnascimento" width="80%" />							
+							</div>
+						</hlayout>
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Nomes do Pai:" />
+							</div>
+							<div hflex="2" align = "left">
+								<textbox id="txt_rnome_pai" width="80%" constraint="no empty" />							
+							</div>
+						</hlayout>
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Nomes da Mãe:" />
+							</div>
+							<div hflex="2" align = "left">
+								<textbox id="txt_rnome_mae" width="80%" constraint="no empty" />							
+							</div>
+						</hlayout>
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Estado civil:" />
+							</div>
+							<div hflex="2" align = "left">
+								<textbox id="txt_rcivil" width="80%" constraint="no empty" />							
+							</div>
+						</hlayout>
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Sexo:" />
+							</div>
+							<div hflex="2" align = "left">
+								<radiogroup id="txt_rgenero" width="80%">
+						            <radio label="Masculino" />
+						            <radio label="Femenino" />
+						        </radiogroup>						
+							</div>
+						</hlayout>
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Local de residência:" />
+							</div>
+							<div hflex="2" align = "left">
+								<textbox id="txt_rresidencia" width="80%" constraint="no empty" />							
+							</div>
+						</hlayout>
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Tipo de carta:" />
+							</div>
+							<div hflex="2" align = "left">
+								<combobox width = "80%">
+									<comboitem label="ligeiro"/>
+									<comboitem label="pesado"/>
+								</combobox>						
+							</div>
+						</hlayout>
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Alocar:" />
+							</div>
+							<div hflex="2" align = "left">
+								<button type = "submit" label = "turma" width="80%"/>							
+							</div>
+						</hlayout>
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Celular:" />
+							</div>
+							<div hflex="2" align = "left">
+								<textbox id="" width="80%" constraint="no empty" />							
+							</div>
+						</hlayout>
+												
+					</vlayout>
+					</div>
+					<div hflex="2">
+					<vlayout   spacing = "10px">
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Apelido:" />
+							</div>
+							<div hflex="2" align = "left">
+								<textbox id="" width="80%" constraint="no empty" />							
+							</div>
+						</hlayout>
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Naturalidade:" />
+							</div>
+							<div hflex="2" align = "left">
+								<textbox id="" width="80%" constraint="no empty" />							
+							</div>
+						</hlayout>
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Apelido:" />
+							</div>
+							<div hflex="2" align = "left">
+								<textbox id="" width="80%" constraint="no empty" />							
+							</div>
+						</hlayout>
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Apelido:" />
+							</div>
+							<div hflex="2" align = "left">
+								<textbox id="" width="80%" constraint="no empty" />							
+							</div>
+						</hlayout>
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Numero de BI:" />
+							</div>
+							<div hflex="2" align = "left">
+								<textbox id="" width="80%" constraint="no empty" />							
+							</div>
+						</hlayout>
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Altura:" />
+							</div>
+							<div hflex="2" align = "left">
+								<textbox id="" width="80%" constraint="no empty" />							
+							</div>
+						</hlayout>
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Validade de BI:" />
+							</div>
+							<div hflex="2" align = "left">
+								<datebox id="txt_validadeBI" width="80%" />								
+							</div>
+						</hlayout>
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Pagar carta:" />
+							</div>
+							<div hflex="2" align = "left">
+								<textbox id="" width="80%" constraint="no empty" />							
+							</div>
+						</hlayout>
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Código de barra:" />
+							</div>
+							<div hflex="2" align = "left">
+								<textbox id="" width="80%" />							
+							</div>
+						</hlayout>
+						<hlayout  >
+							<div hflex="1">
+								
+							</div>
+							<div hflex="2">
+								
+							</div>
+						</hlayout>						
+						<hlayout  >
+							<div hflex="1">
+								
+							</div>
+							<div hflex="2" align = "left">
+								<button type = "submit" label = "guardar" width="40%"/>
+								<button type = "submit" label = "voltar" width="40%"/>							
+							</div>
+						</hlayout>
+					</vlayout>
+					</div>
+					<div hflex="1">						
+					</div>										
+				</hlayout>
+			</div>
+
+		</vlayout>
+	
+			
+			
+			
+			</div>
+		
+</zk>

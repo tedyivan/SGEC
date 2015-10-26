@@ -1,0 +1,69 @@
+<zk>
+	<style>
+			.esquerda{
+				Background:white;
+				
+			}
+			.instruendo{
+				Background:white;
+			}
+			.inicio{
+				Background:white;
+			}
+			.material{
+				Background:white;
+			}
+			.turma{
+				Background:white;
+			}
+			.funcionario{
+				Background:white;
+			}
+			
+	</style>
+  <box width="30%" height="100%" pack="center" align="center">
+    
+ 	    		<vlayout spacing="13x">
+						               										               				
+						                			<button label="Inicio" image="/images/1.2.png"
+						                    				hoverImage="/images/1.2.png" width="130px" height="70px" id="mnit_est"
+						                    				href="inicio.zul" sclass="inicio"
+						                    				 />	
+						                			             		
+						                		
+						                			<button label="Intruendo" image="/images/12.2.png"
+						                    				hoverImage="/images/12.2.png" width="130px" height="60px" 
+						                    				href="instruendo_listar.zul" sclass="instruendo"
+						                    				/>
+						                    		
+						                    		<button label="Turma" image="/images/10.2.png"
+						                    				hoverImage="/images/10.2.png" width="130px" height="60px" sclass="turma" href="turma_listar.zul"
+						                    				 />
+						                    		
+						                    		<button label="Funcionário" id="btn_func" image="/images/11.2.png"
+						                    				hoverImage="/images/11.2.png" width="130px" height="60px" 
+						                    				href="funcionario_listar.zul" sclass="funcionario"/>
+						                    				
+						                    		<button label="Material" image="/images/8.2.png"
+						                    				hoverImage="/images/8.2.png" width="130px" height="60px" sclass="material" 
+						                    				href="material_listar.zul"
+						                    				/>
+						                		    
+						                		    <button label="Notificações" image="/images/9.2.png"
+						                    				hoverImage="/images/9.2.png" width="130px" height="60px" sclass="esquerda" />     	
+						                               	
+						                		     <button label="Estatistica" image="/images/2.2.png"
+						                    				hoverImage="/images/2.2.png" width="130px" height="60px" sclass="esquerda" />     	 
+						                    				
+						                    		<button label="Administração" image="/images/13.2.png"
+						                    				hoverImage="/images/13.2.png" width="130px" height="60px" sclass="esquerda" />     		
+						                    				
+						                    		<button label="Help" image="/images/7.2.png"
+						                    				hoverImage="/images/7.2.png" width="130px" height="60px" sclass="esquerda"/>     				                                  
+		 </vlayout>   
+		
+    
+    
+    
+  </box>
+</zk>

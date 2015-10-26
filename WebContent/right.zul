@@ -1,0 +1,5 @@
+<zk>
+  <box width="70%" height="100%" pack="center" align="center">
+    <label value="RIGHT" />
+  </box>
+</zk>

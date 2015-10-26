@@ -1,0 +1,225 @@
+<?page title="Registo de Veiculo" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="templateMaterial.zul" ?>
+<zk>
+    <style>
+			.material{
+				Background:#E3DEDB;
+			}
+			.registo{
+				Background:#E3DEDB;
+			}
+			.titulo{
+				Background:#E3DEDB;
+			}
+			
+	</style>
+		
+	<div id="registo" self="@define(right)">
+			
+				<div width = "100%" height="100%" >
+					<vlayout height="100%" >
+						<div  width = "100%" align = "center" sclass="titulo">
+						    <label value = "Registo do Instruendo"  style = "font-size:20pt"/>
+						</div>
+							<hlayout>
+							<div>
+								<label value = "" />
+							</div>	
+							</hlayout>
+							<hlayout>
+							<div>
+								<label value = "" />
+							</div>	
+							</hlayout>
+							<hlayout>
+							<div>
+								<label value = "" />
+							</div>	
+							</hlayout>
+							<hlayout>
+								<div hflex="1">
+									<label value = "" />
+								</div>
+								<div hflex="2">
+								<vlayout  spacing = "10px">
+									<hlayout  >
+										<div hflex="1">
+											<label value = "Classe:" />
+										</div>
+										<div hflex="2" align = "left">
+											<textbox id="txt_classe" width="80%" constraint="no empty" />							
+										</div>
+									</hlayout>
+									<hlayout  >
+										<div hflex="1">
+											<label value = "Marca:" />
+										</div>
+										<div hflex="2" align = "left">
+																		
+											<textbox id="txt_marca" width="80%"/>
+										</div>
+									</hlayout>
+									<hlayout  >
+										<div hflex="1">
+											<label value = "Matricula:" />
+										</div>
+										<div hflex="2" align = "left">
+											<textbox id="txt_matricula" width="80%" constraint="no empty" />							
+										</div>
+									</hlayout>
+									<hlayout  >
+										<div hflex="1">
+											<label value = "Data de Fabrico:" />
+										</div>
+										<div hflex="2" align = "left">
+													
+											<datebox id="dt_fabrico" width="80%" constraint="no empty"></datebox>
+										</div>
+									</hlayout>
+									<hlayout  >
+										<div hflex="1">
+											<label value = "Lotação:" />
+										</div>
+										<div hflex="2" align = "left">
+											<textbox id="txt_lotacao" width="80%" constraint="no empty" />							
+										</div>
+									</hlayout>
+									<hlayout  >
+										<div hflex="1">
+											<label value = "Peso bruto:" />
+										</div>
+										<div hflex="2" align = "left">
+											<textbox id="txt_pesobruto" width="80%" constraint="no empty" />						
+										</div>
+									</hlayout>
+									<hlayout  >
+										<div hflex="1">
+											<label value = "Descrição:" />
+										</div>
+										<div hflex="2" align = "left">
+											<textbox id="txt_descricao" width="80%" rows="5" cols="40" constraint="no empty" />							
+										</div>
+									</hlayout>
+									<hlayout  >
+										<div hflex="1">
+											<label value = "Data de Aquisição:" />
+										</div>
+										<div hflex="2" align = "left">
+											<datebox id="dt_aquisicao" width="80%" />						
+										</div>
+									</hlayout>
+									
+									<hlayout  >
+										<div hflex="1">
+											<label value = "Garantia:" />
+										</div>
+										<div hflex="2" align = "left">
+											<textbox id="txt_garantia" width="80%" constraint="no empty" />							
+										</div>
+									</hlayout>
+															
+								</vlayout>
+								</div>
+								<div hflex="2">
+								<vlayout   spacing = "10px">
+									<hlayout  >
+										<div hflex="1">
+											<label value = "Tipo:" />
+										</div>
+										<div hflex="2" align = "left">
+											<textbox id="txt_tipo" width="80%" constraint="no empty" />							
+										</div>
+									</hlayout>
+									<hlayout  >
+										<div hflex="1">
+											<label value = "Modelo:" />
+										</div>
+										<div hflex="2" align = "left">
+											<textbox id="txt_modelo" width="80%" constraint="no empty" />							
+										</div>
+									</hlayout>
+									<hlayout  >
+										<div hflex="1">
+											<label value = "" />
+										</div>
+										<div hflex="2" align = "left">
+											<label value = "" />							
+										</div>
+									</hlayout>
+									<hlayout  >
+										<div hflex="1">
+											<label value = "Tara:" />
+										</div>
+										<div hflex="2" align = "left">
+											<textbox id="txt_tara" width="80%" constraint="no empty" />							
+										</div>
+									</hlayout>
+									<hlayout  >
+										<div hflex="1">
+											<label value = "Tipo de Combustivel:" />
+										</div>
+										<div hflex="2" align = "left">
+											<textbox id="txt_tipocombustivel" width="80%" constraint="no empty" />							
+										</div>
+									</hlayout>
+									<hlayout  >
+										<div hflex="1">
+											<label value = "Carregar Documentacao:" />
+										</div>
+										<div hflex="2" align = "left">
+											<button label = "upload" width="80%" upload="true,maxsize=300"/>							
+										</div>
+									</hlayout>
+									<hlayout  >
+										<div hflex="1">
+											<label value = "Alocar:" />
+										</div>
+										<div hflex="2" align = "left">
+											<button label = "turma" width="80%"/>							
+										</div>
+									</hlayout>
+									<hlayout  >
+										<div hflex="1">
+											<label value = "" />
+										</div>
+										<div hflex="2" align = "left">
+											<label value = "" />	
+										</div>
+									</hlayout>
+									<hlayout  >
+										<div hflex="1">
+											<label value = "" />
+										</div>
+										
+									</hlayout>
+								</vlayout>
+								</div>
+								<div hflex="1">
+									<label value = "" />
+								</div>										
+							</hlayout>
+					</vlayout>
+					
+					
+					<div align="right">
+							<vlayout>
+								<hlayout>
+									<space height="1000%"/>
+								</hlayout>
+								<hlayout spacing="30px">
+									<button label="Registar" width="130%"/>
+									<button label="Cancelar" width="130%"/>
+									<space width="100%"/>
+								</hlayout>
+							</vlayout>	
+					</div>
+				</div>
+			
+			
+			
+			
+			</div>
+				
+		
+
+</zk>

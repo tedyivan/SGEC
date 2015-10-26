@@ -1,0 +1,13 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="template2.zul" ?>
+
+<zk>
+	<div self="@define(header)">
+		<include src="header.zul"></include>
+	</div>
+	
+	<div self="@define(left)">
+	 <include src="left.zul"></include>
+	</div>
+	
+
+</zk>
