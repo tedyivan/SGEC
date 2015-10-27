@@ -43,6 +43,7 @@
 			
 		<mapping class="mz.gov.sgec.model.Material"></mapping>
 		<mapping class="mz.gov.sgec.model.Veiculo"></mapping>
+		<mapping class="mz.gov.sgec.model.MaterialGeral"></mapping>
 	</session-factory>
 </hibernate-configuration>
 

@@ -3,8 +3,10 @@ package mz.gov.sgec.test;
 import java.util.Date;
 
 import mz.gov.sgec.dao.MaterialDAO;
+import mz.gov.sgec.dao.MaterialGeralDAO;
 import mz.gov.sgec.dao.VeiculoDAO;
 import mz.gov.sgec.model.Material;
+import mz.gov.sgec.model.MaterialGeral;
 import mz.gov.sgec.model.Veiculo;
 
 public class Test {
@@ -13,6 +15,7 @@ public class Test {
 		// TODO Auto-generated method stub
 		MaterialDAO materialDAO = new MaterialDAO();
 		VeiculoDAO veiculoDAO = new VeiculoDAO();
+		MaterialGeralDAO geralDAO = new MaterialGeralDAO();
 		
 		Material material = new Material();
 		material.setCreated_at(new Date());
@@ -38,7 +41,12 @@ public class Test {
 		veiculo.setMaterial(material);
 		veiculoDAO.create(veiculo);
 		
-		
+		MaterialGeral materialGeral = new MaterialGeral();
+		materialGeral.setCreated_at(new Date());
+		materialGeral.setMaterial(material);
+		materialGeral.setTipo_mat(1);
+		materialGeral.setUpdated_at(new Date());
+		geralDAO.create(materialGeral);
 	}
 
 }
