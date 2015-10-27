@@ -46,7 +46,8 @@ public class Test {
 		materialGeral.setMaterial(material);
 		materialGeral.setTipo_mat(1);
 		materialGeral.setUpdated_at(new Date());
-		geralDAO.create(materialGeral);
+		geralDAO.createMaterial(materialGeral, 5);
+		
 	}
 
 }
