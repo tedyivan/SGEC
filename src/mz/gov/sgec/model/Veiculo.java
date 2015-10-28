@@ -18,7 +18,7 @@ public class Veiculo {
 	
 	private String matricula;
 	private String lotacao;
-	private Date ano_fafabrico;
+	private Date ano_fabrico;
 	private double peso_bruto;
 	private String tipo_combustivel;
 	private Date created_at;
@@ -28,7 +28,26 @@ public class Veiculo {
 	private String classe;
 	private String marca;
 	private String tara;
+	private String tipo;
+	private String modelo;
 	
+	
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+
 	/*Relacionamento com Material*/
 	@ManyToOne
 	@JoinColumn(name="material_id")
@@ -63,12 +82,12 @@ public class Veiculo {
 		this.lotacao = lotacao;
 	}
 
-	public Date getAno_fafabrico() {
-		return ano_fafabrico;
+	public Date getAno_fabrico() {
+		return ano_fabrico;
 	}
 
-	public void setAno_fafabrico(Date ano_fafabrico) {
-		this.ano_fafabrico = ano_fafabrico;
+	public void setAno_fabrico(Date ano_fafabrico) {
+		this.ano_fabrico = ano_fafabrico;
 	}
 
 	public double getPeso_bruto() {
@@ -139,9 +158,9 @@ public class Veiculo {
 
 	@Override
 	public String toString() {
-		return "Veiculo [id=" + id + ", matricula=" + matricula + ", lotacao=" + lotacao + ", ano_fafabrico="
-				+ ano_fafabrico + ", peso_bruto=" + peso_bruto + ", tipo_combustivel=" + tipo_combustivel
+		return "Veiculo [id=" + id + ", matricula=" + matricula + ", lotacao=" + lotacao + ", ano_fabrico="
+				+ ano_fabrico + ", peso_bruto=" + peso_bruto + ", tipo_combustivel=" + tipo_combustivel
 				+ ", created_at=" + created_at + ", updated_at=" + updated_at + ", classe=" + classe + ", marca="
-				+ marca + ", tara=" + tara + "]";
+				+ marca + ", tara=" + tara + ", tipo=" + tipo + ", modelo=" + modelo + ", material=" + material + "]";
 	}
 }

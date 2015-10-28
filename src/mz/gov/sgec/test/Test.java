@@ -20,34 +20,35 @@ public class Test {
 		Material material = new Material();
 		material.setCreated_at(new Date());
 		material.setData_aquisicao(new Date());
-		material.setDescricao("Descricao");
+		material.setDescricao("Veiculo novo");
 		material.setExiste(true);
-		material.setNome("Nome");
+		material.setNome("BMW");
 		material.setPreco(10000);
 		material.setUpdated_at(new Date());
 		materialDAO.create(material);
 		
 		Veiculo veiculo = new Veiculo();
-		veiculo.setAno_fafabrico(new Date());
-		veiculo.setClasse("Classe");
+		veiculo.setAno_fabrico(new Date());
+		veiculo.setClasse("Pesado");
 		veiculo.setCreated_at(new Date());
-		veiculo.setLotacao("1");
-		veiculo.setMarca("marca");
-		veiculo.setMatricula("matricula");
+		veiculo.setLotacao("4");
+		veiculo.setMarca("AM 318");
+		veiculo.setMatricula("ADV 430 DE");
 		veiculo.setPeso_bruto(12.2);
-		veiculo.setTara("tara");
-		veiculo.setTipo_combustivel("tipo_combustivel");
+		veiculo.setTara("3 taras");
+		veiculo.setTipo_combustivel("Diesel");
 		veiculo.setUpdated_at(new Date());
 		veiculo.setMaterial(material);
 		veiculoDAO.create(veiculo);
 		
+		/*
 		MaterialGeral materialGeral = new MaterialGeral();
 		materialGeral.setCreated_at(new Date());
 		materialGeral.setMaterial(material);
 		materialGeral.setTipo_mat(1);
 		materialGeral.setUpdated_at(new Date());
 		geralDAO.createMaterial(materialGeral, 5);
-		
+		*/
 	}
 
 }
