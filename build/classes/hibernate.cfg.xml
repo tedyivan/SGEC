@@ -44,6 +44,12 @@
 		<mapping class="mz.gov.sgec.model.Material"></mapping>
 		<mapping class="mz.gov.sgec.model.Veiculo"></mapping>
 		<mapping class="mz.gov.sgec.model.MaterialGeral"></mapping>
+		<mapping class="mz.gov.sgec.model.InstruendoTurma"></mapping>
+		<mapping class="mz.gov.sgec.model.Turma"></mapping>
+		<mapping class="mz.gov.sgec.model.Matricula"></mapping>
+		<mapping class="mz.gov.sgec.model.Curso"></mapping>
+		<mapping class="mz.gov.sgec.model.Instruendo"></mapping>
+		<mapping class="mz.gov.sgec.model.MaterialAlocacao"></mapping>
 	</session-factory>
 </hibernate-configuration>
 

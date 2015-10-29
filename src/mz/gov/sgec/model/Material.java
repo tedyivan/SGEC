@@ -1,11 +1,17 @@
 package mz.gov.sgec.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Material {
@@ -19,11 +25,14 @@ public class Material {
 	private boolean existe;
 	private Date created_at;
 	private Date updated_at;
-	
+	 
 	/*Variaveis Novos*/
 	private Date data_aquisicao;
 	private double preco;
 	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="material_id")
+	private List<MaterialAlocacao> alocacoes = new ArrayList<>();
 	
 	
 	public Material() {}

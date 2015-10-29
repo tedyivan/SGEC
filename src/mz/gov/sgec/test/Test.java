@@ -4,14 +4,17 @@ import java.util.Date;
 
 import mz.gov.sgec.dao.MaterialDAO;
 import mz.gov.sgec.dao.MaterialGeralDAO;
+import mz.gov.sgec.dao.TurmaDAO;
 import mz.gov.sgec.dao.VeiculoDAO;
 import mz.gov.sgec.model.Material;
 import mz.gov.sgec.model.MaterialGeral;
+import mz.gov.sgec.model.Turma;
 import mz.gov.sgec.model.Veiculo;
 
 public class Test {
 
 	public static void main(String[] args) {
+		/*
 		// TODO Auto-generated method stub
 		MaterialDAO materialDAO = new MaterialDAO();
 		VeiculoDAO veiculoDAO = new VeiculoDAO();
@@ -41,7 +44,7 @@ public class Test {
 		veiculo.setMaterial(material);
 		veiculoDAO.create(veiculo);
 		
-		/*
+		
 		MaterialGeral materialGeral = new MaterialGeral();
 		materialGeral.setCreated_at(new Date());
 		materialGeral.setMaterial(material);
@@ -49,6 +52,17 @@ public class Test {
 		materialGeral.setUpdated_at(new Date());
 		geralDAO.createMaterial(materialGeral, 5);
 		*/
+		
+		TurmaDAO turmaDAO = new TurmaDAO();
+		Turma turma = new Turma();
+		turma.setCreated_at(new Date());
+		turma.setData_fim(new Date());
+		turma.setExiste(true);
+		turma.setNome("Nome");
+		turma.setSala("Sala");
+		turma.setUpdated_at(new Date());
+		
+		turmaDAO.create(turma);
+		
 	}
-
 }
