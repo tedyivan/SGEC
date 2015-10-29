@@ -12,7 +12,7 @@
 		</style>
 		<div self="@define(right)">
 			<label value="Registo de Turma"></label>
-			
+			<!-- Escrever aqui -->
 		
 		</div>
 		

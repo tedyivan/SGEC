@@ -14,7 +14,7 @@
 			
 	</style>
 		
-	<div id="registo" self="@define(right)">
+	<div id="registo" self="@define(right)" apply="mz.gov.sgec.controller.MaterialgeralController">
 			
 				<div width = "100%" height="100%" >
 					<vlayout height="100%" >
@@ -49,7 +49,7 @@
 										</div>
 										<div hflex="2" align = "left">
 											
-											<textbox id="txt_quantidade" width="80%"></textbox>							
+											<textbox id="txt_quantidade" width="80%"/>							
 										</div>
 									</hlayout>
 									<hlayout  >
@@ -57,7 +57,7 @@
 											<label value = "Designacao:" />
 										</div>
 										<div hflex="2" align = "left">
-											<textbox id="designacão" width="80%" constraint="no empty" />							
+											<textbox id="txt_designacao" width="80%" constraint="no empty" />							
 										</div>
 									</hlayout>
 									<hlayout  >
@@ -65,7 +65,7 @@
 											<label value = "Descrição:" />
 										</div>
 										<div hflex="2" align = "left">
-											<textbox id="" width="80%" rows="5" cols="40" constraint="no empty"/>							
+											<textbox id="txt_descricao" width="80%" rows="5" cols="40" constraint="no empty"/>							
 											
 										</div>
 									</hlayout>
@@ -75,25 +75,27 @@
 												
 										</div>
 										<div hflex="2">
-											<datebox width="80%"></datebox>
+											<datebox width="80%" id="dt_aquisicao"/>
 										</div>
 									</hlayout>
+																		
 									<hlayout  >
 										<div hflex="1">
-											<label value = "Local de residência:" />
+											<label value = "Preco:" />
 										</div>
 										<div hflex="2" align = "left">
-											<textbox id="" width="80%" constraint="no empty" />							
+											<textbox id="txt_preco" width="80%" constraint="no empty" />							
 										</div>
 									</hlayout>
 									
 									
+									
 									<hlayout  >
 										<div hflex="1">
-											<label value = "Quarantia:" />
+											<label value = "Garantia:" />
 										</div>
 										<div hflex="2" align = "left">
-											<textbox id="txt_quarantia" width="80%" constraint="no empty" />							
+											<textbox id="txt_garantia" width="80%" constraint="no empty" />							
 										</div>
 									</hlayout>
 									
@@ -111,6 +113,7 @@
 								
 								<div hflex="1">
 									<label value = "" />
+									<label id="txt_tipomat" value="1" visible="false"/>
 								</div>										
 							</hlayout>
 					</vlayout>
@@ -121,7 +124,7 @@
 							<space height="1000%"/>
 						</hlayout>
 						<hlayout spacing="30px">
-							<button label="Registar" width="130%"/>
+							<button label="Registar" id="btn_reg" width="130%"/>
 							<button label="Cancelar" width="130%"/>
 							<space width="100%"/>
 						</hlayout>
