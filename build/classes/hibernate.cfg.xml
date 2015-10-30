@@ -7,8 +7,8 @@
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="connection.url">jdbc:mysql://localhost/sgec</property>
 		<property name="connection.username">root</property>
-		<property name="connection.password">x</property>
-		<property name="connection.tinyInt1isBit ">true</property>
+		<property name="connection.password">897897</property>
+		<property name="connection.tinyInt1isBit">true</property>
 		<property name="connection.transformedBit1sBoolean">true</property>
 		
 		<property name="connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
@@ -47,9 +47,10 @@
 		<mapping class="mz.gov.sgec.model.InstruendoTurma"></mapping>
 		<mapping class="mz.gov.sgec.model.Turma"></mapping>
 		<mapping class="mz.gov.sgec.model.Matricula"></mapping>
+		<mapping class="mz.gov.sgec.model.Utilizador"></mapping>
 		<mapping class="mz.gov.sgec.model.Curso"></mapping>
 		<mapping class="mz.gov.sgec.model.Instruendo"></mapping>
 		<mapping class="mz.gov.sgec.model.MaterialAlocacao"></mapping>
+		<mapping class="mz.gov.sgec.model.Funcionario"></mapping>
 	</session-factory>
 </hibernate-configuration>
-
