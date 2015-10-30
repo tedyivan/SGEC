@@ -10,9 +10,97 @@
 				Background:#E3DEDB;
 			}
 		</style>
-		<div self="@define(right)">
-			<label value="Registo de Turma"></label>
+		<div self="@define(right)" apply="mz.gov.sgec.controller.Turma_controller">
+			
 			<!-- Escrever aqui -->
+			<div>
+						<hlayout>
+							<div hflex="1">
+							
+							</div>
+							<div hflex="3">
+								<vlayout spacing = "10px" height="100%">				
+									
+										<div  align ="center">
+											<label value = "Registo de Turma" style = "font-size: 20pt"/>
+										</div>	
+										<hlayout>
+											<div hflex="1">
+											</div>
+										</hlayout>
+										
+											<hlayout>
+												<div hflex = "1">
+													<label  value = "Designação:"/>
+												</div>
+												<div hflex = "2">
+													<textbox width="90%" id = "txt_designacao"/>
+												</div>
+											</hlayout>
+												
+											<hlayout>
+												<div hflex = "1">
+													<label value = "Lotação:"/>
+												</div>
+												<div hflex = "2" >
+													 <intbox width="15%" id = "spn_lotacao" />
+												</div>
+											</hlayout>
+											
+											<hlayout spacing = "10px" height="100%">
+											
+												<div hflex = "1">
+													<label  value = "Período:"/>
+												</div>
+												<div hflex = "1">
+													<intbox width = "35%" id ="spn_periodo" />:
+													<intbox width = "35%" id ="spn_periodo1"/> H  ->
+												</div>
+													<div hflex = "1">
+														<intbox width = "35%" id ="spn_periodo2"/>:
+														<intbox width = "38%" id ="spn_periodo3"/> H
+														
+													</div>
+												
+											</hlayout>
+											
+											<hlayout>
+												<div hflex = "1">
+													<label  value = "Sala:"/>
+												</div>
+												<div hflex = "2">
+													<textbox id="txt_sala" width="90%" constraint="no empty"/>
+												</div>	
+											</hlayout>
+											
+											<hlayout>
+												<div hflex = "1">
+													<label  value = "Descricao:"/>
+												</div>
+												<div hflex = "2">
+													<textbox id="txt_descricao" width="90%" rows="5" cols="40" constraint="no empty"/>
+													
+												</div>	
+											</hlayout>
+											
+											
+											
+											<hlayout>
+												<div hflex = "3">
+													
+												</div>
+												<div hflex = "4">
+													<button id="btn_reg" width="30%" label ="Ok"/>
+												    <button id="btn_cancelar" width="30%" label ="Cancelar" />
+												</div>
+											</hlayout>			
+								</vlayout>
+							</div>	
+							<div hflex ="1">
+							
+							</div>
+						</hlayout>
+				</div>
 		
 		</div>
 		

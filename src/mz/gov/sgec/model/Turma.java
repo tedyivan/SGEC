@@ -19,13 +19,16 @@ public class Turma {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
+	
 	private String nome;
-	private Date data_inicio;
-	private Date data_fim;
+	private String hora_inicio;
+	private String hora_fim;
 	private String sala;
+	private String descricao;
 	private boolean existe;
 	private Date created_at;
 	private Date updated_at;
+	private String lotacao;
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="turma_id")
@@ -47,22 +50,7 @@ public class Turma {
 		this.nome = nome;
 	}
 
-	public Date getData_inicio() {
-		return data_inicio;
-	}
-
-	public void setData_inicio(Date data_inicio) {
-		this.data_inicio = data_inicio;
-	}
-
-	public Date getData_fim() {
-		return data_fim;
-	}
-
-	public void setData_fim(Date data_fim) {
-		this.data_fim = data_fim;
-	}
-
+	
 	public String getSala() {
 		return sala;
 	}
@@ -94,4 +82,49 @@ public class Turma {
 	public void setUpdated_at(Date updated_at) {
 		this.updated_at = updated_at;
 	}	
+
+	public String getHora_inicio() {
+		return hora_inicio;
+	}
+
+	public void setHora_inicio(String hora_inicio) {
+		this.hora_inicio = hora_inicio;
+	}
+
+	public String getHora_fim() {
+		return hora_fim;
+	}
+
+	public void setHora_fim(String hora_fim) {
+		this.hora_fim = hora_fim;
+	}
+	
+		
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	
+	
+	
+
+	public String getLotacao() {
+		return lotacao;
+	}
+
+	public void setLotacao(String lotacao) {
+		this.lotacao = lotacao;
+	}
+
+	@Override
+	public String toString() {
+		return "Turma [id=" + id + ", nome=" + nome + ", hora_inicio=" + hora_inicio + ", hora_fim=" + hora_fim
+				+ ", sala=" + sala + ", descricao=" + descricao + ", existe=" + existe + ", created_at=" + created_at
+				+ ", updated_at=" + updated_at + ", lotacao=" + lotacao + "]";
+	}
+
+
 }
