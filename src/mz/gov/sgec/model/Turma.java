@@ -94,4 +94,11 @@ public class Turma {
 	public void setUpdated_at(Date updated_at) {
 		this.updated_at = updated_at;
 	}	
+
+	@Override
+	public String toString() {
+		return nome + ", data_inicio=" + data_inicio + ", data_fim=" + data_fim
+				+ ", sala=" + sala + ", existe=" + existe + ", created_at=" + created_at + ", updated_at=" + updated_at
+				+ ", alocacoes=" + alocacoes + "]";
+	}
 }

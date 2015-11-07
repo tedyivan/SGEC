@@ -1,8 +1,18 @@
 package mz.gov.sgec.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
-
+import java.util.List;
+/*
 import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.event.Event;
+import org.zkoss.zk.ui.select.SelectorComposer;
+import org.zkoss.zk.ui.select.annotation.Listen;
+import org.zkoss.zk.ui.select.annotation.Wire;
+import org.zkoss.zul.Window;
+*/
+import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.Button;
@@ -24,7 +34,9 @@ import org.zkoss.zul.Radiogroup;
 import org.zkoss.zul.Textbox;
 
 import mz.gov.sgec.dao.InstruendoDAO;
+import mz.gov.sgec.dao.TurmaDAO;
 import mz.gov.sgec.model.Instruendo;
+import mz.gov.sgec.model.Turma;
 
 public class InstruendoController extends GenericForwardComposer {
 		
@@ -48,14 +60,22 @@ public class InstruendoController extends GenericForwardComposer {
 		private Textbox txt_rresidencia;
 		private Combobox cb_rtipo_carta;	
 		private Datebox d_rvalidade_bi;
+		private Listbox lst_instruendo;
 		
 		private Button btn_rreg;
 		private Button btn_rturma;
-		private Button btn_rpagamento;		
-		private InstruendoDAO dao = new InstruendoDAO();
+		private Button btn_rpagamento;
+		private TurmaDAO tdao = new TurmaDAO();
+		private InstruendoDAO idao = new InstruendoDAO();
+		
+		public void onClick$btn_rpagamento(Event e){
+			Executions.sendRedirect("instruendo_pagamento.zul");
+		}
+		public void onClick$btn_rturma(Event e){
+			Executions.sendRedirect("instruendo_alocar.zul");
+		}
 		
 		public void onClick$btn_rreg(Event e){
-			
 			Instruendo instruendo = new Instruendo();
 			
 			instruendo.setId((long)(Math.random()*1000000)+1);
@@ -67,7 +87,7 @@ public class InstruendoController extends GenericForwardComposer {
 			instruendo.setCodigo_barra(txt_rcodigo_barra.getText());
 			instruendo.setData_nascimento(d_rnascimento.getValue());			
 			instruendo.setEstado_civil(cb_rcivil.getText());
-			//instruendo.setGenero(txt_rgenero.get);
+			//instruendo.setGenero(((Radio) txt_rgenero) getValue());
 			instruendo.setNaturalidade(txt_rnaturalidade.getText());
 			instruendo.setNome(txt_rnome.getText());
 			instruendo.setNome_mae(txt_rnome_mae.getText());
@@ -76,33 +96,62 @@ public class InstruendoController extends GenericForwardComposer {
 			instruendo.setTelefone(txt_rcelular.getText());
 			instruendo.setTipo_carta(cb_rtipo_carta.getValue());
 			instruendo.setValidade_bi(d_rvalidade_bi.getValue());
-
-			//inst.setEstado((Estado) cbx_estad.getSelectedItem().getValue());		
 						
-			dao.create(instruendo);			
-	//		addOcorrenciaList(inst);
-	//		Messagebox.show("Adicionado com sucesso!!");
-			clear();
+			idao.create(instruendo);			
 			Clients.showNotification("Registo de Instruendo"); 
+			clear();
 		}
 		
 		public void clear() {
 			//instruendo.setAl
-			txt_rapelido.setText("");
-			txt_rapelido_pai.setText("");
-			txt_rapelido_mae.setText("");
-			txt_rnumero_bi.setText("");
-			txt_rcodigo_barra.setText("");
-			d_rnascimento.setText("");
-			cb_rcivil.setText("");
+			txt_rapelido.setText(" ");
+			txt_rapelido_pai.setText(" ");
+			txt_rapelido_mae.setText(" ");
+			txt_rnumero_bi.setText(" ");
+			txt_rcodigo_barra.setText(" ");
+			txt_rnome.setText(" ");
+			txt_rnome_mae.setText(" ");
+			txt_rnome_pai.setText(" ");
+			txt_rresidencia.setText(" ");
+			txt_rcelular.setText(" ");
+			txt_rnaturalidade.setText(" ");
+			cb_rcivil.setText(" ");
+			cb_rtipo_carta.setText(" ");
+			d_rvalidade_bi.setText(null);			
+			d_rnascimento.setText(null);
+
 			//instruendo.setG
-			txt_rnaturalidade.setText("");
-			txt_rnome.setText("");
-			txt_rnome_mae.setText("");
-			txt_rnome_pai.setText("");
-			txt_rresidencia.setText("");
-			txt_rcelular.setText("");
-			cb_rtipo_carta.setText("");
-			d_rvalidade_bi.setText("");			
 		}
+		
+		public List <Turma> getTurmas(){
+			return new TurmaDAO().findAll();
+		}
+		
+		public List <Instruendo> getInstruendos(){
+			return idao.findAll();
+		}
+		
+		public Instruendo getInstruendo(){	
+			Instruendo inst = new Instruendo();
+			long id = 1;
+			inst.setId(id);
+			return idao.findById(inst.getId());
+		}
+		
+	/*	private static final long serialVersionUID = 1L;
+	     
+		    @Wire
+		    Window modalDialog;
+		     
+		    @Listen("onClick = #closeBtn")
+		public void showModall(Event e) {
+		        modalDialog.detach();
+		}*/
+		
+	/*	@Listen("onClick = #orderBtn")
+		public void showModal(Event e) {
+		        //create a window programmatically and use it as a modal dialog.
+		        Window window = (Window)Executions.createComponents("instruendo_pagamento.zul", null, null);
+		        window.doModal();
+		}*/
 }

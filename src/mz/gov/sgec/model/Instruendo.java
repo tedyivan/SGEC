@@ -222,8 +222,6 @@ public class Instruendo {
 	
 	@Override
 	public String toString() {
-		return "Instruendo [instruendo_id=" + id + ", nome=" + nome + ", bi=" + bi + ", data_nascimento="
-				+ data_nascimento + ", naturalidade=" + naturalidade + ", estado_civil=" + estado_civil + ", altura="
-				+ altura + ", created_at=" + created_at + ", updated_at=" + updated_at + "]";
+		return nome;
 	}
 }
