@@ -1,24 +1,23 @@
 <zk>
 	<style>
-			.esquerda{
+			.teste{
 				Background:white;
 			}
 			.listar{
 				Background:white;
 			}
-			
 			.registo{
 				Background:white;
 			}
-			
-			.incio{
+			.exame{
 				Background:white;
 			}
-			
-				
-			
+			.incio{
+				Background:white;
+			}			
 	</style>
 	 		
+
   <borderlayout>
   	<north self="@{insert(header)}" height="10%">
   		<include src="header.zul"></include>
@@ -31,20 +30,15 @@
        
     <center self="@{insert(buttoes)}" style="border-width:0px;">
     	<vlayout spacing="15px">
+
 				<space width="3%"></space>
-				<button label="Listar" id="btn_listar " width="130px" height="30px" href="instruendo_listar.zul" sclass="listar"
-					onClick='Clients.evalJavaScript("myfunc()")'
-				/>
-				<button id="btn_reg" label="Registar" width="130px" height="30px" href="instruendo_registo.zul" sclass="registo"/>
-				<button label="Listar" width="130px" height="30px" sclass="esquerda"/>
-				
-		</vlayout>
-    </center>
-    	
-		
-   
-    <east width="80%" self="@{insert(right)}" style="background:EAE5E5"/>
-  
-  
-  </borderlayout>
+				<button id="" label="Listar" width="130px" height="30px" href="instruendo_listar.zul" sclass="listar"
+				onClick='Clients.evalJavaScript("myfunc()")'/>
+				<button id="" label="Registar" width="130px" height="30px" href="instruendo_registo.zul" sclass="registo"/>
+				<button id="" label="Teste" width="130px" height="30px"  href="instruendo_teste.zul" sclass="teste"/>
+				<button id="" label="Exame" width="130px" height="30px"  href="instruendo_exame.zul" sclass="exame"/>
+			</vlayout>
+	    </center>
+	    <east width="80%" self="@{insert(right)}" style="background:EAE5E5"/>
+ 	</borderlayout>
 </zk>

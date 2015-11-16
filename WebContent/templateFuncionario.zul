@@ -1,6 +1,6 @@
 <zk>
 	<style>
-			.esquerda{
+			.alocar{
 				Background:white;
 			}
 			.listar{
@@ -16,6 +16,7 @@
 			}
 			
 	</style>
+
 	 		
   <borderlayout>
   	<north self="@{insert(header)}" height="10%">
@@ -29,19 +30,13 @@
        
     <center self="@{insert(buttoes)}" style="border-width:0px;" >
     	<vlayout spacing="15px">
+
 				<space width="3%"></space>
-				<button label="Listar" id="btn_listar " width="130px" height="30px" href="funcionario_listar.zul" sclass="listar"
-				/>
-				<button  label="Registar" width="130px" height="30px"  sclass="registo" href="funcionario_registo.zul"/>
-				<button label="Alocacao" width="130px" height="30px" sclass="esquerda"/>
-				
-		</vlayout>
-    </center>
-    	
-		
-   
-    <east width="80%" self="@{insert(right)}" style="background:EAE5E5"/>
-  
-  
-  </borderlayout>
+				<button label="Listar" id="" width="130px" height="30px" href="funcionario_listar.zul" sclass="listar"/>
+				<button label="Registar" id="" width="130px" height="30px" href="funcionario_registo.zul" sclass="registo"/>
+				<button label="Alocacao" id="" width="130px" height="30px" href="funcionario_alocar.zul"sclass="alocar"/>
+			</vlayout>
+	    </center>
+	    <east width="80%" self="@{insert(right)}" style="background:EAE5E5"/>
+  	</borderlayout>
 </zk>

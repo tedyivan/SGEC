@@ -10,18 +10,120 @@
 				Background:#E3DEDB;
 			}
 		</style>
-		<div self="@define(right)">
-			<label value="Listar Funcionario"></label>
-			<!-- Escrever aqui -->
-			
-			
-			
-			
-			
-			
-			
-		
+<div id="registo" self="@define(right)" width = "100%" height="100%" apply = "mz.gov.sgec.controller.FuncionarioController">
+	<vlayout  style = "border: 1px green solid">
+		<div width = "100%" align = "center" vflex = "1"  style = "border: 1px green solid">
+			 <label value = "Registo do Funcionario"  style = "font-size:20pt"/>
 		</div>
-
-
+		<hlayout><div></div></hlayout>
+		<hlayout><div></div></hlayout>
+		<hlayout><div></div></hlayout>
+		<hlayout height="100%" >
+			<div hflex="1"></div>
+			<div hflex="2" >				
+					<vlayout  spacing = "12px" >
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Nome:" />
+							</div>
+							<div hflex="2" align = "left">
+								<textbox id="txt_nome" width="80%" constraint="no empty" />							
+							</div>
+						</hlayout>
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Número de BI:" />
+							</div>
+							<div hflex="2" align = "left">
+								<textbox id="d_numBi" width="80%" />							
+							</div>
+						</hlayout>
+						<hlayout>
+							<div hflex="1">
+								<label value = "Data de nascimento:" />
+							</div>
+							<div hflex="2" align = "left">
+								<datebox id="d_rnascimento" width="80%" />							
+							</div>					
+						</hlayout>
+						<hlayout>
+							<div hflex="1">
+								<label value = "Categoria:" />
+							</div>
+							<div hflex="2" align = "left">
+								<combobox id="cbx_categoria" width="80%" constraint="no empty" />							
+							</div>
+						</hlayout>
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Contactos:" />
+							</div>
+							<div hflex="2" align = "left">
+								<textbox id="txt_contacto" width="80%" constraint="no empty" />
+							</div>
+						</hlayout>
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Documentação:" />
+							</div>
+							<div hflex="2" align = "left">
+								<button id="txt_doc"  type = "submit" label = "upload" width="80%"/>							
+							</div>
+						</hlayout>										
+					</vlayout>
+				</div>
+				<div hflex = "2">
+					<vlayout   spacing = "12px">
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Apelido:" />
+							</div>
+							<div hflex="2" align = "left">
+								<textbox id="txt_rapelido" width="80%" constraint="no empty" />							
+							</div>
+						</hlayout>
+						<hlayout  >
+							<div hflex="1">
+								<label value = "NUIT:" />
+							</div>
+							<div hflex="2" align = "left">
+								<textbox id="txt_nuit" width="80%" constraint="no empty" />							
+							</div>
+						</hlayout>
+						<hlayout  >
+							<div ></div>
+							<div ></div>
+						</hlayout>
+						<hlayout  >
+							<div ></div>
+							<div ></div>
+						</hlayout>
+						<hlayout  >
+							<div ></div>
+							<div ></div>
+						</hlayout>
+						<vlayout spacing = "40px">
+						<hlayout  >
+							<div hflex="1">
+								<label value = "Email:" />
+							</div>
+							<div hflex="2" align = "left">
+								<textbox id="txt_email" width="80%" constraint="no empty" />							
+							</div>
+						</hlayout>
+						</vlayout>
+						<hlayout>
+							<div hflex="1">				
+							</div>
+							<div hflex="2" align = "left">
+								<button id = "btn_ok" label = "Ok" width="40%"/>
+								<button id= "btn_cancelar" label = "Cancelar" width="40%"/>							
+							</div>
+						</hlayout>
+					</vlayout>
+				</div>
+			</hlayout>
+	</vlayout>
+		
+</div>		
 </zk>
