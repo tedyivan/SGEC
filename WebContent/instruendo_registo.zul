@@ -24,7 +24,7 @@
 								<label value = "Nomes do Instruendo:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox id="txt_rnome" width="80%" constraint="no empty" />
+								<textbox id="txt_nome" width="80%" constraint="no empty" />
 
 							</div>
 						</hlayout>
@@ -33,7 +33,7 @@
 								<label value = "Data de nascimento:" />
 							</div>
 							<div hflex="2" align = "left">
-								<datebox id="d_rnascimento" width="80%" />							
+								<datebox id="d_nascimento" width="80%" />							
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -41,7 +41,7 @@
 								<label value = "Nomes do Pai:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox id="txt_rnome_pai" width="80%" constraint="no empty" />							
+								<textbox id="txt_nome_pai" width="80%" constraint="no empty" />							
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -49,7 +49,7 @@
 								<label value = "Nomes da Mãe:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox id="txt_rnome_mae" width="80%" constraint="no empty" />							
+								<textbox id="txt_nome_mae" width="80%" constraint="no empty" />							
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -57,7 +57,7 @@
 								<label value = "Estado civil:" />
 							</div>
 							<div hflex="2" align = "left">
-								<combobox id="cb_rcivil" width = "80%">
+								<combobox id="cb_civil" width = "80%">
 									<comboitem label="casado(a)"/>
 									<comboitem label="solterio(a)"/>
 									<comboitem label="viuvo(a)"/>
@@ -69,9 +69,9 @@
 								<label value = "Genero:" />
 							</div>
 							<div hflex="2" align = "left">
-								<radiogroup id="txt_rgenero" width="80%" >
-						            <radio label="Masculino" />
-						            <radio label="Femenino" />
+								<radiogroup id="d_rgenero" width="80%" >
+						            <radio label="Masculino" value = "Masculino"/>
+						            <radio label="Femenino" value = "Femenino"/>
 						        </radiogroup>
 							</div>
 						</hlayout>
@@ -80,7 +80,7 @@
 								<label value = "Local de residência:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox id="txt_rresidencia" width="80%" constraint="no empty" />							
+								<textbox id="txt_residencia" width="80%" constraint="no empty" />							
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -88,7 +88,7 @@
 								<label value = "Tipo de carta:" />
 							</div>
 							<div hflex="2" align = "left">
-								<combobox id="cb_rtipo_carta" width = "80%">
+								<combobox id="cb_tipo_carta" width = "80%">
 									<comboitem label="ligeiro"/>
 									<comboitem label="pesado"/>
 								</combobox>						
@@ -99,7 +99,7 @@
 								<label value = "Alocar:" />
 							</div>
 							<div hflex="2" align = "left">
-								<button id="btn_rturma" type = "submit" label = "turma" width="80%"/>							
+								<button id="btn_turma" type = "submit" label = "turma" width="80%"/>							
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -107,7 +107,7 @@
 								<label value = "Celular:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox id="txt_rcelular" width="80%" constraint="no empty" />							
+								<textbox id="txt_celular" width="80%" constraint="no empty" />							
 							</div>
 						</hlayout>
 												
@@ -120,7 +120,7 @@
 								<label value = "Apelido:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox constraint="no empty" id="txt_rapelido" width="80%" />							
+								<textbox constraint="no empty" id="txt_apelido" width="80%" />							
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -128,7 +128,7 @@
 								<label value = "Naturalidade:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox constraint="no empty" id="txt_rnaturalidade" width="80%"  />							
+								<textbox constraint="no empty" id="txt_naturalidade" width="80%"  />							
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -136,7 +136,7 @@
 								<label value = "Apelido:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox constraint="no empty" id="txt_rapelido_pai" width="80%"  />							
+								<textbox constraint="no empty" id="txt_apelido_pai" width="80%"  />							
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -144,7 +144,7 @@
 								<label value = "Apelido:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox constraint="no empty" id="txt_rapelido_mae" width="80%"  />							
+								<textbox constraint="no empty" id="txt_apelido_mae" width="80%"  />							
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -152,7 +152,7 @@
 								<label value = "Numero de BI:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox constraint="no empty" id="txt_rnumero_bi" width="80%"  />							
+								<textbox constraint="no empty" id="txt_numero_bi" width="80%"  />							
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -160,8 +160,8 @@
 								<label value = "Altura:" />
 							</div>
 							<div hflex="2" align = "left">
-								<spinner constraint="no empty" id="itx_rinteiro"  width="39%" />.
-								<spinner constraint="no empty" id="itx_rdecimal" width="39%" />							
+								<spinner constraint="no empty" id="sp_inteiro"  width="39%" />.
+								<spinner constraint="no empty" id="sp_decimal" width="39%" />							
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -177,7 +177,7 @@
 								<label value = "Pagar carta:" />
 							</div>
 							<div hflex="2" align = "left">
-								<button id="btn_rpagamento" label = "pagamento" width="80%"/>
+								<button id="btn_pagamento" label = "pagamento" width="80%"/>
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -185,19 +185,15 @@
 								<label value = "Código de barra:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox id="txt_rcodigo_barra" width="80%" />							
+								<textbox id="txt_codigo_barra" width="80%" />							
 							</div>
 						</hlayout>
 						
-						<hlayout  >	<div hflex="1">	</div> <div hflex="2"></div></hlayout>
-						<hlayout  >	<div hflex="1">	</div> <div hflex="2"></div></hlayout>
-						<hlayout  >	<div hflex="1">	</div> <div hflex="2"></div></hlayout>
-						<hlayout  >	<div hflex="1">	</div> <div hflex="2"></div></hlayout>							
-						<hlayout  >	<div hflex="1">	</div> <div hflex="2"></div></hlayout>
 						<hlayout>
 							<div hflex="1"></div>
 							<div hflex="2" align = "left">
-								<button id = "btn_rreg" label = "guardar" width="40%"/>
+								<separator spacing = "120px"></separator>
+								<button id = "btn_reg" label = "guardar" width="40%"/>
 								<button label = "voltar" width="40%"/>							
 							</div>
 						</hlayout>
