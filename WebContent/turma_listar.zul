@@ -9,10 +9,89 @@
 			.listar{
 				Background:#E3DEDB;
 			}
-		</style>
-		<div self="@define(right)">
-			<label value="Listar Turma"></label>
 			
+			.titulo{
+				Background:#E3DEDB;
+			}
+			
+			.z-listheader {
+  				background: white;
+  				border:0;
+			} 
+			
+			.pesqui {
+				background: white;
+  				border:0;
+			}
+			.branco {
+				background: white;
+  				border:0;
+			}
+		</style>
+		<div self="@define(right)"  id="wind_turma" apply="mz.gov.sgec.controller.Turma_controller" > 
+			
+				
+		<div width = "100%" height="100%" >
+			<vlayout height="100%" spacing = "20px">				
+					<div align = "center" sclass="titulo" >
+					    <label value = "Lista de Turmas"  style = "font-size:20pt"/>
+					</div>
+					
+							<div align="right" hflex="8" >
+								<button  forward="onClick$btn_teste"  label="Pesquisa" sclass="pesqui" />
+								<textbox id="txt_pesq" width="40%" constraint="no empty" />							
+								<space width="10"/>
+							</div >
+							
+								<div vflex = "3" width = "100%"  >
+									<hlayout>
+									
+									
+									</hlayout>
+									
+									<hlayout spacing = "40px">
+									<div >
+									</div>
+									
+									<div hflex = "3" >
+											<listbox id="lst_turmas" rows="9">
+										        <listhead sizable="true">
+										            <listheader label="Designação:" sort="auto" />
+										            <listheader label="Periodo:" sort="auto" />
+										            <listheader label="Nº do Alunos:" sort="auto" />
+										            <listheader label="Estado:" sort="auto" />
+										            <listheader label="Opções:" sort="auto" />
+										            
+										        </listhead>
+										        <listitem value="${each}" forward="onClick$line" forEach="${wind_turma$Turma_controller.turmas}">
+										            <listcell label="${each.nome}" />
+										            <listcell  >
+										            	<label value="${each.hora_inicio} -> "/>
+										            	<label value="${each.hora_fim}"/>
+										            </listcell>
+										            <listcell label="${each.lotacao}" />
+											       	<listcell label="${each.descricao}" />
+										            <listcell >
+										            	<button sclass="branco" image="/images/3.2.png" width="30%" 
+										            	 
+										            	/>
+										            </listcell>
+										             
+										        </listitem>
+										          								        
+										           
+										    </listbox>
+									</div>
+									<div  >
+									</div>
+								    </hlayout>
+								</div>
+								<div vflex = "1" align = "right">
+							    					
+								</div>
+			</vlayout>
+		</div>
+						
 		
 		</div>
 		

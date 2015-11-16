@@ -9,21 +9,26 @@
 			.registo{
 				Background:#E3DEDB;
 			}
+			.titulo{
+				Background:#E3DEDB;
+			}
 		</style>
 		<div self="@define(right)" apply="mz.gov.sgec.controller.Turma_controller">
 			
 			<!-- Escrever aqui -->
 			<div>
+						<div  align ="center" sclass="titulo" width="100%">
+											<label value = "Registo de Turma" style = "font-size: 20pt"/>
+						</div>
 						<hlayout>
 							<div hflex="1">
 							
 							</div>
 							<div hflex="3">
-								<vlayout spacing = "10px" height="100%">				
+								<vlayout spacing = "10px" height="100%" width="100%">				
 									
-										<div  align ="center">
-											<label value = "Registo de Turma" style = "font-size: 20pt"/>
-										</div>	
+										
+										<space height="10"/>	
 										<hlayout>
 											<div hflex="1">
 											</div>
@@ -84,7 +89,7 @@
 											</hlayout>
 											
 											
-											
+											<space height="10"></space>
 											<hlayout>
 												<div hflex = "3">
 													

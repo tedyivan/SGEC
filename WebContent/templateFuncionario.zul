@@ -22,12 +22,12 @@
   		<include src="header.zul"></include>
   	</north>
   
-    <west self="@{insert(left)}" width="10%" >
+    <west self="@{insert(left)}" width="10%" style="border-width:0px;">
     	<include src="left.zul"></include>
     </west> 
      
        
-    <center self="@{insert(buttoes)}" style="border-left:0px;" >
+    <center self="@{insert(buttoes)}" style="border-width:0px;" >
     	<vlayout spacing="15px">
 				<space width="3%"></space>
 				<button label="Listar" id="btn_listar " width="130px" height="30px" href="funcionario_listar.zul" sclass="listar"

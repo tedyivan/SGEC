@@ -5,6 +5,8 @@ import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.Datebox;
 import org.zkoss.zul.Textbox;
 import java.util.Date;
+import java.util.List;
+
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.ForwardEvent;
 
@@ -21,6 +23,7 @@ public class VeiculoController extends GenericForwardComposer {
 	
 	private Datebox dt_aquisicao, dt_fabrico;
 	
+	private VeiculoDAO veiculoDAO = new VeiculoDAO();
 	
 	
 	public void onClick$btn_reg(Event e){
@@ -61,8 +64,11 @@ public class VeiculoController extends GenericForwardComposer {
 		
 	}
 	
+
 	
-	
+	public List <Veiculo> getVeiculos(){
+		return  veiculoDAO.findAll();
+	}
 	
 	
 	
