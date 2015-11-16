@@ -17,15 +17,20 @@
 			}			
 	</style>
 	 		
-	<borderlayout>
-	  	<north self="@{insert(header)}" height="10%">
-	  		<include src="header.zul"></include>
-	  	</north>
-	    <west self="@{insert(left)}" width="10%" >
-	    	<include src="left.zul"></include>
-	    </west> 
-     	<center self="@{insert(buttoes)}" style="border-left:0px;">
-	    	<vlayout spacing="15px">
+
+  <borderlayout>
+  	<north self="@{insert(header)}" height="10%">
+  		<include src="header.zul"></include>
+  	</north>
+  
+    <west self="@{insert(left)}" width="10%" style="border-width:0px;">
+    	<include src="left.zul"></include>
+    </west> 
+     
+       
+    <center self="@{insert(buttoes)}" style="border-width:0px;">
+    	<vlayout spacing="15px">
+
 				<space width="3%"></space>
 				<button id="" label="Listar" width="130px" height="30px" href="instruendo_listar.zul" sclass="listar"
 				onClick='Clients.evalJavaScript("myfunc()")'/>

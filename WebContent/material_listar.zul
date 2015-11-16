@@ -1,4 +1,4 @@
-<?page title="Listas Instruendo" contentType="text/html;charset=UTF-8"?>
+<?page title="Listas Materiais" contentType="text/html;charset=UTF-8"?>
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="templateMaterial.zul" ?>
 
 <zk>
@@ -16,37 +16,53 @@
 				Background:white;
 			}
 			
+			.z-listheader {
+  				background: white;
+  				border:0;
+			}    
+  		
+			.branco {
+				background: white;
+  				border:0;
+			}
+			
+			
 		</style>
-		<div self="@define(right)">
+		<div  self="@define(right)" >
 		
-		<div >		
+		<div id="wind_veicle"  apply="mz.gov.sgec.controller.VeiculoController">		
 		<div width = "100%" height="100%" >
 			<vlayout height="100%" spacing = "20px">				
 					<div align = "center" sclass="titulo">
 					    <label value = "lista dos Materiais"  style = "font-size:20pt"/>
 					</div>
-					<div  >
-						<button id="pesq" label="Pesquisa" />
-						<textbox id="txt_pesq" width="18%" constraint="no empty" />							
+				    <div align="right" hflex="8" >
+								<button  forward="onClick$btn_teste"  label="Pesquisa" sclass="pesqui" />
+								<textbox id="txt_pesq" width="40%" constraint="no empty" />							
+								<space width="10"/>
 					</div >
+					
+					
+					
+					
 								<div vflex = "3" width = "100%"  >
 									<hlayout spacing = "40px">
 									<div >
 									</div>
 									<div hflex = "3" >
-											<listbox id="box">
+											<listbox id="lst_veiculos"  rows="9">
 										        <listhead sizable="true">
 										            <listheader label="Matricula:" sort="auto" />
-										            <listheader label="Designação:" sort="auto" />
-										            <listheader label="Categoria:" sort="auto" />
+										            <listheader label="Marca:" sort="auto" />
+										            <listheader label="Classe:" sort="auto" />
 										            <listheader label="Estado:" sort="auto" />
 										            <listheader label="Opções:" sort="auto" />
 										            
 										        </listhead>
-										        <listitem>
-										            <listcell label="2233444" />
-										            <listcell label="Toyota Celica" />
-										            <listcell label="ligeiro" />
+										        <listitem value="${each}" forEach="${wind_veicle$VeiculoController.veiculos}">
+										            <listcell label="${each.matricula}" />
+										            <listcell label="${each.marca}" />
+										            <listcell label="${each.classe}" />
 											       
 										            <listcell>
 										            	<button type = "submit" width="30%"
@@ -54,27 +70,12 @@
 										            	/>
 										            </listcell>
 										             <listcell>
-										            	<button type = "submit" sclass="branco" image="/images/3.2.png" width="30%"/>
-										               	<button type = "submit" width="30%"/>
+										            	<button sclass="branco" image="/images/3.2.png" width="30%"/>
+										               	
 										            </listcell>
 										        </listitem>
-										          
-										        
-										           <listitem>
-										            <listcell label="2233444" />
-										            <listcell label="Toyota Celica" />
-										            <listcell label="ligeiro" />
-											       
-										            <listcell>
-										            	<button type = "submit" label = "A" width="30%"/>
-										            </listcell>
-										             <listcell>
-										            	<button type = "submit" label = "P" width="30%"/>
-										               	<button type = "submit" label = "E" width="30%"/>
-										            </listcell>
-										        </listitem>
-										    </listbox>
-									</div>
+									</listbox>	         										        
+										        </div>
 									<div  >
 									</div>
 								    </hlayout>
@@ -84,10 +85,7 @@
 							    	<div hflex = "1" >
 							    	</div>
 							    	<div hflex = "3" >	
-							    	 		<div  align = "right">				    	
-												<button type = "submit" label = "guardar" width="15%"/>
-												<button type = "submit" label = "voltar" width="15%"/>
-							    		 	</div>
+							    	 		
 							    	</div>
 							    	<div hflex = "1" >
 							    	</div>
@@ -97,18 +95,7 @@
 		</div>
 	</div>
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+				
 		
 		</div>
 </zk>

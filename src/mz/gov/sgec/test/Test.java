@@ -1,12 +1,17 @@
 package mz.gov.sgec.test;
 
 import java.util.Date;
+import java.util.List;
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
+import mz.gov.sgec.dao.MaterialAlocacaoDAO;
 import mz.gov.sgec.dao.MaterialDAO;
 import mz.gov.sgec.dao.MaterialGeralDAO;
 import mz.gov.sgec.dao.TurmaDAO;
 import mz.gov.sgec.dao.VeiculoDAO;
 import mz.gov.sgec.model.Material;
+import mz.gov.sgec.model.MaterialAlocacao;
 import mz.gov.sgec.model.MaterialGeral;
 import mz.gov.sgec.model.Turma;
 import mz.gov.sgec.model.Veiculo;
@@ -51,18 +56,33 @@ public class Test {
 		materialGeral.setTipo_mat(1);
 		materialGeral.setUpdated_at(new Date());
 		geralDAO.createMaterial(materialGeral, 5);
-		*/
+		
 		
 		TurmaDAO turmaDAO = new TurmaDAO();
 		Turma turma = new Turma();
 		turma.setCreated_at(new Date());
-		turma.setData_fim(new Date());
+		turma.setHora_inicio("07:00");
+		turma.setHora_fim("10:00");
 		turma.setExiste(true);
 		turma.setNome("Nome");
 		turma.setSala("Sala");
 		turma.setUpdated_at(new Date());
 		
-		turmaDAO.create(turma);
 		
+		//turmaDAO.create(turma);
+		VeiculoDAO veiculoDAO = new VeiculoDAO();
+		List<Veiculo> veiculos = veiculoDAO.findAll();
+		
+		for (int i = 0; i < veiculos.size(); i++) {
+			System.out.println(veiculos.get(i)+"\n");
+		}
+		*/
+		
+		MaterialAlocacaoDAO materialAlocacaoDAO = new MaterialAlocacaoDAO();
+		List<MaterialAlocacao> veiculos = materialAlocacaoDAO.findAll();
+		
+		for (int i = 0; i < veiculos.size(); i++) {
+			System.out.println(veiculos.get(i).getTurma()+"\n");
+		}
 	}
 }
