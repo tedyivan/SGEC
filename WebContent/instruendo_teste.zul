@@ -1,0 +1,79 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="templateInstruendo.zul" ?>
+<?component name="mylistheader" extends="listheader" class="mz.gov.sgec.controller.My"?>
+<zk>
+		<style>
+			
+			.instruendo{
+				Background:#E3DEDB;
+			}
+		
+			.teste{
+				Background:#E3DEDB;
+			}
+			zk.afterLoad('zul.mesh', function () {
+		        var _xColumnMenuWidget = {};
+		        zk.override(zul.mesh.ColumnMenuWidget.prototype, _xColumnMenuWidget, {
+		            _onColVisi: function (evt) {
+		                _xColumnMenuWidget._onColVisi.apply(this, arguments); //call the original method
+		                var item = evt.currentTarget,
+		                    col = zk.Widget.$(item._col);
+		                col.smartUpdate('visible', item.isChecked());
+		            }
+		        });
+		    });
+		</style>
+	<div id="d_inst_p" self="@define(right)" width = "100%" height="100%" style = "border: 1px solid red" apply = "mz.gov.sgec.controller.InstruendoController">	
+		<vlayout height="100%" spacing = "10px">
+			<div  width = "100%" align = "center" >
+				<label value = "Formulario de registo de Notas"  style = "font-size:20pt"/>
+			</div>	
+			<separator spacing = "12px"></separator>
+			<div width = "80%" align = "left" >
+				<button id="pesq" label="Pesquisa" />
+				<textbox id="txt_pesq" width="18%" />							
+			</div>				
+				<hlayout>
+					<div hflex="1" ></div>
+					<div hflex="1" align = "center">
+						<combobox id="cb_turma" width = "40%">
+							<attribute name="onCreate"> self.setSelectedIndex(0); </attribute>
+								<comboitem label ="Turma"/>
+							<comboitem label = "${each.nome}" value = "${each.getNome()}" forEach = "${d_inst_p$InstruendoController.turmas}"/>
+						</combobox>						
+					</div>
+					<div hflex="1" ></div>
+					<div hflex="1"></div>
+				</hlayout>
+				<div align = "center" width = "100%">
+					<listbox id="listbox" mold="paging" vflex="true" width="80%" pageSize="5">
+						<listhead menupopup="auto" sizable="true" id="listHeader">
+							<mylistheader label="Código de barra:" visible="true" sort="auto"/>
+							<mylistheader label="Nomes:" visible="true" sort="auto"/>
+							<mylistheader label="Apelido:" visible="true" sort="auto"/>
+							<mylistheader label="teste 1" visible="true" sort="auto"/>
+							<mylistheader label="teste 2" visible="false" sort="auto"/>
+							<mylistheader label="teste 3" visible="false" sort="auto"/>
+							<mylistheader label="teste 4" visible="false" sort="auto"/>
+							<mylistheader label="teste 5" visible="false" sort="auto"/>
+							<mylistheader label="teste 6" visible="false" sort="auto"/>
+							<mylistheader label="teste 7" visible="false" sort="auto"/>
+							<mylistheader label="teste 8" visible="false" sort="auto"/>
+						</listhead>
+						<listitem value="${each}" forEach="${d_inst_p$InstruendoController.instruendos}">
+							<listcell label = "${each.codigo_barra}"/>
+							<listcell label = "${each.nome}"/>
+							<listcell label = "${each.apelido}"/>
+							<listcell> <textbox id="" width="100%" /> </listcell>
+							<listcell> <textbox id="" width="100%" /> </listcell>
+							<listcell> <textbox id="" width="100%" /> </listcell>
+							<listcell> <textbox id="" width="100%" /> </listcell>
+							<listcell> <textbox id="" width="100%" /> </listcell>
+							<listcell> <textbox id="" width="100%" /> </listcell>
+							<listcell> <textbox id="" width="100%" /> </listcell>
+							<listcell> <textbox id="" width="100%" /> </listcell>
+						</listitem>
+					</listbox>
+				</div>
+		</vlayout>		
+	</div>
+</zk>

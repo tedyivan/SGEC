@@ -1,0 +1,126 @@
+<?page title="Bem vindo ao SGEC"?>
+<zk>
+
+<window style = "border: 1px solid red" id="win_criarconta" border="normal" width="100%" height="100%" mode="highlighted" apply="mz.gov.sgec.controller.CriarContaController">
+		<script type = "text/javascript"><![CDATA[ 
+						     function typePassword(text){
+						    	 var txt_senha = zk.Widget.$("$txt_senha");
+						    	 txt_senhaWidget.setValue(text);
+						    	 txt_senhaWidget.fire('onChanging',{ value : text } );
+						     }
+						     	
+		]]>
+		</script>
+  
+<div>
+	<hlayout>
+		<div hflex="1">
+		
+		</div>
+		<div hflex="3" style = "border: 1px solid red">
+			<vlayout spacing = "10px" style = "border: 1px solid red" height="100%">				
+				
+					<div  align ="center">
+						<label value = "Cadastro de utilizadores" style = "font-size: 20pt"/>
+					</div>	
+					<hlayout>
+						<div hflex="1">
+						</div>
+						<div hflex = "2">
+							<vbox align="center">
+								<image src = "img/ju.jpg" width = "60px" height="60px"></image>
+							</vbox>
+						</div>
+						
+					</hlayout>
+						<hlayout>
+							<div hflex = "1">
+								<label  value = "Funcionario"/>
+							</div>
+							<div hflex = "2">
+								<combobox width="60%" id = "cbx_fun" >
+									<comboitem label = "${each}" value = "${each.getNome()}" forEach = "${win_criarconta$CriarContaController.funcionarios}"/>
+								</combobox>
+							</div>
+							
+						</hlayout>
+						<hlayout>
+							<div hflex = "1">
+								<label value = "Utilizador:"/>
+							</div>
+							<div hflex = "2" >
+								 <textbox width="60%" id = "txt_utilizador"  />
+							</div>
+						</hlayout>
+						<hlayout>
+							<div hflex = "1">
+								<label value = "Email:"/>
+							</div>
+							<div hflex = "2" >
+								 <textbox width="60%" id = "txt_email"  />
+							</div>
+						</hlayout>
+						
+						<hlayout>
+							<div hflex = "1">
+								<label  value = "Tipo:"/>
+							</div>
+							<div hflex = "2">
+								<combobox width="60%" id = "cbx_tipo" >
+									<comboitem label ="Gerente" />
+									<comboitem label = "utente" />
+								
+								</combobox>
+							</div>
+							
+						</hlayout>
+						
+						<hlayout>
+							<div hflex = "1">
+								<label  value = "Senha:"/>
+							</div>
+							<div hflex = "2">
+							
+								<textbox id="txt_senha" type="password" width="60%" constraint="no empty"/>
+							</div>	
+						</hlayout>
+						
+						<hlayout>
+							<div hflex = "1">
+								<label  value = "Repetir Senha:"/>
+							</div>
+							<div hflex = "2">
+								 <textbox id="txt_repetirSenha" type="password" width="60%" constraint="no empty"/>
+							</div>	
+						</hlayout>
+						
+						<hlayout>
+							<div hflex = "1">
+								
+							</div>
+							<div hflex = "2">
+							    <checkbox id="" width="60%" onCheck = 'txt_senha.setType(self.isChecked() ? "text" : "password")' />
+								<label  value = "mostrar Senha"/>
+							</div>
+						</hlayout>	
+						
+						<hlayout>
+							<div hflex = "1">
+								
+							</div>
+							<div hflex = "2">
+								<button id="btn_criar" width="20%" label ="criar"/>
+							    <button id="btn_voltar" width="20%" label ="voltar" />
+								
+							</div>
+						</hlayout>			
+			</vlayout>
+		</div>	
+		<div hflex ="1">
+		
+		</div>
+	</hlayout>
+</div>
+
+</window>
+</zk>

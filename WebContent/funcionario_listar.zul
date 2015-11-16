@@ -1,117 +1,43 @@
 <?page title="Listar Funcionario" contentType="text/html;charset=UTF-8"?>
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="templateFuncionario.zul" ?>
 <zk>
-<style>
-			
-			.funcionario{
-				Background:#E3DEDB;
-			}
-			.listar{
-				Background:#E3DEDB;
-			}
-		</style>
-		<div self="@define(right)" width = "100%" height="100%" >
-					<vlayout height="100%" spacing = "20px">				
-							<div align = "center" sclass="titulo">
-							    <label value = "Lista de Funcionarios"  style = "font-size:20pt"/>
-							</div>
-										<div vflex = "3" width = "100%"  >
-											<hlayout spacing = "40px">
-											<div >
-											</div>
-											<div hflex = "3" >
-													<listbox id="box">
-												        <listhead sizable="true">
-												            <listheader label="Numero:" sort="auto" />
-												            <listheader label="Designacao:" sort="auto" />
-												            <listheader label="categoria:" sort="auto" />
-												            <listheader label="Estado:" sort="auto" />
-												            <listheader label="Opções:" sort="auto" />
-												       </listhead>
-												        <listitem>
-												            <listcell label="123456" />
-												            <listcell label="Julia Nelma" />
-												            <listcell label="Directora" />											       
-												            <listcell>
-												            	<button type = "submit" width="30%"
-												            	 image="/images/14.1.png" sclass="branco"
-												            	/>
-												            </listcell>
-												             <listcell>
-												            	<button type = "submit" sclass="branco"
-												            	 image="/images/3.2.png" width="30%"/>
-												               	
-												            </listcell>
-												        </listitem>
-												          
-												        
-												           <listitem>
-												            <listcell label="234567" />
-												            <listcell label="Alberto Moiane" />
-												            <listcell label="Instrutor" />
-													       
-												            <listcell>
-												            	<button type = "submit" width="30%"
-												            	 image="/images/14.1.png" sclass="branco"/>
-												            </listcell>
-												             <listcell>
-												            	<button type = "submit" sclass="branco" 
-												            	image="/images/3.2.png" width="30%"/>
-												            </listcell>
-												        </listitem>
-												        
-												        <listitem>
-												            <listcell label="1357901" />
-												            <listcell label="Tedy Macie" />
-												            <listcell label="CEO" />
-													       
-												            <listcell>
-												            	<button type = "submit" 
-												            	image="/images/14.1.png" sclass="branco"/>
-												            </listcell>
-												             <listcell>
-												            	<button type = "submit" class="branco" 
-												            	image="/images/3.2.png" width="30%"/>
-												               	
-												            </listcell>
-												        </listitem>
-												        
-												        
-												        <listitem>
-												            <listcell label="4987654345" />
-												            <listcell label="Elton Tomas" />
-												            <listcell label="Gerente"/>
-													       
-												            <listcell>
-												            	<button type = "submit" image="/images/14.1.png" sclass="branco"/>
-												            </listcell>
-												             <listcell>
-												            	<button type = "submit" class="branco" 
-												            	image="/images/3.2.png" width="30%"/>
-												               	
-												            </listcell>
-												        </listitem>
-												        
-												        
-												        <listitem>
-												            <listcell label="2345678876543" />
-												            <listcell label="Deize Maposse" />
-												            <listcell label="Adjunta-Directora" />
-												            <listcell>
-												            	<button type = "submit" image="/images/14.1.png" sclass="branco"/>
-												            </listcell>
-												             <listcell>
-												            	<button type = "submit"  class="branco" 
-												            	image="/images/3.2.png" width="30%"/>
-												            </listcell>
-												        </listitem>
-												        
-												    </listbox>
-											</div>
-											<div >
-											</div>
-										    </hlayout>
-										</div>
-							</vlayout>
-				</div>
+	<style>
+		.funcionario{
+			Background:#E3DEDB;
+		}
+		.listar{
+			Background:#E3DEDB;
+		}
+	</style>
+	<div id = "d_inst_listar" self="@define(right)" width = "100%" height="100%" apply = "mz.gov.sgec.controller.FuncionarioController">
+		<vlayout height="100%" spacing = "20px">				
+			<div align = "center" sclass="titulo">
+			    <label value = "Lista de Funcionarios"  style = "font-size:20pt"/>
+			</div>
+			<div vflex = "3" width = "100%"  >
+				<hlayout spacing = "40px">
+					<div ></div>
+					<div hflex = "3" >
+						<listbox id="box">
+					        <listhead sizable="true">
+				          		<listheader label="Numero:" sort="auto" />
+							    <listheader label="Designação:" sort="auto" />
+								<listheader label="categoria:" sort="auto" />
+								<listheader label="Estado:" sort="auto" />
+								<listheader label="Opções:" sort="auto" />
+							</listhead>
+							<listitem value="${each}" forEach="${d_inst_listar$FuncionarioController.funcionarios}">
+							   	<listcell label = "${each.id}"/>
+								<listcell label = "${each.nome}"/>
+								<listcell label = "${each.nome}"/>
+								<listcell><button type = "submit" width="30%" image="/images/14.1.png" sclass="branco"/></listcell>
+								<listcell><button type = "submit" sclass="branco" image="/images/3.2.png" width="30%"/></listcell>
+							</listitem>
+						</listbox>
+					</div>
+					<div ></div>
+				</hlayout>
+			</div>
+		</vlayout>
+	</div>
 </zk>

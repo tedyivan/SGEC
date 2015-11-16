@@ -1,0 +1,51 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="templateInstruendo.zul" ?>
+<zk>
+		<style>
+			
+			.instruendo{
+				Background:#E3DEDB;
+			}
+			.registo{
+				Background:#E3DEDB;
+			}
+		</style>
+	<div id="d_inst_p" self="@define(right)" width = "100%" height="100%" style = "border: 1px solid red" apply = "mz.gov.sgec.controller.InstruendoController">	
+		<vlayout height="100%" spacing = "10px">
+			<separator></separator>
+			<div  width = "100%" align = "center" >
+				<label value = "Solicitacao de Exame"  style = "font-size:20pt"/>
+			</div>	
+			<div width = "80%" align = "left" >
+				<button id="pesq" label="Pesquisa" />
+				<textbox id="txt_pesq" width="18%" />							
+			</div>				
+			<separator spacing = "12px"></separator>
+			<div align = "center">
+				<listbox id="lst_instruendo" height="70px" width="80%" >
+								        <listhead sizable="true">
+								            <listheader label="Código de barra:" sort="auto" />
+								            <listheader label="Nomes:" sort="auto" />
+								            <listheader label="Apelido:" sort="auto" />
+											<listheader label="Teste (MT):" sort="auto" />
+								        </listhead>
+										<listitem value="${each}" forward="onClick$linha" forEach="${d_inst_p$InstruendoController.instruendo}">
+											<listcell label = "${each.codigo_barra}"/>
+						
+											<listcell label = "${each.nome}"/>
+									
+											<listcell label = "${each.apelido}"/>
+									
+											
+											<listcell>
+												<textbox id="txt_teste" width="18%" />
+											</listcell>
+											
+											<!--  <button id = "" label = "act" /> -->
+												
+										</listitem>
+				</listbox>
+			</div>	
+										
+		</vlayout>		
+	</div>
+</zk>

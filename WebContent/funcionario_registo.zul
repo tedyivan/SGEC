@@ -15,9 +15,6 @@
 		<div width = "100%" align = "center" vflex = "1"  style = "border: 1px green solid">
 			 <label value = "Registo do Funcionario"  style = "font-size:20pt"/>
 		</div>
-		<hlayout><div></div></hlayout>
-		<hlayout><div></div></hlayout>
-		<hlayout><div></div></hlayout>
 		<hlayout height="100%" >
 			<div hflex="1"></div>
 			<div hflex="2" >				
@@ -35,7 +32,7 @@
 								<label value = "Número de BI:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox id="d_numBi" width="80%" />							
+								<textbox id="txt_numBi" width="80%" />							
 							</div>
 						</hlayout>
 						<hlayout>
@@ -43,7 +40,7 @@
 								<label value = "Data de nascimento:" />
 							</div>
 							<div hflex="2" align = "left">
-								<datebox id="d_rnascimento" width="80%" />							
+								<datebox id="d_nascimento" width="80%" />							
 							</div>					
 						</hlayout>
 						<hlayout>
@@ -79,7 +76,7 @@
 								<label value = "Apelido:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox id="txt_rapelido" width="80%" constraint="no empty" />							
+								<textbox id="txt_apelido" width="80%" constraint="no empty" />							
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -90,18 +87,7 @@
 								<textbox id="txt_nuit" width="80%" constraint="no empty" />							
 							</div>
 						</hlayout>
-						<hlayout  >
-							<div ></div>
-							<div ></div>
-						</hlayout>
-						<hlayout  >
-							<div ></div>
-							<div ></div>
-						</hlayout>
-						<hlayout  >
-							<div ></div>
-							<div ></div>
-						</hlayout>
+						
 						<vlayout spacing = "40px">
 						<hlayout  >
 							<div hflex="1">
@@ -116,7 +102,7 @@
 							<div hflex="1">				
 							</div>
 							<div hflex="2" align = "left">
-								<button id = "btn_ok" label = "Ok" width="40%"/>
+								<button id = "btn_reg" label = "Ok" width="40%"/>
 								<button id= "btn_cancelar" label = "Cancelar" width="40%"/>							
 							</div>
 						</hlayout>

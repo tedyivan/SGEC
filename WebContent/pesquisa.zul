@@ -1,0 +1,55 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="templateInstruendo.zul" ?>
+<zk>
+		<style>
+			
+			.instruendo{
+				Background:#E3DEDB;
+			}
+			.registo{
+				Background:#E3DEDB;
+			}
+		</style>
+	<div id="registo" self="@define(right)" width = "100%" height="100%" style = "border: 1px solid red">
+		<vlayout height="100%" spacing = "10px">
+			<div vflex = "1">
+				<vlayout height="100%" spacing = "10px">
+					<div  width = "100%" align = "center" vflex = "2">
+					    <label value = ""  style = "font-size:20pt"/>
+					</div>	
+					<div vflex = "1" width = "100%" align = "left" >
+						<button id="pesq" label="Pesquisa" />
+						<textbox id="txt_pesq" width="18%" />							
+					</div>				
+				</vlayout>
+			</div>				
+			<div vflex = "3">
+				<hlayout>
+					<div hflex="1">	</div>
+					<div hflex="2">
+						<vlayout  spacing = "10px">
+							<listbox id="lst_instruendo" width="99%" >
+										        <listhead sizable="true">
+										            <listheader label="Código de barra:" sort="auto" />
+										            <listheader label="Nomes:" sort="auto" />
+										            <listheader label="Apelido:" sort="auto" />
+										            <listheader label="Tipo de carta:" sort="auto" />									
+										            <listheader label="Valor pago (MT):" sort="auto" />
+													<listheader label="Divida (MT):" sort="auto" />
+										        </listhead>
+												<listitem value="${each}" forward="onClick$linha" forEach="${d_inst_p$InstruendoController.instruendo}">
+													<listcell label = "${each.codigo_barra}"/>												
+													<listcell label = "${each.nome}"/>											
+													<listcell label = "${each.apelido}"/>											
+													<listcell label = "${each.tipo_carta}"/>													
+													<listcell label = "${each.nome}"/>													
+													<listcell label = "${each.nome}"/>															
+												</listitem>
+							</listbox>
+						</vlayout>
+					</div>
+					<div hflex="1">	</div>										
+				</hlayout>
+			</div>
+		</vlayout>
+	</div>
+</zk>

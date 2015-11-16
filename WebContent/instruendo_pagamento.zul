@@ -1,0 +1,71 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="templateInstruendo.zul" ?>
+<zk>
+		<style>
+			
+			.instruendo{
+				Background:#E3DEDB;
+			}
+			.registo{
+				Background:#E3DEDB;
+			}
+		</style>
+	<div id="d_inst_p" self="@define(right)" width = "100%" height = "100%" style = "border: 1px solid red" apply = "mz.gov.sgec.controller.InstruendoController">	
+		<vlayout height="100%"  style = "border: 1px solid green">
+				<div  vflex = "1">
+					<vlayout spacing = "10px">
+						<div  width = "100%" align = "center" vflex = "2">
+						    <label value = "Pagamento da carta"  style = "font-size:20pt"/>
+						</div>	
+						<div vflex = "2" width = "80%" align = "left" >
+							<button id="pesq" label="Pesquisa" />
+							<textbox id="txt_pesq" width="18%" />							
+						</div>				
+					</vlayout>
+				</div>
+				<div height="70%" vflex = "3">
+					<hlayout>
+						<div hflex ="1"></div>
+						<div hflex = "3">
+							<hlayout>
+								<div>
+									<listbox id="lst_instruendo" width="99%" >
+										        <listhead sizable="true">
+										            <listheader label="Código de barra:" sort="auto" />
+										            <listheader label="Nomes:" sort="auto" />
+										            <listheader label="Apelido:" sort="auto" />
+										            <listheader label="Tipo de carta:" sort="auto" />									
+										            <listheader label="Valor pago (MT):" sort="auto" />
+													<listheader label="Divida (MT):" sort="auto" />
+										        </listhead>
+												<listitem value="${each}" forward="onClick$linha" forEach="${d_inst_p$InstruendoController.instruendo}">
+													<listcell label = "${each.codigo_barra}"/>												
+													<listcell label = "${each.nome}"/>											
+													<listcell label = "${each.apelido}"/>											
+													<listcell label = "${each.tipo_carta}"/>													
+													<listcell label = "${each.nome}"/>													
+													<listcell label = "${each.nome}"/>															
+												</listitem>
+									</listbox>
+								</div>
+							</hlayout>
+							<vlayout spacing = "20px">
+								<div vflex = "1" ></div>
+								<div align ="left" >
+									<label value = "Valor monetario(MT):"/>
+									<textbox id="txt_rvalor" width="25%" />
+								</div>
+							</vlayout>
+							<vlayout spacing = "300px">
+								<div vflex = "1" ></div>
+								<div vflex = "2" align ="right" >
+									<button label = "guardar"  width="20%"/>
+									<button label = "voltar" width="20%" />
+								</div>
+							</vlayout>
+						</div>
+						<div hflex ="1"></div>
+					</hlayout> 
+				</div>
+		</vlayout>		
+	</div>
+</zk>

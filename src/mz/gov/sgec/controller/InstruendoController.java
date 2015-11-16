@@ -157,5 +157,4 @@ public class InstruendoController extends GenericForwardComposer {
 			inst.setId(id);
 			return idao.findById(inst.getId());
 		}
-		
 }

@@ -1,0 +1,69 @@
+<?page title="Bem vindo ao SGEC"?>
+<zk>
+
+<zscript > 
+ 
+  boolean logado = Executions.getCurrent().getDesktop().getSession().hasAttribute("UTIL");
+  
+</zscript>
+<window style = "border: 1px solid red" border="normal" width="55%" height="250px" mode="highlighted" apply="mz.gov.sgec.controller.AutenticacaoController" >
+
+<div>
+	<div  align ="center">
+		<label value = "SGEC" style = "font-size: 20pt"/>
+	</div>
+	<div>
+	
+	</div>
+	<hlayout>
+		<div hflex = "1">
+		</div>
+		<div hflex = "3" >
+			<vlayout spacing = "10px">
+				
+				<hlayout>
+					<div hflex = "1">
+						<label value = "Utilizador:" />
+					</div>
+					<div hflex = "2" >
+						<textbox id="txt_utilizador" width="90%"   />
+					</div>
+				</hlayout>
+				<hlayout>
+					<div hflex = "1">
+						<label  value = "Senha:"/>
+					</div>
+					<div hflex = "2">
+						<textbox id="txt_senha" type="password" width="90%" />
+					</div>
+					
+				</hlayout>
+				<hlayout>
+					<div hflex = "1">
+					</div>
+					<div hflex = "2">
+						 <a id="a_criar_conta" label="criar conta" />
+						 <a id="" label="lembrar" />
+					</div>
+					
+				</hlayout>
+				<hlayout>
+					<div hflex = "1">
+					</div>
+					<div hflex = "2">
+						 <button id="btn_entrar" label="entrar" width = "40%"/>
+						 <button id="btn_cancelar" label="cancelar" width = "50%"/>
+					</div>
+					
+				</hlayout>
+			
+			</vlayout>
+		</div>
+						
+		<div hflex = "1">
+		</div>	
+	</hlayout>		
+</div>
+</window>
+</zk>
+
