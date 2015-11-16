@@ -218,10 +218,16 @@ public class Instruendo {
 
 	public void setLista(List<Matricula> lista) {
 		this.lista = lista;
-	}	
-	
+	}
+
 	@Override
 	public String toString() {
-		return nome;
-	}
+		return "Instruendo [id=" + id + ", nome=" + nome + ", nome_pai=" + nome_pai + ", nome_mae=" + nome_mae
+				+ ", apelido=" + apelido + ", apelido_pai=" + apelido_pai + ", apelido_mae=" + apelido_mae
+				+ ", residencia=" + residencia + ", bi=" + bi + ", genero=" + genero + ", validade_bi=" + validade_bi
+				+ ", tipo_carta=" + tipo_carta + ", telefone=" + telefone + ", codigo_barra=" + codigo_barra
+				+ ", data_nascimento=" + data_nascimento + ", naturalidade=" + naturalidade + ", estado_civil="
+				+ estado_civil + ", altura=" + altura + ", created_at=" + created_at + ", updated_at=" + updated_at
+				+ ", lista=" + lista + "]";
+	}	
 }

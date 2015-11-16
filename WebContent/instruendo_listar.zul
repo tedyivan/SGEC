@@ -1,4 +1,4 @@
-<!--  <?page title="Listas Instruendo" contentType="text/html;charset=UTF-8"?>  -->
+<?page title="Listas Instruendo" contentType="text/html;charset=UTF-8"?>
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="templateInstruendo.zul" ?>
 
 <zk>
@@ -10,7 +10,7 @@
 			Background:#E3DEDB;
 		}
 	</style>
-	<div id = "d_inst_listar" self="@define(right)" width = "100%" height="100%" apply = "mz.gov.sgec.controller.InstruendoController">
+	<div id = "d_inst" self="@define(right)" width = "100%" height="100%" apply = "mz.gov.sgec.controller.InstruendoController">
 		<vlayout height="100%" spacing = "20px" style = "border: 1px solid red">				
 			<div align = "center">
 			    <label value = "lista dos Instruendo"  style = "font-size:20pt"/>
@@ -33,7 +33,7 @@
 											<listheader label="Pagamento:" sort="auto" />
 								            <listheader label="Actualizar:" sort="auto" />
 										</listhead>
-										<listitem value="${each}" forEach="${d_inst_listar$InstruendoController.instruendos}">
+										<listitem value="${each}" forEach="${d_inst$InstruendoController.instruendos}">
 											<listcell label = "${each.codigo_barra}"/>
 						
 											<listcell label = "${each.nome}"/>

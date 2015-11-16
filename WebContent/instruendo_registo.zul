@@ -69,7 +69,7 @@
 								<label value = "Genero:" />
 							</div>
 							<div hflex="2" align = "left">
-								<radiogroup id="d_rgenero" width="80%" >
+								<radiogroup id="rd_genero" width="80%" >
 						            <radio label="Masculino" value = "Masculino"/>
 						            <radio label="Femenino" value = "Femenino"/>
 						        </radiogroup>
@@ -169,7 +169,7 @@
 								<label value = "Validade de BI:" />
 							</div>
 							<div hflex="2" align = "left">
-								<datebox id="d_rvalidade_bi" width="80%" />								
+								<datebox id="d_validade_bi" width="80%" />								
 							</div>
 						</hlayout>
 						<hlayout  >
