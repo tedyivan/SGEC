@@ -4,6 +4,7 @@ import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import java.util.List;
 import org.zkoss.zul.Datebox;
+import org.zkoss.zul.Div;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.Listitem;
 import org.zkoss.zul.Textbox;
@@ -43,7 +44,9 @@ public class MaterialgeralController extends GenericForwardComposer {
 	private MaterialDAO materialDao;
 	private MaterialGeralDAO materialGDAO = new MaterialGeralDAO();
 	
+	private Div wind_veicle;
 	private Window window,wd;
+	private Div wind_teorico;
 	
 	public void onClick$btn_reg(Event e){
 		Material mat = new Material();
@@ -96,22 +99,39 @@ public class MaterialgeralController extends GenericForwardComposer {
 		
 		t = (Turma)((Listitem) e.getOrigin().getTarget()).getValue();
 		
-		turma_id= t.getId();
+		turma_id = t.getId();
 		//window.detach();
         //window =(Window) Executions.getCurrent().getDesktop();
         //window.detach();
 		//Clients.showNotification(t.toString());
 		
 	}
-		
+	
+	public void onClick$btn_veic(){
+		wind_veicle.setVisible(true);
+		wind_teorico.setVisible(false);
+	}
+	
+	public void onClick$btn_teoric(){
+		wind_veicle.setVisible(false);
+		wind_teorico.setVisible(true);
+	}
+	
+	public void onClick$btn_pratico(){
+		wind_veicle.setVisible(false);
+		wind_teorico.setVisible(true);
+	}
+	
 	
 
 	public List <Turma> getTurmas(){
 		return turmaDao.findAll();
 	}
 	
-	public List <MaterialGeral> getMaterialGeral(){
-		return materialGDAO.findAll();
+	public List <MaterialGeral> getMaterialGerais(){
+		MaterialGeralDAO mtgeralDAO = new MaterialGeralDAO();
+		List<MaterialGeral> mtger =mtgeralDAO.findAll();
+		return mtger;
 	}
 	
 }

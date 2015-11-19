@@ -15,7 +15,7 @@
 	</style>
 
 	 		
-  <borderlayout>
+  <borderlayout >
   	<north self="@{insert(header)}" height="10%">
   		<include src="header.zul"></include>
   	</north>
@@ -31,7 +31,7 @@
 				<space width="3%"></space>
 				<button label="Listar" id="" width="130px" height="30px" href="funcionario_listar.zul" sclass="listar"/>
 				<button label="Registar" id="" width="130px" height="30px" href="funcionario_registo.zul" sclass="registo"/>
-				<button label="Alocacao" id="" width="130px" height="30px" href="funcionario_alocar.zul" sclass="alocar"/>
+				<button label="Alocacao" id="btn_alocar" width="130px" height="30px" href="funcionario_alocar.zul" sclass="alocar"/>
 			</vlayout>
 	    </center>
 	    <east width="80%" self="@{insert(right)}" style="background:EAE5E5"/>

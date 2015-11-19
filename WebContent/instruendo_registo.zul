@@ -99,7 +99,7 @@
 								<label value = "Alocar:" />
 							</div>
 							<div hflex="2" align = "left">
-								<button id="btn_turma" type = "submit" label = "turma" width="80%"/>							
+								<button id="btn_turma" label = "turma" width="80%"/>							
 							</div>
 						</hlayout>
 						<hlayout  >

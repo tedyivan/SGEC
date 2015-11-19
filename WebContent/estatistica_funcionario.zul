@@ -1,0 +1,59 @@
+<?page title="Estatistica de Funcionarios" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="template_estatistica.zul" ?>
+<zk>
+<style>
+			
+			.estatistica{
+				Background:#E3DEDB;
+			}
+			
+		</style>
+		<div id = "d_est_f" self="@define(right)" width = "100%" height="100%" >
+					<vlayout height="100%" spacing = "20px">				
+							<div align = "center" sclass="titulo">
+							    <label value = "Estatística de funcionários"  style = "font-size:20pt"/>
+							  
+							</div>
+										<div vflex = "3" width = "100%"  >
+											<hlayout spacing = "40px">
+											<div >
+											</div>
+											<div hflex = "3" >
+											
+											  
+							<div  align ="left">
+								<label value = "Funcionários registados: " style = "font-size: 15pt"/>
+							</div>	
+							<hlayout><div></div></hlayout>
+							<hlayout><div></div></hlayout>
+											            <listbox id="lst_fun_estatistica" style = "font-size:20pt">
+												        <listhead sizable="true">
+												            <listheader label="Categoria:" sort="auto" style = "font-size:10pt"/>
+												            <listheader label="Activos:" sort="auto"  style = "font-size:10pt"/>
+												            <listheader label="Não activos:" sort="auto" style = "font-size:10pt"/>
+												            <listheader label="Salário Total por categoria:" sort="auto" style = "font-size:10pt"/>
+												  
+												       </listhead>
+												        <listitem label = "${each}" value = "${each.getCategoria()}" forEach = "${d_est_f$EstatisticaController.funcionarios}" >
+												      	</listitem>
+												   
+												    </listbox>
+												    <hlayout><div></div></hlayout>
+													<hlayout><div></div></hlayout>
+												    
+												    <hlayout>
+													<div hflex="1">				
+													</div>
+														<div hflex="2" align = "right">
+															<button id = "btn_relatorio" label = "relatório" width="15%" style = "font-size:10pt"/>
+															<button id= "btn_voltar" label = "voltar" width="15%" style = "font-size:10pt"/>							
+														</div>
+													</hlayout>
+											</div>
+											<div >
+											</div>
+										    </hlayout>
+										</div>
+							</vlayout>
+				</div>
+</zk>

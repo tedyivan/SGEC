@@ -1,7 +1,5 @@
 package mz.gov.sgec.dao;
 
-
-
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -24,6 +22,6 @@ public class UtilizadorDAO extends GenericDAO<Utilizador>{
 			criteria.add(Restrictions.eq("senha",senha));
 			Utilizador util = (Utilizador)criteria.uniqueResult();
 			tx.commit();
-			return util;				
+			return util;
 	}	
 }

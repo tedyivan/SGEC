@@ -1,20 +1,20 @@
 <?page title="Registo de Funcionario" contentType="text/html;charset=UTF-8"?>
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="templateFuncionario.zul" ?>
 <zk>
-<style>
-			
-			.funcionario{
-				Background:#E3DEDB;
-			}
-			.registar{
-				Background:#E3DEDB;
-			}
-		</style>
-<div id="registo" self="@define(right)" width = "100%" height="100%" apply = "mz.gov.sgec.controller.FuncionarioController">
-	<vlayout  style = "border: 1px green solid">
-		<div width = "100%" align = "center" vflex = "1"  style = "border: 1px green solid">
+	<style>
+		.registo{
+			Background:#E3DEDB;
+		}
+		.funcionario{
+			Background:#E3DEDB;
+		}
+	</style>
+<div id="registo" style = "border: 1px green solid" self="@define(right)" width = "100%" height="100%" apply = "mz.gov.sgec.controller.FuncionarioController">
+	<vlayout >
+		<div width = "100%" align = "center" vflex = "1"  >
 			 <label value = "Registo do Funcionario"  style = "font-size:20pt"/>
 		</div>
+		<separator spacing = "40px"></separator>
 		<hlayout height="100%" >
 			<div hflex="1"></div>
 			<div hflex="2" >				
@@ -43,12 +43,16 @@
 								<datebox id="d_nascimento" width="80%" />							
 							</div>					
 						</hlayout>
-						<hlayout>
+						<hlayout >
 							<div hflex="1">
 								<label value = "Categoria:" />
 							</div>
 							<div hflex="2" align = "left">
-								<combobox id="cbx_categoria" width="80%" constraint="no empty" />							
+								<combobox id="cbx_categoria" width="80%" constraint="no empty">
+									<comboitem label = "Instrutor"/>
+									<comboitem label = "Gerente"/>
+								</combobox>
+								<button id=""  label = "add" width="16%"/>					
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -63,8 +67,8 @@
 							<div hflex="1">
 								<label value = "Documentação:" />
 							</div>
-							<div hflex="2" align = "left">
-								<button id="txt_doc"  type = "submit" label = "upload" width="80%"/>							
+							<div hflex="2" align = "right">
+								<button id="txt_doc"  type = "submit" label = "upload" width="40%"/>							
 							</div>
 						</hlayout>										
 					</vlayout>
@@ -87,9 +91,8 @@
 								<textbox id="txt_nuit" width="80%" constraint="no empty" />							
 							</div>
 						</hlayout>
-						
-						<vlayout spacing = "40px">
-						<hlayout  >
+						<separator spacing = "62px"></separator>
+						<hlayout >
 							<div hflex="1">
 								<label value = "Email:" />
 							</div>
@@ -97,17 +100,19 @@
 								<textbox id="txt_email" width="80%" constraint="no empty" />							
 							</div>
 						</hlayout>
-						</vlayout>
+						<separator spacing = "310px"></separator>
 						<hlayout>
 							<div hflex="1">				
 							</div>
 							<div hflex="2" align = "left">
-								<button id = "btn_reg" label = "Ok" width="40%"/>
+								<button id = "btn_reg" label = "guardar" width="40%"/>
 								<button id= "btn_cancelar" label = "Cancelar" width="40%"/>							
 							</div>
+							
 						</hlayout>
 					</vlayout>
 				</div>
+				<div hflex="1"></div>
 			</hlayout>
 	</vlayout>
 		

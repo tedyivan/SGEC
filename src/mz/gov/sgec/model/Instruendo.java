@@ -6,11 +6,16 @@ package mz.gov.sgec.model;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -47,6 +52,10 @@ public class Instruendo {
 	@OneToMany
 	@JoinColumn(name = "matricula_id")
 	private List <Matricula> lista = new ArrayList <Matricula> ();
+	
+	@ManyToOne
+	@JoinColumn(name = "instruendo_turma_id")
+	private Turma inst_turma;
 	
 	public Instruendo() {
 		// TODO Auto-generated constructor stub
@@ -223,5 +232,13 @@ public class Instruendo {
 	@Override
 	public String toString() {
 		return nome;
+	}
+
+	public Turma getInst_turma() {
+		return inst_turma;
+	}
+
+	public void setInst_turma(Turma inst_turma) {
+		this.inst_turma = inst_turma;
 	}
 }

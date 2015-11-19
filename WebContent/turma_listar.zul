@@ -73,8 +73,8 @@
 											       	<listcell label="${each.descricao}" />
 										            <listcell >
 										            	<button sclass="branco" image="/images/3.2.png" width="30%" 
-										            	 
-										            	/>
+									            	 
+										         	   	/>
 										            </listcell>
 										             
 										        </listitem>

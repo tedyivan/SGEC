@@ -1,0 +1,60 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="templateFuncionario.zul" ?>
+<zk>
+	
+
+	<div align="center" id="d_instrutor_a"  self="@define(right)" width="50%" height="80%" apply="mz.gov.sgec.controller.FuncionarioController">
+		<style>
+				.z-listheader {
+	  					background: white;
+	  					border:0;
+					}    
+	  		.alocar{
+				Background:#E3DEDB;
+			}
+			.funcionario{
+				Background:#E3DEDB;
+			}
+		</style>
+		<label value="Selecione a turma por alocar" style="font-size:28px;"/>
+		<vlayout spacing="12px" >
+			<space height="2px"></space>	
+			<div>
+				<button id="pesq" label="Pesquisa" />
+				<textbox id="txt_pesq" width="70%"  />							
+			</div >
+			<div vflex = "3" width = "100%"  >
+				<hlayout spacing = "40px">
+					<div >	</div>
+					<div hflex = "3" >
+											<listbox id="lst_turmas" rows="5" multiple="false" checkmark="true">
+										        <listhead sizable="true" style="background:white;">
+										            <listheader align="center" width="40px" label="" />
+										            <listheader label="Designação:" sort="auto" />
+										            <listheader label="Periodo:" sort="auto" />
+										            <listheader label="Nº do Alunos:" sort="auto" />
+										        </listhead>
+										        <listitem value="${each}" forward="onClick$linha" forEach="${d_instrutor_a$FuncionarioController.turmas}">
+										            <listcell label=""/>
+										            <listcell label="${each.nome}" />
+										            <listcell >
+										            	<label value="${each.hora_inicio} -> "/>
+										            	<label value="${each.hora_fim}"/>
+										            </listcell>
+										            <listcell label="${each.lotacao}" />
+										        </listitem>		           
+										    </listbox>
+					</div>
+					<div  ></div>
+			    </hlayout>
+			</div>
+			<div vflex = "1" align = "right"></div>
+		</vlayout>
+		<vlayout>
+			<div>
+				<hlayout>
+			    	<button label="guardar" id=""/>                     					   
+				</hlayout>
+			</div>
+		</vlayout>
+	</div>
+</zk>

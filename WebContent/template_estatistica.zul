@@ -1,0 +1,39 @@
+<zk>
+	<style>
+			.instruendo{
+				Background:white;
+			}
+			.funcionario{
+				Background:white;
+			}
+			.material{
+				Background:white;
+			}
+			.quantia{
+				Background:white;
+			}
+			.incio{
+				Background:white;
+			}			
+	</style>
+	 		
+	<borderlayout>
+	  	<north self="@{insert(header)}" height="10%">
+	  		<include src="header.zul"></include>
+	  	</north>
+	    <west self="@{insert(left)}" width="10%" >
+	    	<include src="left.zul"></include>
+	    </west> 
+     	<center self="@{insert(buttoes)}" style="border-left:0px;">
+	    	<vlayout spacing="15px">
+				<space width="3%"></space>
+				<button id="" label="Funcionario" width="130px" height="30px" href="estatistica_funcionario.zul" sclass="funcionario"
+				onClick='Clients.evalJavaScript("myfunc()")'/>
+				<button id="" label="Material" width="130px" height="30px" href="estatistica_material.zul" sclass="material"/>
+				<button id="" label="Instruendo" width="130px" height="30px"  href="estatistica_instruendo.zul" sclass="instruendo"/>
+				<button id="" label="Quantia" width="130px" height="30px"  href="estatistica_quantia.zul" sclass="quantia"/>
+			</vlayout>
+	    </center>
+	    <east width="80%" self="@{insert(right)}" style="background:EAE5E5"/>
+ 	</borderlayout>
+</zk>

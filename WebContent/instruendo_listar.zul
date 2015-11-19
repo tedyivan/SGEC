@@ -1,16 +1,20 @@
-<!--  <?page title="Listas Instruendo" contentType="text/html;charset=UTF-8"?>  -->
+<?page title="Listas Instruendo" contentType="text/html;charset=UTF-8"?>
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="templateInstruendo.zul" ?>
 
 <zk>
-	<style>
-		.instruendo{
-			Background:#E3DEDB;
-		}
-		.listar{
-			Background:#E3DEDB;
-		}
-	</style>
-	<div id = "d_inst_listar" self="@define(right)" width = "100%" height="100%" apply = "mz.gov.sgec.controller.InstruendoController">
+    <window id="bl_servico"  self="@define(right)" apply="mz.gov.sgec.controller.InstruendoController" >
+	    <style>
+			.instruendo{
+				Background:#E3DEDB;
+			}
+			.listar{
+				Background:#E3DEDB;
+			}
+			.z-listheader {
+	  			background: white;
+	  			border:0;
+			} 
+		</style>
 		<vlayout height="100%" spacing = "20px" style = "border: 1px solid red">				
 			<div align = "center">
 			    <label value = "lista dos Instruendo"  style = "font-size:20pt"/>
@@ -23,34 +27,34 @@
 				<hlayout spacing = "40px">
 					<div ></div>
 					<div hflex = "3" >
-									<listbox id="lst_instruendo" height="450px">
-								        <listhead sizable="true">
-								            <listheader label="Código de barra:" sort="auto" />
-								            <listheader label="Nomes:" sort="auto" />
-								            <listheader label="Apelido:" sort="auto" />
-								            <listheader label="Tipo de carta:" sort="auto" />									
-								            <listheader label="Alocar a Turma:" sort="auto" />
-											<listheader label="Pagamento:" sort="auto" />
-								            <listheader label="Actualizar:" sort="auto" />
-										</listhead>
-										<listitem value="${each}" forEach="${d_inst_listar$InstruendoController.instruendos}">
-											<listcell label = "${each.codigo_barra}"/>
-						
-											<listcell label = "${each.nome}"/>
-									
-											<listcell label = "${each.apelido}"/>
-									
-											<listcell label = "${each.nome_pai}"/>
-											
-											<listcell label = "${each.apelido_pai}"/>
-											
-											<listcell label = "${each.nome_mae}"/>
-											
-											<listcell label = "${each.genero}" />
-										</listitem>
-								    </listbox>								    
-					</div>
-					<div  >	<button id = "btn_act" label = "act" href="instruendo_actualizar.zul" width="15%"/></div>
+					    <listbox id="lista_instruendo" rows="7" >
+					        <listhead >
+					            <listheader label="Código de barra:" sort="auto" />
+								<listheader label="Nomes:" sort="auto" />
+								<listheader label="Apelido:" sort="auto" />
+								<listheader label="Tipo de carta:" sort="auto" />									
+								<listheader label="Alocar a Turma:" sort="auto" />
+								<listheader label="Pagamento:" sort="auto" />
+								<listheader label="Actualizar:" sort="auto" />
+					        </listhead>
+					            <listitem value="${each}" forEach="${bl_servico$InstruendoController.instruendos}">
+					            <listcell label="${each.codigo_barra}" />            
+					            <listcell label="${each.nome}" />
+					            <listcell label="${each.apelido}"  />
+					            <listcell label="${each.tipo_carta}" />
+					            <listcell >
+					                 <button   forward="onClick$alocar" image="/widgets/Imagens/actualizar.png" />
+					            </listcell>
+					            <listcell >
+					                 <button   forward="onClick$pagar" image="/widgets/Imagens/actualizar.png" />
+					            </listcell>
+					            <listcell>
+					                 <button label = "e" forward="onClick$actualizar" image="/widgets/Imagens/remove.png" />
+					            </listcell>
+					        </listitem>
+					    </listbox>
+	   		 		</div>
+					<div >	<button id = "btn_act" label = "act" href="instruendo_actualizar.zul" width="15%"/></div>
 				</hlayout>
 			</div>
 			<div vflex = "1" align = "right">
@@ -65,5 +69,5 @@
 				</hlayout>							
 			</div>
 		</vlayout>
-	</div>
-</zk>
+     </window>
+</zk> 
