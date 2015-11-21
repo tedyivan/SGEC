@@ -22,6 +22,9 @@
 			.estatistica{
 				Background:white;
 			}
+			.help{
+				Background:white;
+			}
 	</style>
   <box width="30%" height="100%" pack="center" align="center">
     
@@ -62,7 +65,7 @@
 						                    				hoverImage="/images/13.2.png" width="130px" height="60px" sclass="esquerda" />     		
 						                    				
 						                    		<button label="Help" image="/images/7.2.png"
-						                    				hoverImage="/images/7.2.png" width="130px" height="60px" sclass="esquerda"/>     				                                  
+						                    				href="help_sgec.zul" hoverImage="/images/7.2.png" width="130px" height="60px" sclass="help"/>     				                                  
 		 </vlayout>   
 		
     

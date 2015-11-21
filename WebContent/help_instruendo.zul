@@ -1,0 +1,118 @@
+<?page title="Help Turma" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="templateAjuda.zul" ?>
+<zk>
+<style>
+			.help{
+				Background:#E3DEDB;
+			}
+			.help_instruendo{
+				Background:#E3DEDB;
+			}
+			
+		</style>
+		<window id = "d_help_f" self="@define(right)" width = "1158px" height="670px">
+			<vlayout width = "100%"  height="100%" style="border:1px solid black;overflow:auto;">
+			<hlayout>
+				<div hflex = "" ><space /></div>
+				<div hflex = "3">
+					<vlayout spacing = "12px">
+							
+					<div align = "center" sclass="titulo">
+					    <label value = "Sistema de Gestão de Escolas de Condução"  style = "font-size:20pt"/>
+					</div>
+					
+					<div>
+						<label value = "1. Registo de Instruendo" style = "font-size: 15pt"/>
+					</div>	
+					<div>
+									<label value =" Para registar instruendos dirija-se com a secta do mouse ao menu principal, clique na
+									opção"  style = "font-size: 11pt"/>
+									<label value = " instruendo"  style = "font-size: 11pt;font-weight: bold"/>
+									<label value = " e de seguida clique a opção"  style = "font-size: 11pt" />
+									<label value = " registar."  style = "font-size: 11pt;font-weight: bold" />
+									<label value = "Preencha os campos de registo e clique a opção"  style = "font-size: 11pt" />
+									<label value = " guardar."  style = "font-size: 11pt;font-weight: bold"/>
+					</div>
+							
+							<div>
+									<image src ="/images/Instruendo4.png" height="50%" width="90%"/>	
+							</div>
+														
+								
+								<div>
+									<label value = "2. Listagem de Instruendo" style = "font-size: 15pt"/>
+								</div>
+								
+								<div>
+									<label value =" Para listar instruendos dirija-se com a secta do mouse ao submenu de"  style = "font-size: 11pt" />
+									<label value = " instruendos "  style = "font-size: 11pt;font-weight: bold"/> 
+									<label value = "e clique a opção"  style = "font-size: 11pt"/>
+									<label value = "listar."  style = "font-size: 11pt;font-weight: bold" />
+									<label value = "Para além desta opção pode-se listar instruendos indo a barra de pesquisa
+									e escrevendo de seguida a expressão de pesquisa ("  style = "font-size: 11pt" />
+									<label value = "código do instruendo"  style = "font-size: 11pt;font-weight: bold"/>
+									<label value = "ou"  style = "font-size: 11pt" />
+									<label value = "nome"  style = "font-size: 11pt;font-weight: bold"/>
+									<label value = ") e clicando por fim em pesquisar."  style = "font-size: 11pt;font-weight: bold"/>
+								</div>
+								<div>
+									<image src ="/images/Instruendo3.png" height="50%" width="90%"/>	
+								</div>
+								<div>
+									<label value = "3. Registo de notas de testes de Instruendo" style = "font-size: 15pt"/>
+								</div>
+								
+								<div>
+									<label value =" Para registar notas de testes de instruendos dirija-se com a secta do mouse ao submenu de"  style = "font-size: 11pt"/>
+									<label value = "instruendos "  style = "font-size: 11pt;font-weight: bold"/>
+									<label value = "e clique a opção"  style = "font-size: 11pt"/>
+									<label value = " teste."  style = "font-size: 11pt;font-weight: bold" />
+									<label value = "De seguida clique no campo correspondente ao teste que se deseja registar e depois de preenchidos os campos
+									clique em"  style = "font-size: 11pt" />
+									<label value = "gravar alterações. "  style = "font-size: 11pt;font-weight: bold"/>
+									
+								</div>
+								<div>
+								    <label value = "3.1"/> 
+									<a label = " Expansão do número de testes" style = "font-size: 11pt"
+									href="help_expansaoTeste"/>
+								</div>
+								<div>
+									<label value = "4. Actualização de Instruendo" style = "font-size: 15pt"/>
+								</div>
+								<div>
+									<label value =" Para actualizar instruendos dirija-se com a secta do mouse ao submenu de"  style = "font-size: 11pt" />
+									<label value = "instruendos"  style = "font-size: 11pt;font-weight: bold"/> 
+									<label value = "e clique a opção"  style = "font-size: 11pt" />
+									<label value = " listar."  style = "font-size: 11pt;font-weight: bold"/>
+									<label value = " De seguida clique no campo de dados que deseja editar (alterar) e clique em"  style = "font-size: 11pt" />
+									<label value = "gravar alterações."  style = "font-size: 11pt;font-weight: bold"/>
+									<label value = "Pode-se ainda actualizar instruendos indo a barra de pesquisa e escrevendo a expressão de
+									pesquisa ("  style = "font-size: 11pt" />
+									<label value = "nome do instruendo"  style = "font-size: 11pt;font-weight: bold" /> <label value = " ou "  style = "font-size: 11pt" />
+									<label value = "código"  style = "font-size: 11pt;font-weight: bold"/>
+									<label value = ") e de seguida clicando em"  style = "font-size: 11pt" />
+									<label value = " pesquisar "  style = "font-size: 11pt;font-weight: bold"/> <label value = " ou"  style = "font-size: 11pt"/>
+									<label value = " Enter."  style = "font-size: 11pt;font-weight: bold"/>
+									<label value = " Depois de visualizar os resultados da pesquisa clicar no campo dados que pretende editar, editar os dados pretendidos e de
+									seguida clicar em"  style = "font-size: 11pt" />
+									<label value = "gravar alterações."  style = "font-size: 11pt;font-weight: bold"/>
+								</div>
+								
+								<div>
+									<label value = "5. Registo de Solicitações de Exame" style = "font-size: 15pt"/>
+								</div>
+								<div>
+									<label value =" Para o registo de solicitações de exame dirija-se com a secta do mouse ao submenu de"  style = "font-size: 11pt"/>
+									<label value = " instruendo "  style = "font-size: 11pt;font-weight: bold"/> 
+									<label value = "e clique a opção exame. De seguida preencha os campos de registo de solicitação de exame e por fim clique na opção"  style = "font-size: 11pt" />
+									<label value = " submeter."  style = "font-size: 11pt;font-weight: bold"/>
+								</div>
+								<space></space>
+				    		</vlayout>
+						</div>
+				<div hflex = ""><space /></div>
+			</hlayout>
+			</vlayout>
+			</window>
+</zk>

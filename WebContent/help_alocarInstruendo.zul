@@ -1,0 +1,50 @@
+<?page title="Help Instruendo" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="templateAjuda.zul" ?>
+<zk>
+		<style>
+			.help{
+				Background:#E3DEDB;
+			}
+			.help_instruendo{
+				Background:#E3DEDB;
+			}
+		</style>
+		<div id = "d_help_f" self="@define(right)" width = "100%">
+					<vlayout height="100%" spacing = "20px">				
+							<div align = "center" sclass="titulo">
+							    <label value = "Sistema de Gestão de Escolas de Condução"  style = "font-size:20pt"/>
+							</div>
+							
+										<div vflex = "3" width = "100%"  >
+											<hlayout spacing = "40px">
+											<div >
+											</div>
+											<div hflex = "3" >
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+							
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+								<label value = "1. Alocação de Instruendo a uma  turma" style = "font-size: 15pt"/>
+							</div>	
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+								<label value =" Para alocar instruendos a uma turma dirija-se com a secta do mouse ao menu principal, clique na
+								opção"  style = "font-size: 11pt"/>
+								<label value = " instruendo"  style = "font-size: 11pt;font-weight: bold"/>
+								<label value = " e de seguida clique a opção"  style = "font-size: 11pt" />
+								<label value = " registar."  style = "font-size: 11pt;font-weight: bold" />
+								<label value = "Preencha os campos de registo e clique a opção"  style = "font-size: 11pt" />
+								<label value = " guardar."  style = "font-size: 11pt;font-weight: bold"/>
+							</div>
+							
+							                </div>				    
+											</div>
+											<div >
+											</div>
+										    </hlayout>
+										</div>
+										
+							</vlayout>
+				</div>
+</zk>

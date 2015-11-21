@@ -1,19 +1,35 @@
 <?page title="Listar Funcionario" contentType="text/html;charset=UTF-8"?>
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="templateFuncionario.zul" ?>
 <zk>
+	
+	<window id = "win_inst_listar" self="@define(right)" width = "100%" height="100%" apply = "mz.gov.sgec.controller.FuncionarioController">
 	<style>
+		.titulo{
+				Background:#E3DEDB;
+		}
 		.funcionario{
 			Background:#E3DEDB;
 		}
 		.listar{
 			Background:#E3DEDB;
 		}
+		.pesqui {
+				background: white;
+  				border:0;
+			}
+			.branco {
+				background: white;
+  				border:0;
+			}
 	</style>
-	<div id = "d_inst_listar" self="@define(right)" width = "100%" height="100%" apply = "mz.gov.sgec.controller.FuncionarioController">
 		<vlayout height="100%" spacing = "20px">				
 			<div align = "center" sclass="titulo">
 			    <label value = "Lista de Funcionarios"  style = "font-size:20pt"/>
 			</div>
+			<div align="right">
+				<button  forward="onClick$btn_teste"  label="Pesquisa" sclass="pesqui" />
+				<textbox id="txt_pesq" width="40%" constraint="no empty" />							
+			</div >
 			<div vflex = "3" width = "100%"  >
 				<hlayout spacing = "40px">
 					<div ></div>
@@ -26,7 +42,7 @@
 								<listheader label="Estado:" sort="auto" />
 								<listheader label="Opções:" sort="auto" />
 							</listhead>
-							<listitem value="${each}" forward="onClick$linha" forEach="${d_inst_listar$FuncionarioController.funcionarios}">
+							<listitem value="${each}" forward="onClick$linha" forEach="${win_inst_listar$FuncionarioController.funcionarios}">
 							   	<listcell label = "${each.id}"/>
 								<listcell label = "${each.nome}"/>
 								<listcell label = "${each.nome}"/>
@@ -39,5 +55,5 @@
 				</hlayout>
 			</div>
 		</vlayout>
-	</div>
+	</window>
 </zk>

@@ -1,0 +1,95 @@
+<?page title="Help Funcionario" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="templateAjuda.zul" ?>
+<zk>
+		<style>
+			.help{
+				Background:#E3DEDB;
+			}
+			.help_funcionario{
+				Background:#E3DEDB;
+			}
+			
+		</style>
+		<div id = "d_help_f" self="@define(right)" width = "100%" height="100%" >
+					<vlayout height="100%" spacing = "20px">				
+							<div align = "center" sclass="titulo">
+							    <label value = "Sistema de Gestão de Escolas de Condução"  style = "font-size:20pt"/>
+							</div>
+							
+										<div vflex = "3" width = "100%"  >
+											<hlayout spacing = "40px">
+											<div >
+											</div>
+											<div hflex = "3" >
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+							
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+								<label value = "1. Registo de Funcionários" style = "font-size: 15pt"/>
+							</div>	
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+								<label value =" Para registar funcionários dirija-se com a secta do mouse ao submenu de"  style = "font-size: 11pt" />
+								<label value = "funcionários"  style = "font-size: 11pt;font-weight: bold"/>
+								<label value = "e clique a opção"  style = "font-size: 11pt"/> <label value = "registar."  style = "font-size: 11pt;font-weight: bold"/>
+								<label value = "De seguida preencha os campos de registo e clique a opção"  style = "font-size: 11pt"/>
+								<label value = " Ok." style = "font-size: 11pt;font-weight: bold"/>
+							</div>
+							
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+								<image src ="/images/funcionario2.png" height="50%" width="90%"/>	
+							</div>
+							
+							
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+								<label value = "2. Listagem de Funcionários" style = "font-size: 15pt"/>
+							</div>	
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+								<label value =" Para listar funcionários dirija-se com a secta do mouse ao submenu de"  style = "font-size: 11pt"/>
+								<label value = " funcionários "  style = "font-size: 11pt;font-weight: bold"/> 
+								<label value = "e clique a opção"  style = "font-size: 11pt"/>
+								<label value = " listar."  style = "font-size: 11pt;font-weight: bold"/>
+								<label value = " Para além desta opção pode-se listar funcinários indo a barra de pesquisa
+								e escrevendo de seguida a expressão de pesquisa ("  style = "font-size: 11pt" />
+								<label value = "nome do funcionário"  style = "font-size: 11pt;font-weight: bold" />
+								<label value = ") e clicando por fim em"  style = "font-size: 11pt"/>
+								<label value = " pesquisar."  style = "font-size: 11pt;font-weight: bold"/>
+							</div>
+										
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+								<label value = "3. Actualização de Funcionários" style = "font-size: 15pt"/>
+							</div>	
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+								<label value =" Para actualizar funcionários dirija-se com a secta do mouse ao submenu de"  style = "font-size: 11pt" />
+								<label value = "funcionários"  style = "font-size: 11pt;font-weight: bold"/>
+								<label value = "e clique a opção"  style = "font-size: 11pt"/>
+								<label value = " listar."  style = "font-size: 11pt;font-weight: bold"/>
+								<label value = " De seguida clique no campo de dados que deseja editar (alterar) e clique em"  style = "font-size: 11pt" />
+								<label value = "gravar alterações."  style = "font-size: 11pt;font-weight: bold" />
+								<label value = "Pode-se ainda actualizar funcionários indo a barra de pesquisa e escrevendo a expressão de
+								pesquisa ("  style = "font-size: 11pt" />
+								<label value = "nome do funcionário"  style = "font-size: 11pt;font-weight: bold" />
+								<label value = ") e de seguida clicando em "  style = "font-size: 11pt" />
+								<label value = "pesquisar"  style = "font-size: 11pt;font-weight: bold" /> <label value = "ou"  style = "font-size: 11pt" />
+								<label value = " Enter."  style = "font-size: 11pt;font-weight: bold"/>
+								<label value = "Depois de visualizar os resultados da pesquisa clicar no campo dados que pretende editar, editar os dados pretendidos e de
+								seguida clicar em"  style = "font-size: 11pt"/>
+								<label  value = " gravar alterações."  style = "font-size: 11pt;font-weight: bold"/>
+							</div>
+			
+		                    </div>				    
+											</div>
+											<div >
+											</div>
+										    </hlayout>
+										</div>
+										
+							</vlayout>
+				</div>
+</zk>

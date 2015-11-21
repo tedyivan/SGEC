@@ -1,51 +1,49 @@
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="templateInstruendo.zul" ?>
 <?component name="mylistheader" extends="listheader" class="mz.gov.sgec.controller.My"?>
 <zk>
+	<window id="d_inst_t" self="@define(right)" width = "100%" height="100%" style = "border: 1px solid red" apply = "mz.gov.sgec.controller.InstruendoController">	
 		<style>
-			
+			.titulo{
+				Background:#E3DEDB;
+			}
 			.instruendo{
 				Background:#E3DEDB;
 			}
-		
 			.teste{
 				Background:#E3DEDB;
 			}
-			zk.afterLoad('zul.mesh', function () {
-		        var _xColumnMenuWidget = {};
-		        zk.override(zul.mesh.ColumnMenuWidget.prototype, _xColumnMenuWidget, {
-		            _onColVisi: function (evt) {
-		                _xColumnMenuWidget._onColVisi.apply(this, arguments); //call the original method
-		                var item = evt.currentTarget,
-		                    col = zk.Widget.$(item._col);
-		                col.smartUpdate('visible', item.isChecked());
-		            }
-		        });
-		    });
+			.pesqui {
+				background: white;
+  				border:0;
+			}
+			.branco {
+				background: white;
+  				border:0;
+			}
 		</style>
-	<div id="d_inst_t" self="@define(right)" width = "100%" height="100%" style = "border: 1px solid red" apply = "mz.gov.sgec.controller.InstruendoController">	
+		<div  width = "100%" align = "center" sclass="titulo">
+			<label value = "Formulario de registo de Notas"  style = "font-size:20pt"/>
+		</div>	
 		<vlayout height="100%" spacing = "10px">
-			<div  width = "100%" align = "center" >
-				<label value = "Formulario de registo de Notas"  style = "font-size:20pt"/>
-			</div>	
 			<separator spacing = "12px"></separator>
-			<div width = "80%" align = "left" >
-				<button id="pesq" label="Pesquisa" />
-				<textbox id="txt_pesq" width="18%" />							
-			</div>				
+			<div align="right">
+				<button  forward = ""  label="Pesquisa" sclass="pesqui" />
+				<textbox id="txt_pesq" width="40%" constraint="no empty" />							
+			</div >		
 				<hlayout>
 					<div hflex="1" ></div>
 					<div hflex="1" align = "center">
-						<combobox id="cb_turma" width = "40%">
+					<combobox id="turma_teste" forward="onChange=onSearch"  width = "40%">
 							<attribute name="onCreate"> self.setSelectedIndex(0); </attribute>
-								<comboitem label ="Turma"/>
+							<comboitem label ="Turma"/>
 							<comboitem label = "${each.nome}" value = "${each.getNome()}" forEach = "${d_inst_t$InstruendoController.turmas}"/>
-						</combobox>						
+					</combobox>						
 					</div>
 					<div hflex="1" ></div>
 					<div hflex="1"></div>
 				</hlayout>
 				<div align = "center" width = "100%">
-					<listbox id="listbox" width="80%">
+					<listbox id="listbox_teste" width="80%">
 						<listhead menupopup="auto" sizable="true" id="listHeader">
 							<mylistheader label="Código de barra:" visible="true" sort="auto"/>
 							<mylistheader label="Nomes:" visible="true" sort="auto"/>
@@ -59,21 +57,11 @@
 							<mylistheader label="teste 7" visible="false" sort="auto"/>
 							<mylistheader label="teste 8" visible="false" sort="auto"/>
 						</listhead>
-						<listitem value="${each}" forEach="${d_inst_t$InstruendoController.instruendos}">
-							<listcell label = "${each.codigo_barra}"/>
-							<listcell label = "${each.nome}"/>
-							<listcell label = "${each.apelido}"/>
-							<listcell> <textbox id="" width="100%" /> </listcell>
-							<listcell> <textbox id="" width="100%" /> </listcell>
-							<listcell> <textbox id="" width="100%" /> </listcell>
-							<listcell> <textbox id="" width="100%" /> </listcell>
-							<listcell> <textbox id="" width="100%" /> </listcell>
-							<listcell> <textbox id="" width="100%" /> </listcell>
-							<listcell> <textbox id="" width="100%" /> </listcell>
-							<listcell> <textbox id="" width="100%" /> </listcell>
-						</listitem>
 					</listbox>
 				</div>
+				<div>
+					   <button label = "e" forward="onClick$btn_teste" />
+				</div>
 		</vlayout>		
-	</div>
+	</window>
 </zk>

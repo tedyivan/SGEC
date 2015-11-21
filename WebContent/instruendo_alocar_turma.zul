@@ -1,0 +1,70 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window border="normal" mode="highlighted" id="win_inst_a" width="50%" height="80%" apply="mz.gov.sgec.controller.InstruendoController">
+		<style>
+			.titulo{
+				Background:#E3DEDB;
+			}
+			.z-listheader {
+  				background: white;
+  				border:0;
+			}
+			.pesqui {
+				background: white;
+  				border:0;
+			}
+			.branco {
+				background: white;
+  				border:0;
+			}
+  		</style>
+  		<zscript>
+		  	import mz.gov.sgec.model.Instruendo;
+		    
+		    Instruendo instruend = (Instruendo)Executions.getCurrent().getArg().get("1");
+   
+		</zscript>
+  		<hlayout>
+  			<div></div>
+  			<div hflex = "3">
+ 		 		<div align="center" sclass="titulo">
+					<label value="Selecione a turma por alocar" style="font-size:28px;"/>
+				</div>
+  				<vlayout spacing="12px" >
+					<space height="2px"></space>	
+					<div align="right">
+						<button  forward=""  label="Pesquisa" sclass="pesqui" />
+						<textbox id="txt_pesq" width="40%" constraint="no empty" />							
+					</div >
+					<hlayout>
+						<div>
+							<combobox id="alocar_turma" width = "40%">
+								<attribute name="onCreate"> self.setSelectedIndex(0); </attribute>
+								<comboitem label ="Turma"/>
+								<comboitem label = "${each.nome}" value = "${each.getNome()}" forEach = "${win_inst_a$InstruendoController.turmas}"/>
+						</combobox>
+						</div>
+					</hlayout>
+					<div vflex = "3" width = "100%"  >
+						<listbox id="lst_alocar_instruendo" rows="5" multiple="false" checkmark="true" sclass="branco">
+							<listhead sizable = "true">
+								<listheader label = "Código de barra:" align="center"/>
+								<listheader label = "Nome:" sort="auto" />
+								<listheader label = "Apelido:" sort="auto" />
+							</listhead>
+							<listitem value="${each}" forward = "">
+							    <listcell label = "${instruend.codigo_barra}" value = "${each.codigo_barra}"/>
+								<listcell label = "${instruend.nome}" value = "${each.nome}"/>
+								<listcell label = "${instruend.apelido}" value = "${each.apelido}"/>
+							</listitem>
+						</listbox>
+					</div>
+					<div align="center">
+					  	<button label="guardar" id="detac_alocar" onClick="win_inst_a.detach()"/>
+					</div>
+				</vlayout>
+  			</div>
+  			<div></div>
+  		</hlayout>
+	</window>
+</zk>

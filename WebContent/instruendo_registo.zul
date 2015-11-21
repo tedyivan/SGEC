@@ -1,7 +1,11 @@
 <?page title="Registo de Instruendo" contentType="text/html;charset=UTF-8"?>
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="templateInstruendo.zul" ?>
 <zk>
+	<window id="win_registo" self="@define(right)" width = "100%" height="100%" apply = "mz.gov.sgec.controller.InstruendoController">
 	<style>
+		.titulo{
+				Background:#E3DEDB;
+			}
 		.instruendo{
 			Background:#E3DEDB;
 		}
@@ -9,11 +13,11 @@
 			Background:#E3DEDB;
 		}
 	</style>
-	<div id="registo" self="@define(right)" width = "100%" height="100%" apply = "mz.gov.sgec.controller.InstruendoController">
 		<vlayout height="100%" >
-			<div  width = "100%" align = "center" vflex = "1">
+			<div  width = "100%" align = "center" sclass="titulo">
 			    <label value = "Registo do Instruendo"  style = "font-size:20pt"/>
 			</div>
+			<separator spacing = "130px"></separator>
 			<div vflex = "3">
 				<hlayout >
 					<div hflex="1"></div>
@@ -25,7 +29,6 @@
 							</div>
 							<div hflex="2" align = "left">
 								<textbox id="txt_nome" width="80%" constraint="no empty" />
-
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -192,7 +195,7 @@
 						<hlayout>
 							<div hflex="1"></div>
 							<div hflex="2" align = "left">
-								<separator spacing = "120px"></separator>
+								<separator spacing = "100px"></separator>
 								<button id = "btn_reg" label = "guardar" width="40%"/>
 								<button label = "voltar" width="40%"/>							
 							</div>
@@ -203,5 +206,5 @@
 				</hlayout>
 			</div>
 		</vlayout>
-	</div>		
+	</window>		
 </zk>

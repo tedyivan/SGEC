@@ -9,6 +9,8 @@ import java.util.Map;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.zkoss.bind.annotation.DependsOn;
+import org.zkoss.bind.annotation.Init;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.util.Clients;
@@ -18,6 +20,7 @@ import org.zkoss.zul.Div;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.event.ForwardEvent;
+import org.zkoss.zk.ui.event.OpenEvent;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
@@ -63,50 +66,118 @@ public class InstruendoController extends GenericForwardComposer {
 		private Combobox cb_tipo_carta;
 		private Combobox cb_turma;
 		private Datebox d_validade_bi;
-		private Listbox lst_instruendo;
+		private Listbox lst_instruendo, listbox_teste;
+		private Textbox txt_nome_t;
+		private Combobox turma_teste;
+		private Listbox lst_alocar_instruendo;
+		private Combobox alocar_turma;
 
-		private Button btn_reg;
-		private Button btn_turma;
-		private Button btn_pagamento;
-		private Button btn_actualizar;
-		//private Button btn_act;
-		private long turma_id, instruend_id;	;
+		private long turma_id;
+		private long instruend_id;	
 		private TurmaDAO tdao = new TurmaDAO();
 		private Turma turma = new Turma();
 		private InstruendoDAO idao = new InstruendoDAO();
 		private Instruendo instruendo = new Instruendo();
 		private String instruendo_bi;
-		public void onClick$alocar(){
-			Clients.showNotification("Alocar de Instruendo"); 
+		
+		public void onClick$voltar_l(Event e){
+			Executions.sendRedirect("instruendo_listar.zul");
 		}
-		public void onClick$pagar(){
-			Clients.showNotification("pagar de Instruendo"); 
-		}
-
 		public void onClick$actualizar(ForwardEvent e){
 			Button b = (Button)e.getOrigin().getTarget();
 			Listitem li = ((Listitem)b.getParent().getParent());
-			
-			
-			li.setSelected(true);	
+			li.setSelected(true);
 		    instruendo = (Instruendo) li.getValue();
-		    Map<String, Instruendo> h = new HashMap<>();
+		    Map <String,Instruendo> h = new HashMap<>();
 		    h.put("1", instruendo);
-		    //Clients.showNotification("Acteee  "+ instruend_id);
-			//Window window = (Window) Executions.createComponents("instruendo_actualizar.zul", null, h);
-			//window.doModal();
-		   Executions.createComponents("instruendo_actualizar.zul", null, h);
+		    Executions.createComponents("instruendo_actualizar.zul", null, h);
+		}
+		//lista inst
+		public void onClick$alocar(ForwardEvent e){
+			Button b = (Button)e.getOrigin().getTarget();
+			Listitem li = ((Listitem)b.getParent().getParent());
+			li.setSelected(true);
+		    instruendo = (Instruendo) li.getValue();
+		    Map <String,Instruendo> h = new HashMap<>();
+		    h.put("1", instruendo);
+			Executions.createComponents("instruendo_alocar_turma.zul",null,h);
+		}
+		//alocar na lista 
+		public void onClick$detac_alocar(ForwardEvent e){
+			List <Instruendo> result = getInstruendos();
+			List <Turma> result_t = getTurmas();
+			Turma t;
+			Instruendo inst;
+			
+			//long inst_id = 0;
+			Listitem lstit = lst_alocar_instruendo.getSelectedItem();
+			instruendo.setNome(((Listcell)lstit.getChildren().get(1)).getLabel());
+			turma.setNome(alocar_turma.getText());			
+			
+			for (int i = 0; i < result_t.size(); i++){
+				t = result_t.get(i);
+				if (turma.getNome().equals(t.getNome())){
+					turma_id = t.getId();
+				}
+			}
+			
+			for (int i = 0; i < result.size(); i++){
+				inst = result.get(i);
+				if (inst.getNome().equals(instruendo.getNome())){
+					//problemas actualiazar Altura
+					//instruendo.setAltura(result.get((int)instruend_id).getAltura());
+					instruendo.setId(inst.getId());
+					instruendo.setApelido(inst.getApelido());
+					instruendo.setApelido_pai(inst.getApelido_pai());
+					instruendo.setApelido_mae(inst.getApelido_mae());
+					instruendo.setBi(inst.getBi());
+					instruendo.setCodigo_barra(inst.getCodigo_barra());
+					instruendo.setData_nascimento(inst.getData_nascimento());			
+					instruendo.setEstado_civil(inst.getEstado_civil());
+					instruendo.setGenero(inst.getGenero());
+					instruendo.setNaturalidade(inst.getNaturalidade());
+					instruendo.setNome(inst.getNome());
+					instruendo.setNome_mae(inst.getNome_mae());
+					instruendo.setNome_pai(inst.getNome_pai());
+					instruendo.setResidencia(inst.getResidencia());
+					instruendo.setTelefone(inst.getTelefone());
+					instruendo.setTipo_carta(inst.getTipo_carta());
+					instruendo.setValidade_bi(inst.getValidade_bi());
+				}
+			}
+			
+			turma.setId(turma_id);
+			instruendo.setInst_turma(turma);
+			idao.update(instruendo);
+			
+			Clients.showNotification("Alocado a nova turma Instruendo " + instruendo.getNome() + " a " + turma_id);
+		}
+		//lista inst
+		public void onClick$pagar(){
+			Clients.showNotification("pagar de Instruendo"); 
 		}
 		
 		public void onClick$btn_pagamento(Event e){
 			Window window = (Window) Executions.createComponents("instruendo_pagamento.zul",null,null);
 			window.doModal();
 		}
+		//tedy ....
+		public void onClick$linha(ForwardEvent e){
+			turma = (Turma)((Listitem) e.getOrigin().getTarget()).getValue();
+			turma_id = turma.getId();
+			Executions.getCurrent().getDesktop().getSession().setAttribute("turma_id", turma_id);
+		}
 		
+		public void onClick$btn_turma(ForwardEvent e){
+			Window window = (Window) Executions.createComponents("instruendo_alocar.zul",null,null);
+			window.doModal();
+		}
 		
 		public void onClick$btn_reg(Event e){
+		
+			turma_id = (long) Executions.getCurrent().getDesktop().getSession().getAttribute("turma_id");
 			turma.setId(turma_id);
-			instruendo.setId((long)(Math.random()*1000000)+1);
+			//instruendo.setId((long)(Math.random()*1000000)+1);
 			instruendo.setAltura(Double.parseDouble(sp_inteiro.getValue()+"."+sp_decimal.getValue()));
 			instruendo.setApelido(txt_apelido.getText());
 			instruendo.setApelido_pai(txt_apelido_pai.getText());
@@ -127,19 +198,10 @@ public class InstruendoController extends GenericForwardComposer {
 			instruendo.setInst_turma(turma);
 			
 			idao.create(instruendo);
-			Clients.showNotification("Registo de Instruendo"); 
+			Clients.showNotification("Registo de Instruendo"+ turma_id); 
 			clear();
 		}
-		public void onClick$btn_turma(Event e){
-			Window window = (Window) Executions.createComponents("instruendo_alocar.zul",null,null);
-			window.doModal();
-		}
-		
-		public void onClick$linha(ForwardEvent e){
-			turma = (Turma)((Listitem) e.getOrigin().getTarget()).getValue();
-			turma_id = turma.getId();
-		}
-		
+
 		public void onClick$btn_actualizar(Event e){
 			//moiane
 			List <Instruendo> result = getInstruendos();
@@ -213,5 +275,77 @@ public class InstruendoController extends GenericForwardComposer {
 			long id = 2;
 			inst.setId(id);
 			return idao.findById(inst.getId());
+		}
+		
+		public void onSearch(ForwardEvent event) {
+			List <Instruendo> result = getInstruendos();
+			List <Turma> result_t = getTurmas();
+			turma.setNome(turma_teste.getText());
+			for (int i = 0; i < result.size(); i++){
+				instruendo = result.get(i);
+					if (turma.getNome().equals(instruendo.getInst_turma().getNome())){
+					addTesteInstruendo(instruendo);
+				}
+			}
+			Clients.showNotification("Teste k" +turma.getNome());
+	    }
+		
+		private void addTesteInstruendo(Instruendo inst){
+			Listitem lstit = new Listitem();
+			
+			Listcell lstcl = new Listcell(String.valueOf(inst.getId()));
+			Textbox text = new Textbox();
+			
+			lstcl = new Listcell(inst.getCodigo_barra());
+			lstit.appendChild(lstcl);
+			
+			lstcl = new Listcell(inst.getNome());
+			lstit.appendChild(lstcl);
+
+			lstcl = new Listcell(inst.getApelido());
+			lstit.appendChild(lstcl);
+			
+			lstcl = new Listcell();
+			text = new Textbox(inst.getApelido());
+			text.setParent(lstcl);
+			lstit.appendChild(lstcl);
+			
+			lstcl = new Listcell();
+			text = new Textbox(inst.getApelido());
+			text.setParent(lstcl);
+			lstit.appendChild(lstcl);
+			
+			lstcl = new Listcell();
+			text = new Textbox(inst.getApelido());
+			text.setParent(lstcl);
+			lstit.appendChild(lstcl);
+			
+			lstcl = new Listcell();
+			text = new Textbox(inst.getApelido());
+			text.setParent(lstcl);
+			lstit.appendChild(lstcl);
+			
+			lstcl = new Listcell();
+			text = new Textbox(inst.getApelido());
+			text.setParent(lstcl);
+			lstit.appendChild(lstcl);
+			
+			lstcl = new Listcell();
+			text = new Textbox(inst.getApelido());
+			text.setParent(lstcl);
+			lstit.appendChild(lstcl);
+			
+			lstcl = new Listcell();
+			text = new Textbox(inst.getApelido());
+			text.setParent(lstcl);
+			lstit.appendChild(lstcl);
+			
+			lstcl = new Listcell();
+			text = new Textbox(inst.getApelido());
+			text.setParent(lstcl);
+			lstit.appendChild(lstcl);
+			
+			lstit.setValue(inst);
+			listbox_teste.appendChild(lstit);
 		}
 }

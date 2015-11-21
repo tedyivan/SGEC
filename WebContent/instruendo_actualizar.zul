@@ -1,8 +1,7 @@
-<?page title="new page title" contentType="text/html;charset=UTF-8"?>
 
 <zk>
 
-	<window border="normal" mode="highlighted" closable="true" width = "50%" height="100%" style = "border: 1px solid red" apply = "mz.gov.sgec.controller.InstruendoController">
+	<window border="normal" mode = "highlighted" width = "50%" height="100%" apply = "mz.gov.sgec.controller.InstruendoController">
 	
 	<zscript>
 	  	import mz.gov.sgec.model.Instruendo;

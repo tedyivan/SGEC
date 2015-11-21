@@ -1,0 +1,135 @@
+<?page title="Help SGEC" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="templateAjuda.zul" ?>
+<zk>
+<style>
+			
+			.help{
+				Background:#E3DEDB;
+			}
+			.sgec{
+				Background:#E3DEDB;
+			}
+		</style>
+		
+		<div id = "d_help_f" self="@define(right)" width = "100%" height="100%">
+					<vlayout height="100%" spacing = "20px">				
+							<div align = "center" sclass="titulo">
+							    <label value = "Sistema de Gestão de Escolas de Condução"  style = "font-size:20pt"/>
+							</div>
+							
+										<div vflex = "3" width = "100%"  >
+											<hlayout spacing = "40px">
+											<div >
+											</div>
+											<div hflex = "3" >
+											
+											
+											  
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+							<hlayout><div></div></hlayout>
+								<label value = "O" style = "font-size: 11pt"/>
+								<label value = "sistema de gestão de escolas de condução" style = "font-size: 11pt;font-weight: bold"/>
+								<label value = "permite com que se faça a gestão de todos os elementos que compõem as escolas de condução e que precisam 
+								 ser geridos nomeadamente: Funcionários, materias, instruendos,Turmas, bem como ver
+								 estatísticas sobre todos os componentes anteriormente mencionados,entre outros.
+								 Encontrará de seguida os procedimentos necessários 
+								 para realizar qualquer actividade no SGEC. " style = "font-size: 11pt"/>
+							</div>	 
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+							
+							
+							
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+								<label value = "1. Como Proceder ao registo, listagem e actualização de Instruendos?" style = "font-size: 15pt"/>
+							</div>	
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+							
+								<label value =" Para proceder ao registo, listagem e actualização de Instruendos dirija-se ao menu principal e com a seta do mouse clique a 
+								opção" style = "font-size: 11pt" />
+								<label value = "Instruendo" style = "font-size: 11pt;font-weight: bold" />
+								<label value = "no menu apresentado a esquerda..." style = "font-size: 11pt"/>
+								<a id = "a_ver_mais" label= "ver mais" href = "help_instruendo.zul"/>
+							</div>
+							
+							<hlayout><div></div></hlayout>
+							
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+								<label value = "2. Como Proceder ao registo, listagem e actualização de Turmas?" style = "font-size: 15pt"/>
+							</div>	
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+							
+						   <label value =" Para proceder ao registo, listagem e actualização de Turmas dirija-se ao menu principal e com a seta do mouse clique a 
+								opção" style = "font-size: 11pt" />
+								<label value = "Turma" style = "font-size: 11pt;font-weight: bold" />
+								<label value = "no menu apresentado a esquerda..." style = "font-size: 11pt"/>
+								<a label = "ver mais" href = "help_turma.zul"/>
+							</div>
+							
+							<hlayout><div></div></hlayout>
+							
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+								<label value = "3. Como Proceder ao registo, listagem e actualização de Funcionários?" style = "font-size: 15pt"/>
+							</div>	
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+							
+								<label value =" Para proceder ao registo, listagem e actualização de Funcionários dirija-se ao menu principal e com a seta do mouse clique a 
+								opção" style = "font-size: 11pt" />
+								<label value = "funcionário" style = "font-size: 11pt;font-weight: bold"/>
+								<label value = "no menu apresentado a esquerda..." style = "font-size: 11pt"/>
+								<a label = "ver mais" href = "help_funcionario.zul"/>
+							</div>
+							
+							<hlayout><div></div></hlayout>
+							
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+								<label value = "4.  Como Proceder ao registo, listagem e actualização de Materiais?" style = "font-size: 15pt"/>
+							</div>	
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+							
+								<label value = "Para proceder ao registo, listagem e actualização de Materiais dirija-se ao menu principal e com a seta do mouse clique a 
+								opção" style = "font-size: 11pt"/>
+								<label value = "material" style = "font-size: 11pt;font-weight: bold"/>
+								<label value = "no menu apresentado a esquerda..." style = "font-size: 11pt"/>
+								<a label = "ver mais" href = "help_material.zul"/>
+							</div>
+							
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+								<label value = "5.  Como ver estatísticas" style = "font-size: 15pt"/>
+							</div>	
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+							
+								<label value ="As estatísticas podem ser visualizadas  dirijindo-se ao menu principal e clicando com a seta do mouse  a 
+								opção"  style = "font-size: 11pt"/>
+								<label value = "estatísticas"  style = "font-size: 11pt;font-weight: bold"/>
+								<label value = "no menu apresentado a esquerda..." style = "font-size: 11pt"/>
+								<a label = "ver mais" href = "help_estatistica.zul"/>
+							</div>
+							
+							
+							<hlayout><div></div></hlayout>
+							<hlayout><div></div></hlayout>
+						    <hlayout><div></div></hlayout>
+					        <hlayout><div></div></hlayout>
+												    
+							</div>				    
+											</div>
+											<div >
+											</div>
+										    </hlayout>
+										</div>
+										
+							</vlayout>
+				</div>
+</zk>

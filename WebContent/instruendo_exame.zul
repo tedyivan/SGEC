@@ -1,24 +1,34 @@
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="templateInstruendo.zul" ?>
 <zk>
-		<style>
-			
+	<window id="d_inst_p" self="@define(right)" width = "100%" height="100%" apply = "mz.gov.sgec.controller.InstruendoController">	
+	<style>
+			.titulo{
+				Background:#E3DEDB;
+			}
 			.instruendo{
 				Background:#E3DEDB;
 			}
 			.registo{
 				Background:#E3DEDB;
 			}
+			.pesqui {
+				background: white;
+  				border:0;
+			}
+			.branco {
+				background: white;
+  				border:0;
+			}
 		</style>
-	<div id="d_inst_p" self="@define(right)" width = "100%" height="100%" style = "border: 1px solid red" apply = "mz.gov.sgec.controller.InstruendoController">	
 		<vlayout height="100%" spacing = "10px">
-			<separator></separator>
-			<div  width = "100%" align = "center" >
+			<div  width = "100%" align = "center" sclass="titulo">
 				<label value = "Solicitacao de Exame"  style = "font-size:20pt"/>
-			</div>	
-			<div width = "80%" align = "left" >
-				<button id="pesq" label="Pesquisa" />
-				<textbox id="txt_pesq" width="18%" />							
-			</div>				
+			</div>
+			<separator></separator>
+			<div align="right">
+				<button  forward=""  label="Pesquisa" sclass="pesqui" />
+				<textbox id="txt_pesq" width="40%" constraint="no empty" />							
+			</div >				
 			<separator spacing = "12px"></separator>
 			<div align = "center">
 				<listbox id="lst_instruendo" height="70px" width="80%" >
@@ -47,5 +57,5 @@
 			</div>	
 										
 		</vlayout>		
-	</div>
+	</window>
 </zk>

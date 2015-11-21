@@ -1,0 +1,53 @@
+<zk>
+	<style>
+			.sgec{
+				Background:white;
+			.help_instruendo{
+				Background:white;
+			}
+			.help_funcionario{
+				Background:white;
+			}
+			.help_turma{
+				Background:white;
+			}
+			.help_material{
+				Background:white;
+			}
+			.help_estatistica{
+				Background:white;
+			}
+			.help_administracao{
+				Background:white;
+			}
+			.help_notificacao{
+				Background:white;
+			}
+			.help_inicio{
+				Background:white;
+			}
+	</style>
+	 		
+	<borderlayout>
+	  	<north self="@{insert(header)}" height="10%">
+	  		<include src="header.zul"></include>
+	  	</north>
+	    <west self="@{insert(left)}" width="10%" >
+	    	<include src="left.zul"></include>
+	    </west> 
+     	<center self="@{insert(buttoes)}" style="border-left:0px;">
+	    	<vlayout spacing="15px">
+				<space width="3%"></space>
+				<button id="" label="SGEC" width="130px" height="30px"  href="help_sgec.zul" sclass="sgec"/>
+				<button id="" label="Turma" width="130px" height="30px"  href="help_turma.zul" sclass="help_turma"/>
+				<button id="" label="Funcionario" width="130px" height="30px" href="help_funcionario.zul" sclass="help_funcionario" />
+				<button id="" label="Material" width="130px" height="30px" href="help_material.zul" sclass="help_material"/>
+				<button id="" label="Instruendo" width="130px" height="30px"  href="help_instruendo.zul" sclass="help_instruendo"/>
+				<button id="" label="Estatistica" width="130px" height="30px"  href="help_estatistica.zul" sclass="help_estatistica"/>
+				
+				
+			</vlayout>
+	    </center>
+	    <east width="80%" self="@{insert(right)}" style="background:EAE5E5"/>
+ 	</borderlayout>
+</zk>
