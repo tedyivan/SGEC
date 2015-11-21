@@ -2,7 +2,14 @@ package mz.gov.sgec.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+
+@Entity
 public class SolicitacaoExame {
+	@Id
 	private long id;
 	private Date data_exame;
 	private double nota;
@@ -14,13 +21,20 @@ public class SolicitacaoExame {
 	/*
 	 * Relacionamento com Matricula
 	 */
+	@OneToMany
+	@JoinColumn(name="matricula_id")
 	private Matricula matricula;
 	
 	/*
 	 * Relacionmerto com Tipo de Exame
 	 */
+	@OneToMany
+	@JoinColumn(name="exame")
 	private Exame exame;
 	
+	/*
+	 * Construtor
+	 */
 	public SolicitacaoExame() {
 		// TODO Auto-generated constructor stub
 	}

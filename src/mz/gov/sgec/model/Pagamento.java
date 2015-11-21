@@ -2,7 +2,15 @@ package mz.gov.sgec.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Pagamento {
+	@Id
 	private long id;
 	private double valor;
 	private Date created_at;
@@ -11,11 +19,16 @@ public class Pagamento {
 	/*
 	 * Relacionamento com Tipo de Pagamento
 	 */
+	@OneToMany
+	@JoinColumn(name="tipopagamento_id")
 	private TipoPagamento tipoPagamento;
 	
 	/*
 	 * Relacionamento com Matricula
 	 */
+	
+	@OneToMany
+	@JoinColumn(name="matricula_id")
 	private Matricula matricula;
 	
 	

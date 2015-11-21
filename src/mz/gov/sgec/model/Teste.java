@@ -1,8 +1,19 @@
 package mz.gov.sgec.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Teste {
+	@Id
 	private long id;
 	private String nome;
 	private String descricao;
@@ -13,7 +24,9 @@ public class Teste {
 	/*
 	 * Relacionamento com InstruendoTeste
 	 */
-	private SolicitacaoExame solicitacaoExame;
+	
+	@ManyToOne(fetch=FetchType.EAGER)
+	private List<InstruendoTeste> instruendoTestes = new ArrayList<InstruendoTeste>();
 	
 	/*
 	 * Contrutor
@@ -62,12 +75,12 @@ public class Teste {
 		this.updated_at = updated_at;
 	}
 
-	public SolicitacaoExame getSolicitacaoExame() {
-		return solicitacaoExame;
+	public List<InstruendoTeste> getInstruendoTestes() {
+		return instruendoTestes;
 	}
 
-	public void setSolicitacaoExame(SolicitacaoExame solicitacaoExame) {
-		this.solicitacaoExame = solicitacaoExame;
+	public void setInstruendoTestes(List<InstruendoTeste> instruendoTestes) {
+		this.instruendoTestes = instruendoTestes;
 	}
 
 	@Override

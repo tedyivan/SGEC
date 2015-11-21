@@ -2,7 +2,14 @@ package mz.gov.sgec.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+
+@Entity
 public class CursoPreco {
+	@Id
 	private long id;
 	private double preco;
 	private Date created_at;
@@ -11,6 +18,8 @@ public class CursoPreco {
 	/*
 	 * Relacionamento com Curso
 	 */
+	@OneToMany()
+	@JoinColumn(name="curso_id")
 	private Curso curso;
 	
 	/*

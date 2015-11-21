@@ -2,7 +2,14 @@ package mz.gov.sgec.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+
+@Entity
 public class InstruendoTeste {
+	@Id
 	private long id;
 	private double nota;
 	private String aproveitamento;
@@ -14,12 +21,16 @@ public class InstruendoTeste {
 	/*
 	 * Relacionemto com Instruendo
 	 */
-	private Instruendo instruendo;
+	@OneToMany
+	@JoinColumn(name="matricula_id")
+	private Matricula matricula;
 	
 	/*
 	 * Relacionamento com Teste
 	 */
 	
+	@OneToMany
+	@JoinColumn(name="teste_id")
 	private Teste teste;
 	
 	public InstruendoTeste() {
@@ -74,12 +85,13 @@ public class InstruendoTeste {
 		this.updated_at = updated_at;
 	}
 	
-	public Instruendo getInstruendo() {
-		return instruendo;
+
+	public Matricula getMatricula() {
+		return matricula;
 	}
 
-	public void setInstruendo(Instruendo instruendo) {
-		this.instruendo = instruendo;
+	public void setMatricula(Matricula matricula) {
+		this.matricula = matricula;
 	}
 
 	public Teste getTeste() {
