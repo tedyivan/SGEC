@@ -19,6 +19,9 @@
 			.funcionario{
 				Background:white;
 			}
+			.notificacao{
+				Background:white;
+			}
 			
 	</style>
   <box width="30%" height="100%" pack="center" align="center">
@@ -50,7 +53,8 @@
 						                    				/>
 						                		    
 						                		    <button label="Notificações" image="/images/9.2.png"
-						                    				hoverImage="/images/9.2.png" width="130px" height="60px" sclass="esquerda" />     	
+						                    				hoverImage="/images/9.2.png" width="130px" height="60px" sclass="notificacao" 
+						                    				href="notificacao_listar.zul"/>     	
 						                               	
 						                		     <button label="Estatistica" image="/images/2.2.png"
 						                    				hoverImage="/images/2.2.png" width="130px" height="60px" sclass="esquerda" />     	 

@@ -1,0 +1,90 @@
+<?page title="Listar Turma" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="templateNotificacao.zul" ?>
+<zk>
+		<style>
+			
+			.notificacao{
+				Background:#E3DEDB;
+			}
+			.listar{
+				Background:#E3DEDB;
+			}
+			
+			.titulo{
+				Background:#E3DEDB;
+			}
+			
+			.z-listheader {
+  				background: white;
+  				border:0;
+			} 
+			
+			.pesqui {
+				background: white;
+  				border:0;
+			}
+			.branco {
+				background: white;
+  				border:0;
+			}
+		</style>
+		<window self="@define(right)"  id="wind_notifi" apply="mz.gov.sgec.controller.Notificacao_controller" > 
+			
+				
+		<div width = "100%" height="100%" >
+			<vlayout height="100%" spacing = "20px">				
+					<div align = "center" sclass="titulo" >
+					    <label value = "Lista de Turmas"  style = "font-size:20pt"/>
+					</div>
+					
+							<div align="center" hflex="8" >
+							
+								<label value="Destinatario"></label>
+								<space width="10"/>
+								<textbox id="txt_pesq" width="70%" constraint="no empty" />							
+								<space width="10"/>
+							
+							</div >
+							<div align="center" hflex="8" >
+							
+								<label value="Assunto"></label>
+								<space width="21px"/>
+								<combobox id="cbx_assunto" forward="onChange" width="65%">
+									<attribute name="onCreate"> self.setSelectedIndex(0); </attribute>
+									<comboitem label = "${each.nome}" value = "${each.getNome()}" forEach = "${wind_notifi$Notificacao_controller.assuntos}"/>
+								</combobox>
+								<space width="1px"/>
+								<button label="AD" forward="onClick$addAssunto"></button>
+							
+							</div >
+							<div align="center" hflex="8" >
+							
+								<label value="Mensagem"></label>
+								<space width="6px"/>
+								<textbox id="txt_mensagem" rows="22" cols="40" width="70%" constraint="no empty" />							
+								<space width="1px"/>
+							
+							</div >
+							<div align="center" hflex="8" >
+							
+								<div hflex = "4">
+									<button id="btn_reg" width="10%" label ="Enviar"/>
+								    <button id="btn_cancelar" width="10%" label ="Cancelar" />
+								</div>						
+							</div >
+			</vlayout>
+		</div>
+						
+		
+		</window>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+</zk>

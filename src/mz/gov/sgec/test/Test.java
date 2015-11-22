@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.sun.org.apache.bcel.internal.generic.NEW;
 
+import mz.gov.sgec.dao.AssuntoDAO;
 import mz.gov.sgec.dao.MaterialAlocacaoDAO;
 import mz.gov.sgec.dao.MaterialDAO;
 import mz.gov.sgec.dao.MaterialGeralDAO;
@@ -12,6 +13,7 @@ import mz.gov.sgec.dao.TurmaDAO;
 import mz.gov.sgec.dao.UtilizadorDAO;
 
 import mz.gov.sgec.dao.VeiculoDAO;
+import mz.gov.sgec.model.Assunto;
 import mz.gov.sgec.model.Funcionario;
 import mz.gov.sgec.model.Material;
 import mz.gov.sgec.model.MaterialAlocacao;
@@ -167,6 +169,13 @@ public class Test {
 		System.out.println(separated[1].toString());
 		*/
 		
-		
+		//Assunto assunto= new Assunto();
+		AssuntoDAO assuntoDAO= new AssuntoDAO();
+		/*assunto.setNome("Teste");
+		assunto.setMesage("O senhor tem uma divida");
+		assuntoDAO.create(assunto);*/
+	
+		System.out.println(assuntoDAO.findAll().get(1).toString());
+	
 	}
 }

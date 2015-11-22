@@ -1,0 +1,44 @@
+<?page title="Listar Turma" contentType="text/html;charset=UTF-8"?>
+
+<zk>
+		
+		<window mode="highlighted" width="50%" height="80%" id="wind_assunto_reg" apply="mz.gov.sgec.controller.Assunto_controller" > 
+			
+				
+		<div width = "100%" height="100%" >
+			<vlayout height="100%" spacing = "20px">				
+					<div align = "center" sclass="titulo" >
+					    <label value = "Criar Assunto"  style = "font-size:20pt"/>
+					</div>
+					
+							
+							<div align="center" hflex="8" >
+							
+								<label value="Assunto"></label>
+								<space width="21px"/>
+								<textbox id="txt_assunto" width="70%" constraint="no empty" />							
+								<space width="1px"/>
+							
+							</div >
+							<div align="center" hflex="8" >
+							
+								<label value="Mensagem"></label>
+								<space width="6px"/>
+								<textbox id="txt_mensagem" rows="22" cols="40" width="70%" constraint="no empty" />							
+								<space width="1px"/>
+							
+							</div >
+							<div align="center" hflex="8" >
+							
+								<div hflex = "4">
+									<button forward="onClick$btn_reg" width="10%" label ="Enviar"/>
+								    <button id="btn_cancelar" width="10%" label ="Cancelar" />
+								</div>						
+							</div >
+			</vlayout>
+		</div>
+						
+		
+		</window>
+		
+</zk>
