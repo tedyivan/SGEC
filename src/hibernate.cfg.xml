@@ -7,7 +7,7 @@
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="connection.url">jdbc:mysql://localhost/sgec</property>
 		<property name="connection.username">root</property>
-		<property name="connection.password">897897</property>
+		<property name="connection.password">l</property>
 		<property name="connection.tinyInt1isBit">true</property>
 		<property name="connection.transformedBit1sBoolean">true</property>
 		 

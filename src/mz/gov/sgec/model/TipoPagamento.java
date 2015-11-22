@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class TipoPagamento {
@@ -26,11 +27,9 @@ public class TipoPagamento {
 	/*
 	 * Relacionamento com Pagamento
 	 */
-	
-	@ManyToOne
-	@JoinColumn(name="pagamento_id")
-	private Pagamento pagamentos;
-	
+	@OneToMany(fetch=FetchType.EAGER)
+	@JoinColumn(name="tipopagamento_id")
+	private List<Pagamento> pagamentos = new ArrayList<>();
 	
 	/*
 	 * Construtor

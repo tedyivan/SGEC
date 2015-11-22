@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,17 +26,17 @@ public class Matricula {
 	private Date created_at;
 	private Date updated_at;
 	
-	@ManyToOne
+	@OneToMany(fetch=FetchType.EAGER)
 	@JoinColumn(name="matricula_id")
-	private Pagamento pagamento;
+	private List<Pagamento> pagamentos = new ArrayList<>();
 	
-	@ManyToOne
-	@JoinColumn(name="matricula_teste_id")
-	private InstruendoTeste instruendo_teste;
+	@OneToMany(fetch=FetchType.EAGER)
+	@JoinColumn(name="matricula_id")
+	private List<Instruendo> instruendos = new ArrayList<>();
 	
-	@ManyToOne
-	@JoinColumn(name="matricula_solicitacao_id")
-	private SolicitacaoExame solicitacao;
+	@OneToMany(fetch=FetchType.EAGER)
+	@JoinColumn(name="matricula_id")
+	private List<SolicitacaoExame> solicitacaoExames = new ArrayList<>();
 	
 	@ManyToOne
 	@JoinColumn(name="matricula_instruendo_id")
@@ -76,13 +77,45 @@ public class Matricula {
 		return updated_at;
 	}
 
-	
+	public List<Pagamento> getPagamentos() {
+		return pagamentos;
+	}
 
-	
-	
+	public void setPagamentos(List<Pagamento> pagamentos) {
+		this.pagamentos = pagamentos;
+	}
 
+	public List<Instruendo> getInstruendos() {
+		return instruendos;
+	}
 
-	
+	public void setInstruendos(List<Instruendo> instruendos) {
+		this.instruendos = instruendos;
+	}
+
+	public List<SolicitacaoExame> getSolicitacaoExames() {
+		return solicitacaoExames;
+	}
+
+	public void setSolicitacaoExames(List<SolicitacaoExame> solicitacaoExames) {
+		this.solicitacaoExames = solicitacaoExames;
+	}
+
+	public Instruendo getInstruendo() {
+		return instruendo;
+	}
+
+	public void setInstruendo(Instruendo instruendo) {
+		this.instruendo = instruendo;
+	}
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
 
 	public long getId() {
 		return id;

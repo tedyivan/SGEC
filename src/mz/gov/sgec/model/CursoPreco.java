@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -25,10 +26,9 @@ public class CursoPreco {
 	/*
 	 * Relacionamento com Curso
 	 */
-	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-	@JoinColumn(name="preco_curso_id")
-	private List <Curso> curso = new ArrayList <Curso> ();
+	@ManyToOne
+	@JoinColumn(name="curso_id")
+	private Curso curso;
 	/*
 	 * Construtor
 	 */

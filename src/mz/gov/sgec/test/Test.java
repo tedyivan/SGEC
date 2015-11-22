@@ -14,7 +14,7 @@ import mz.gov.sgec.model.Veiculo;
 public class Test {
 
 	public static void main(String[] args) {
-		/*
+		
 		// TODO Auto-generated method stub
 		MaterialDAO materialDAO = new MaterialDAO();
 		VeiculoDAO veiculoDAO = new VeiculoDAO();
@@ -51,12 +51,11 @@ public class Test {
 		materialGeral.setTipo_mat(1);
 		materialGeral.setUpdated_at(new Date());
 		geralDAO.createMaterial(materialGeral, 5);
-		*/
+		
 		
 		TurmaDAO turmaDAO = new TurmaDAO();
 		Turma turma = new Turma();
 		turma.setCreated_at(new Date());
-		turma.setData_fim(new Date());
 		turma.setExiste(true);
 		turma.setNome("Nome");
 		turma.setSala("Sala");
