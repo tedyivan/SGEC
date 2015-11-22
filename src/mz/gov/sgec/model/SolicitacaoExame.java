@@ -1,8 +1,14 @@
 package mz.gov.sgec.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -10,7 +16,9 @@ import javax.persistence.OneToMany;
 @Entity
 public class SolicitacaoExame {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
 	private Date data_exame;
 	private double nota;
 	private String aproveitamento;
@@ -21,16 +29,17 @@ public class SolicitacaoExame {
 	/*
 	 * Relacionamento com Matricula
 	 */
-	@OneToMany
-	@JoinColumn(name="matricula_id")
-	private Matricula matricula;
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@JoinColumn(name="matricula_solicitacao_id")
+	private List<Matricula> matricula = new ArrayList<Matricula>();
 	
 	/*
 	 * Relacionmerto com Tipo de Exame
 	 */
-	@OneToMany
-	@JoinColumn(name="exame")
-	private Exame exame;
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@JoinColumn(name="exame_id")
+	private List <Exame> exame = new ArrayList<Exame>();
 	
 	/*
 	 * Construtor
@@ -86,27 +95,12 @@ public class SolicitacaoExame {
 	public void setUpdated_at(Date updated_at) {
 		this.updated_at = updated_at;
 	}
-
-	public Matricula getMatricula() {
-		return matricula;
-	}
-
-	public void setMatricula(Matricula matricula) {
-		this.matricula = matricula;
-	}
-
-	public Exame getExame() {
+	
+	public List<Exame> getExame() {
 		return exame;
 	}
 
-	public void setExame(Exame exame) {
+	public void setExame(List<Exame> exame) {
 		this.exame = exame;
-	}
-
-	@Override
-	public String toString() {
-		return "SolicitacaoExame [id=" + id + ", data_exame=" + data_exame + ", nota=" + nota + ", aproveitamento="
-				+ aproveitamento + ", created_at=" + created_at + ", updated_at=" + updated_at + ", matricula="
-				+ matricula + ", exame=" + exame + "]";
 	}
 }

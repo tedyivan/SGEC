@@ -30,10 +30,13 @@ public class Material {
 	private Date data_aquisicao;
 	private double preco;
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	@JoinColumn(name="material_id")
-	private List<MaterialAlocacao> alocacoes = new ArrayList<>();
+	private List<MaterialAlocacao> alocacoes = new ArrayList<MaterialAlocacao>();
 	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@JoinColumn(name="material_geral_id")
+	private List<MaterialGeral> material_geral = new ArrayList<MaterialGeral>();
 	
 	public Material() {}
 

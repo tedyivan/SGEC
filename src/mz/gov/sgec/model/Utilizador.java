@@ -2,6 +2,7 @@ package mz.gov.sgec.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,8 +25,9 @@ public class Utilizador {
     
 	private String t‬ipo;
     
-   // @OneToOne
-    //@JoinColumn(name="funcionario_id")
+	@OneToOne
+    @JoinColumn(name="funcionario_id", unique=true, nullable=false, updatable=false)
+	private Funcionario funcionario = new Funcionario();
 	
     public Utilizador() {
 		// TODO Auto-generated constructor stub

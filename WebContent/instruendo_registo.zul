@@ -62,7 +62,7 @@
 							<div hflex="2" align = "left">
 								<combobox id="cb_civil" width = "80%">
 									<comboitem label="casado(a)"/>
-									<comboitem label="solterio(a)"/>
+									<comboitem label="solteiro(a)"/>
 									<comboitem label="viuvo(a)"/>
 								</combobox>				
 							</div>

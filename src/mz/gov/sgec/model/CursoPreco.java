@@ -1,8 +1,14 @@
 package mz.gov.sgec.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -10,6 +16,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class CursoPreco {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private double preco;
 	private Date created_at;
@@ -18,10 +25,10 @@ public class CursoPreco {
 	/*
 	 * Relacionamento com Curso
 	 */
-	@OneToMany()
-	@JoinColumn(name="curso_id")
-	private Curso curso;
 	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@JoinColumn(name="preco_curso_id")
+	private List <Curso> curso = new ArrayList <Curso> ();
 	/*
 	 * Construtor
 	 */
@@ -61,17 +68,5 @@ public class CursoPreco {
 		this.updated_at = updated_at;
 	}
 
-	public Curso getCurso() {
-		return curso;
-	}
 
-	public void setCurso(Curso curso) {
-		this.curso = curso;
-	}
-
-	@Override
-	public String toString() {
-		return "CursoPreco [id=" + id + ", preco=" + preco + ", created_at=" + created_at + ", updated_at=" + updated_at
-				+ ", curso=" + curso + "]";
-	}
 }

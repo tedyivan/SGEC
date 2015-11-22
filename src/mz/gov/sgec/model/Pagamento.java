@@ -1,9 +1,15 @@
 package mz.gov.sgec.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -11,6 +17,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Pagamento {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private double valor;
 	private Date created_at;
@@ -19,18 +26,16 @@ public class Pagamento {
 	/*
 	 * Relacionamento com Tipo de Pagamento
 	 */
-	@OneToMany
-	@JoinColumn(name="tipopagamento_id")
-	private TipoPagamento tipoPagamento;
-	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@JoinColumn(name = "pagamento_id")
+	private List<TipoPagamento> pagamento_tipo = new ArrayList <TipoPagamento> ();
 	/*
 	 * Relacionamento com Matricula
 	 */
 	
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	@JoinColumn(name="matricula_id")
-	private Matricula matricula;
-	
+	private List<Matricula> matricula = new ArrayList<Matricula>();
 	
 	/*
 	 * Contrutor 
@@ -70,26 +75,19 @@ public class Pagamento {
 	public void setUpdated_at(Date updated_at) {
 		this.updated_at = updated_at;
 	}
-	
-	public Matricula getMatricula() {
+	public List<Matricula> getMatricula() {
 		return matricula;
 	}
 
-	public void setMatricula(Matricula matricula) {
+	public void setMatricula(List<Matricula> matricula) {
 		this.matricula = matricula;
 	}
-
-	public TipoPagamento getTipoPagamento() {
-		return tipoPagamento;
-	}
-
-	public void setTipoPagamento(TipoPagamento tipoPagamento) {
-		this.tipoPagamento = tipoPagamento;
-	}
-
+	
 	@Override
 	public String toString() {
 		return "TipoPagamento [id=" + id + ", valor=" + valor + ", created_at=" + created_at + ", updated_at="
 				+ updated_at + "]";
 	}
+
+	
 }

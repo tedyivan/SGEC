@@ -52,13 +52,13 @@
 					            <listcell label="${each.apelido}"  />
 					            <listcell label="${each.tipo_carta}" />
 					            <listcell >
-					                 <button   forward="onClick$alocar" image="" />
+					                 <button  forward="onClick$alocar_i" image="/images/18.12.png" sclass="branco"/>
 					            </listcell>
 					            <listcell >
-					                 <button   forward="onClick$pagar" image="" />
+					                 <button  forward="onClick$pagamento_i" image="/images/18.21.png" sclass="branco"/>
 					            </listcell>
 					            <listcell>
-					                 <button label = "e" forward="onClick$actualizar" image="" />
+					                 <button  forward="onClick$actualizar_i" image="/images/3.1.png" sclass="branco"/>
 					            </listcell>
 					        </listitem>
 					    </listbox>

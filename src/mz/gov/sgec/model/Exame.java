@@ -6,12 +6,16 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Exame {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String nome;
 	private String descricao;
@@ -22,8 +26,9 @@ public class Exame {
 	/*
 	 * Relacionamento com SolicitacaoExame
 	 */
-	@ManyToOne(fetch=FetchType.EAGER)
-	private List<SolicitacaoExame> solicitacaoExames = new ArrayList<>();
+	@ManyToOne
+	@JoinColumn(name="exame_id")
+	private SolicitacaoExame solicitacaoExames;
 	
 	/*
 	 * Contrutor
@@ -72,17 +77,17 @@ public class Exame {
 		this.updated_at = updated_at;
 	}
 
-	public List<SolicitacaoExame> getSolicitacaoExames() {
-		return solicitacaoExames;
-	}
-
-	public void setSolicitacaoExames(List<SolicitacaoExame> solicitacaoExames) {
-		this.solicitacaoExames = solicitacaoExames;
-	}
-
 	@Override
 	public String toString() {
 		return "Teste [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", created_at=" + created_at
 				+ ", updated_at=" + updated_at + "]";
+	}
+
+	public SolicitacaoExame getSolicitacaoExames() {
+		return solicitacaoExames;
+	}
+
+	public void setSolicitacaoExames(SolicitacaoExame solicitacaoExames) {
+		this.solicitacaoExames = solicitacaoExames;
 	}
 }

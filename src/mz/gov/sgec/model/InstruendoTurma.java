@@ -23,10 +23,10 @@ public class InstruendoTurma {
 	/*
 	 * Relacionamento com Instruendo atraves de Matricula
 	 * */
-	@ManyToOne
+	/*@ManyToOne
 	@JoinColumn(name="matricula_id")
 	private Matricula matricula;
-
+	*/
 	/*
 	 * Relacionamento com Turma
 	 * */

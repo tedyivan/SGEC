@@ -52,7 +52,7 @@
 								<listheader label = "Nome:" sort="auto" />
 								<listheader label = "Apelido:" sort="auto" />
 							</listhead>
-							<listitem value="${each}" forward = "">
+							<listitem value="${each}" forward = "onClick$lista_tur_alocar">
 							    <listcell label = "${instruend.codigo_barra}" value = "${each.codigo_barra}"/>
 								<listcell label = "${instruend.nome}" value = "${each.nome}"/>
 								<listcell label = "${instruend.apelido}" value = "${each.apelido}"/>
@@ -60,7 +60,7 @@
 						</listbox>
 					</div>
 					<div align="center">
-					  	<button label="guardar" id="detac_alocar" onClick="win_inst_a.detach()"/>
+					  	<button label="guardar" id="lista_inst_alocar" onClick="win_inst_a.detach()"/>
 					</div>
 				</vlayout>
   			</div>

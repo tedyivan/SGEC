@@ -5,12 +5,16 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class TipoPagamento {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String nome;
 	private String descricao;
@@ -22,8 +26,11 @@ public class TipoPagamento {
 	/*
 	 * Relacionamento com Pagamento
 	 */
-	@ManyToOne(fetch=FetchType.EAGER)
-	private List<Pagamento> pagamentos = new ArrayList<>();
+	
+	@ManyToOne
+	@JoinColumn(name="pagamento_id")
+	private Pagamento pagamentos;
+	
 	
 	/*
 	 * Construtor
@@ -78,14 +85,6 @@ public class TipoPagamento {
 
 	public void setUpdated_at(Date updated_at) {
 		this.updated_at = updated_at;
-	}
-	
-	public List<Pagamento> getPagamentos() {
-		return pagamentos;
-	}
-
-	public void setPagamentos(List<Pagamento> pagamentos) {
-		this.pagamentos = pagamentos;
 	}
 
 	@Override

@@ -46,13 +46,8 @@
 										            	<label value="${each.hora_fim}"/>
 										            </listcell>
 										            <listcell label="${each.lotacao}" />
-											       	
-										            										             
 										        </listitem>
-										          								        
-										           
 										    </listbox>
-										    
 									</div>
 									<div  >
 									</div>

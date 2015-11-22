@@ -48,14 +48,15 @@ public class Instruendo {
 	private double altura;
 	private Date created_at;
 	private Date updated_at;
-	
-	@OneToMany
-	@JoinColumn(name = "matricula_id")
-	private List <Matricula> lista = new ArrayList <Matricula> ();
+	private boolean activo;
 	
 	@ManyToOne
-	@JoinColumn(name = "instruendo_turma_id")
-	private Turma inst_turma;
+	@JoinColumn(name = "turma_id")
+	private Turma turma;
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@JoinColumn(name="matricula_instruendo_id")
+	private List <Matricula> matricula = new ArrayList <Matricula> ();
 	
 	public Instruendo() {
 		// TODO Auto-generated constructor stub
@@ -221,24 +222,40 @@ public class Instruendo {
 		this.updated_at = updated_at;
 	}
 
-	public List<Matricula> getLista() {
-		return lista;
+	public boolean isActivo() {
+		return activo;
 	}
 
-	public void setLista(List<Matricula> lista) {
-		this.lista = lista;
-	}	
-	
+	public void setActivo(boolean activo) {
+		this.activo = activo;
+	}
+
+	public Turma getTurma() {
+		return turma;
+	}
+
+	public void setTurma(Turma turma) {
+		this.turma = turma;
+	}
+
+	public List<Matricula> getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(List<Matricula> matricula) {
+		this.matricula = matricula;
+	}
+
 	@Override
 	public String toString() {
-		return nome;
+		return "Instruendo [id=" + id + ", nome=" + nome + ", nome_pai=" + nome_pai + ", nome_mae=" + nome_mae
+				+ ", apelido=" + apelido + ", apelido_pai=" + apelido_pai + ", apelido_mae=" + apelido_mae
+				+ ", residencia=" + residencia + ", bi=" + bi + ", genero=" + genero + ", validade_bi=" + validade_bi
+				+ ", tipo_carta=" + tipo_carta + ", telefone=" + telefone + ", codigo_barra=" + codigo_barra
+				+ ", data_nascimento=" + data_nascimento + ", naturalidade=" + naturalidade + ", estado_civil="
+				+ estado_civil + ", altura=" + altura + ", created_at=" + created_at + ", updated_at=" + updated_at
+				+ ", activo=" + activo + ", turma=" + turma + ", matricula=" + matricula + "]";
 	}
-
-	public Turma getInst_turma() {
-		return inst_turma;
-	}
-
-	public void setInst_turma(Turma inst_turma) {
-		this.inst_turma = inst_turma;
-	}
+	
+	
 }

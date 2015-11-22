@@ -38,7 +38,7 @@
 							<listheader label="Periodo:" sort="auto" />
 							<listheader label="Nº do Alunos:" sort="auto" />
 							</listhead>
-							<listitem value="${each}" forward="onClick$linha" forEach="${win_inst_a$InstruendoController.turmas}">
+							<listitem value="${each}" forward="onClick$registo_tur_alocar" forEach="${win_inst_a$InstruendoController.turmas}">
 							    <listcell label=""/>
 							    <listcell label="${each.nome}" />
 								<listcell >
@@ -50,7 +50,7 @@
 						</listbox>
 					</div>
 					<div align="center">
-					  	<button label="guardar" id="detac" onClick="win_inst_a.detach()"/>
+					  	<button label="guardar" id="registo_alocar" onClick="win_inst_a.detach()"/>
 					</div>
 				</vlayout>
   			</div>

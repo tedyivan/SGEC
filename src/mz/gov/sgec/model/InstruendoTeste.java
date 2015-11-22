@@ -1,8 +1,14 @@
 package mz.gov.sgec.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -10,6 +16,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class InstruendoTeste {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private double nota;
 	private String aproveitamento;
@@ -21,17 +28,19 @@ public class InstruendoTeste {
 	/*
 	 * Relacionemto com Instruendo
 	 */
-	@OneToMany
-	@JoinColumn(name="matricula_id")
-	private Matricula matricula;
 	
 	/*
 	 * Relacionamento com Teste
 	 */
 	
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	@JoinColumn(name="teste_id")
-	private Teste teste;
+	private List <Teste> teste = new ArrayList <Teste> ();
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@JoinColumn(name="matricula_teste_id")
+	private List <Matricula> matricula = new ArrayList <Matricula> ();
+	
 	
 	public InstruendoTeste() {
 		// TODO Auto-generated constructor stub
@@ -84,27 +93,6 @@ public class InstruendoTeste {
 	public void setUpdated_at(Date updated_at) {
 		this.updated_at = updated_at;
 	}
+
 	
-
-	public Matricula getMatricula() {
-		return matricula;
-	}
-
-	public void setMatricula(Matricula matricula) {
-		this.matricula = matricula;
-	}
-
-	public Teste getTeste() {
-		return teste;
-	}
-
-	public void setTeste(Teste teste) {
-		this.teste = teste;
-	}
-
-	@Override
-	public String toString() {
-		return "InstruendoTeste [id=" + id + ", nota=" + nota + ", aproveitamento=" + aproveitamento + ", data_criacao="
-				+ data_criacao + ", created_at=" + created_at + ", updated_at=" + updated_at + "]";
-	}
 }

@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -13,7 +15,9 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Teste {
+	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String nome;
 	private String descricao;
@@ -25,8 +29,9 @@ public class Teste {
 	 * Relacionamento com InstruendoTeste
 	 */
 	
-	@ManyToOne(fetch=FetchType.EAGER)
-	private List<InstruendoTeste> instruendoTestes = new ArrayList<InstruendoTeste>();
+	@ManyToOne
+	@JoinColumn(name="teste_id")
+	private InstruendoTeste instruendoTestes;
 	
 	/*
 	 * Contrutor
@@ -74,18 +79,18 @@ public class Teste {
 	public void setUpdated_at(Date updated_at) {
 		this.updated_at = updated_at;
 	}
-
-	public List<InstruendoTeste> getInstruendoTestes() {
+	public InstruendoTeste getInstruendoTestes() {
 		return instruendoTestes;
 	}
 
-	public void setInstruendoTestes(List<InstruendoTeste> instruendoTestes) {
+	public void setInstruendoTestes(InstruendoTeste instruendoTestes) {
 		this.instruendoTestes = instruendoTestes;
 	}
-
 	@Override
 	public String toString() {
 		return "Teste [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", created_at=" + created_at
 				+ ", updated_at=" + updated_at + "]";
 	}
+
+
 }

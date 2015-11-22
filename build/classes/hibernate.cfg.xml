@@ -39,18 +39,32 @@
 		<property name="show_sql">true</property>
 		<!-- Drop and re-create the database schema on startup -->
 		<property name="hbm2ddl.auto">update</property>
-			
-		<mapping class="mz.gov.sgec.model.Material"></mapping>
-		<mapping class="mz.gov.sgec.model.Veiculo"></mapping>
-		<mapping class="mz.gov.sgec.model.MaterialGeral"></mapping>
-		<mapping class="mz.gov.sgec.model.InstruendoTurma"></mapping>
-		<mapping class="mz.gov.sgec.model.Turma"></mapping>
-		<mapping class="mz.gov.sgec.model.Matricula"></mapping>
-		<mapping class="mz.gov.sgec.model.Utilizador"></mapping>
-		<mapping class="mz.gov.sgec.model.Curso"></mapping>
+		
 		<mapping class="mz.gov.sgec.model.Instruendo"></mapping>
+		<mapping class="mz.gov.sgec.model.Utilizador"></mapping>
+		<mapping class="mz.gov.sgec.model.Turma"></mapping>
 		<mapping class="mz.gov.sgec.model.MaterialAlocacao"></mapping>
 		<mapping class="mz.gov.sgec.model.Funcionario"></mapping>
+		<mapping class="mz.gov.sgec.model.Material"></mapping>
+		<mapping class="mz.gov.sgec.model.InstruendoTeste"></mapping>
+		<mapping class="mz.gov.sgec.model.Teste"></mapping>
+		<mapping class="mz.gov.sgec.model.Matricula"></mapping>
+		<mapping class="mz.gov.sgec.model.Pagamento"></mapping>
+		<mapping class="mz.gov.sgec.model.TipoPagamento"></mapping>
+		<mapping class="mz.gov.sgec.model.Curso"></mapping>
+		<mapping class="mz.gov.sgec.model.CursoPreco"></mapping>
+		<mapping class="mz.gov.sgec.model.Exame"></mapping>
+		<mapping class="mz.gov.sgec.model.SolicitacaoExame"></mapping>
+		<mapping class="mz.gov.sgec.model.Presenca"></mapping>
+		<mapping class="mz.gov.sgec.model.MaterialGeral"></mapping>
+		<mapping class="mz.gov.sgec.model.Veiculo"></mapping>
+		<mapping class="mz.gov.sgec.model.InstruendoTurma"></mapping>
+				
+		
+		
+		
+		
+		
 	</session-factory>
 	
 </hibernate-configuration>

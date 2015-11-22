@@ -83,17 +83,9 @@ public class InstruendoController extends GenericForwardComposer {
 		public void onClick$voltar_l(Event e){
 			Executions.sendRedirect("instruendo_listar.zul");
 		}
-		public void onClick$actualizar(ForwardEvent e){
-			Button b = (Button)e.getOrigin().getTarget();
-			Listitem li = ((Listitem)b.getParent().getParent());
-			li.setSelected(true);
-		    instruendo = (Instruendo) li.getValue();
-		    Map <String,Instruendo> h = new HashMap<>();
-		    h.put("1", instruendo);
-		    Executions.createComponents("instruendo_actualizar.zul", null, h);
-		}
+		
 		//lista inst
-		public void onClick$alocar(ForwardEvent e){
+		public void onClick$alocar_i(ForwardEvent e){
 			Button b = (Button)e.getOrigin().getTarget();
 			Listitem li = ((Listitem)b.getParent().getParent());
 			li.setSelected(true);
@@ -102,8 +94,9 @@ public class InstruendoController extends GenericForwardComposer {
 		    h.put("1", instruendo);
 			Executions.createComponents("instruendo_alocar_turma.zul",null,h);
 		}
+		
 		//alocar na lista 
-		public void onClick$detac_alocar(ForwardEvent e){
+		public void onClick$lista_inst_alocar(ForwardEvent e){
 			List <Instruendo> result = getInstruendos();
 			List <Turma> result_t = getTurmas();
 			Turma t;
@@ -147,13 +140,13 @@ public class InstruendoController extends GenericForwardComposer {
 			}
 			
 			turma.setId(turma_id);
-			instruendo.setInst_turma(turma);
+			instruendo.setTurma(turma);
 			idao.update(instruendo);
 			
 			Clients.showNotification("Alocado a nova turma Instruendo " + instruendo.getNome() + " a " + turma_id);
 		}
 		//lista inst
-		public void onClick$pagar(){
+		public void onClick$pagamento_i(){
 			Clients.showNotification("pagar de Instruendo"); 
 		}
 		
@@ -161,8 +154,8 @@ public class InstruendoController extends GenericForwardComposer {
 			Window window = (Window) Executions.createComponents("instruendo_pagamento.zul",null,null);
 			window.doModal();
 		}
-		//tedy ....
-		public void onClick$linha(ForwardEvent e){
+		//moiane ....
+		public void onClick$registo_tur_alocar(ForwardEvent e){
 			turma = (Turma)((Listitem) e.getOrigin().getTarget()).getValue();
 			turma_id = turma.getId();
 			Executions.getCurrent().getDesktop().getSession().setAttribute("turma_id", turma_id);
@@ -195,21 +188,35 @@ public class InstruendoController extends GenericForwardComposer {
 			instruendo.setTelefone(txt_celular.getText());
 			instruendo.setTipo_carta(cb_tipo_carta.getValue());
 			instruendo.setValidade_bi(d_validade_bi.getValue());			
-			instruendo.setInst_turma(turma);
+			instruendo.setTurma(turma);
 			
 			idao.create(instruendo);
 			Clients.showNotification("Registo de Instruendo"+ turma_id); 
 			clear();
 		}
-
+		
+		//lista inst
+		public void onClick$actualizar_i(ForwardEvent e){
+			Button b = (Button)e.getOrigin().getTarget();
+			Listitem li = ((Listitem)b.getParent().getParent());
+			li.setSelected(true);
+			instruendo = (Instruendo) li.getValue();
+			Map <String,Instruendo> h = new HashMap<>();
+			h.put("1", instruendo);
+			Executions.createComponents("instruendo_actualizar.zul", null, h);
+		}
+		public void onClick$act_alocar(ForwardEvent e){
+			Window window = (Window) Executions.createComponents("instruendo_alocar.zul",null,null);
+			window.doModal();
+		}
+		//actualizar
 		public void onClick$btn_actualizar(Event e){
-			//moiane
 			List <Instruendo> result = getInstruendos();
 			Instruendo instruend;
 			instruendo.setBi(txt_numero_bi.getText());
 			instruendo.setApelido(txt_apelido.getText());
 			instruendo.setNome(txt_nome.getText());
-			
+			turma_id = (long) Executions.getCurrent().getDesktop().getSession().getAttribute("turma_id");
 			//Teste actualizacao
 		    for (int i = 0; i < result.size(); i++){
 				instruend = (Instruendo) result.get(i);
@@ -217,12 +224,12 @@ public class InstruendoController extends GenericForwardComposer {
 			    	instruend_id = instruend.getId();
 			    }
 		    }
+		    turma.setId(turma_id);
 			instruendo.setId(instruend_id);
 			instruendo.setAltura(Double.parseDouble(sp_inteiro.getValue()+"."+sp_decimal.getValue()));
-			
 			instruendo.setApelido_pai(txt_apelido_pai.getText());
 			instruendo.setApelido_mae(txt_apelido_mae.getText());
-			//instruendo.setBi(txt_numero_bi.getText());
+			instruendo.setBi(txt_numero_bi.getText());
 			instruendo.setCodigo_barra(txt_codigo_barra.getText());
 			instruendo.setData_nascimento(d_nascimento.getValue());			
 			instruendo.setEstado_civil(cb_civil.getText());
@@ -234,6 +241,7 @@ public class InstruendoController extends GenericForwardComposer {
 			instruendo.setTelefone(txt_celular.getText());
 			instruendo.setTipo_carta(cb_tipo_carta.getValue());
 			instruendo.setValidade_bi(d_validade_bi.getValue());
+			instruendo.setTurma(turma);
 			
 			Executions.sendRedirect("");
 			idao.update(instruendo);			
@@ -283,7 +291,7 @@ public class InstruendoController extends GenericForwardComposer {
 			turma.setNome(turma_teste.getText());
 			for (int i = 0; i < result.size(); i++){
 				instruendo = result.get(i);
-					if (turma.getNome().equals(instruendo.getInst_turma().getNome())){
+					if (turma.getNome().equals(instruendo.getTurma().getNome())){
 					addTesteInstruendo(instruendo);
 				}
 			}
