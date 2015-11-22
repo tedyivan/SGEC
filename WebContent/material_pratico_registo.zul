@@ -11,6 +11,10 @@
 			.titulo{
 				Background:#E3DEDB;
 			}
+			.aloca{
+				Background:white;
+			}
+			
 			
 	</style>
 		
@@ -101,7 +105,7 @@
 											<label value = "Alocar:" />
 										</div>
 										<div hflex="2" align = "left">
-											<button type = "submit" label = "turma" width="80%"/>							
+											<button id = "btn_aloc_turma" label = "turma" width="80%"/>							
 										</div>
 									</hlayout>
 															
@@ -121,7 +125,7 @@
 							<space height="1000%"/>
 						</hlayout>
 						<hlayout spacing="30px">
-							<button label="Registar" id="btn_reg" width="130%"/>
+							<button label="Registar" forward="onClick$btn_regi" width="130%"/>
 							<button label="Cancelar" width="130%"/>
 							<space width="100%"/>
 						</hlayout>

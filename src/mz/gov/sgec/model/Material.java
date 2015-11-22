@@ -25,7 +25,7 @@ public class Material {
 	private boolean existe;
 	private Date created_at;
 	private Date updated_at;
-	 
+	private String garantia; 
 	/*Variaveis Novos*/
 	private Date data_aquisicao;
 	private double preco;
@@ -100,11 +100,23 @@ public class Material {
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
+	
+	
+	
+	public String getGarantia() {
+		return garantia;
+	}
+
+	public void setGarantia(String garantia) {
+		this.garantia = garantia;
+	}
 
 	@Override
 	public String toString() {
 		return "Material [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", existe=" + existe
-				+ ", created_at=" + created_at + ", updated_at=" + updated_at + ", data_aquisicao=" + data_aquisicao
-				+ ", preco=" + preco + "]";
+				+ ", created_at=" + created_at + ", updated_at=" + updated_at + ", garantia=" + garantia
+				+ ", data_aquisicao=" + data_aquisicao + ", preco=" + preco + ", alocacoes=" + alocacoes + "]";
 	}
+
+	
 }

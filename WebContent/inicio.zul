@@ -7,10 +7,11 @@
 		}
 	</style>
 	
- 	
-<div self="@{define(right)}" align="center">
-	<label value="Seja bem vindo" style="font-size:32px;"></label>
+<div self="@{define(right)}" align="center" visible="${logado}">
+	<label value="Seja bem vindo" style="font-size:32px;"/>
 	
     
 </div>
+
+
 </zk>

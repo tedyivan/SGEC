@@ -1,16 +1,82 @@
-<?page title="Pagina Incial" contentType="text/html;charset=UTF-8"?>
-<?init class="org.zkoss.zk.ui.util.Composition" arg0="template3.zul" ?>
+<?page title="Bem vindo ao SGEC"?>
 <zk>
-	<style>
-		.inicio{
-			Background:#E3DEDB;
+<style>
+		.btn{
+			Background:white;
 		}
-	</style>
-	
- 	
-<div self="@{define(right)}" align="center">
-	<label value="Seja bem vindo" style="font-size:32px;"></label>
-	
-    
+</style>
+
+<zscript > 
+ 
+  boolean logado = Executions.getCurrent().getDesktop().getSession().hasAttribute("UTIL");
+  
+</zscript>
+<window  border="none" width="100%" height="100%" mode="highlighted" apply="mz.gov.sgec.controller.AutenticacaoController"   >
+
+<div >
+	<div  align ="center">
+		<vlayout spacing="20px">
+			<space height="20px"/>
+			<label value = "SGEC" style = "font-size: 20pt"/>
+		</vlayout>
+	</div>
+	<div>
+			<space height="100px"></space>
+	</div>
+	<hlayout>
+		<div hflex = "1">
+		</div>
+		<div hflex = "3" >
+			<vlayout spacing = "20px">
+				
+				<hlayout>
+					<div hflex = "1" align="center">
+						<label value = "Utilizador:" />
+					</div>
+					<div hflex = "2" >
+						<textbox id="txt_utilizador" width="80%"   />
+					</div>
+				</hlayout>
+				<hlayout>
+					<div hflex = "1" align="center">
+						<label  value = "Senha:"/>
+					</div>
+					<div hflex = "2">
+						<textbox id="txt_senha" type="password" width="80%" />
+					</div>
+					
+				</hlayout>
+				
+				<hlayout>
+					<div hflex = "1">
+					</div>
+					<div hflex = "2">
+						 <a id="a_criar_conta" label="criar conta" />
+						 <a id="" label="lembrar" />
+					</div>
+					
+				</hlayout>
+				<hlayout>
+					<space height="60px"/>
+				</hlayout>
+				
+				<hlayout>
+					<div hflex = "1">
+					</div>
+					<div hflex = "4" align="center">
+						 <button id="btn_entrar" label="entrar" sclass="btn" width = "30%"/>
+						 <button id="btn_cancelar" label="cancelar" sclass="btn" width = "30%"/>
+					</div>
+					
+				</hlayout>
+			
+			</vlayout>
+		</div>
+						
+		<div hflex = "1">
+		</div>	
+	</hlayout>		
 </div>
+</window>
 </zk>
+

@@ -1,0 +1,133 @@
+<?page title="Registar Turma" contentType="text/html;charset=UTF-8"?>
+<zk>
+		<window mode="highlighted" id="wd_turma_act" width="70%" height="80%" apply="mz.gov.sgec.controller.Turma_controller">
+			<zscript>
+				  			  	
+   					<![CDATA[
+					import java.util.ArrayList;
+					import mz.gov.sgec.model.Turma;
+					Turma turma = (Turma)Executions.getCurrent().getArg().get("1");
+				    /*
+					List<String> result = new List<String>();
+					result = turma.getHora_inicio().toString().split(":");*/
+					
+					String[]inicio=turma.getHora_inicio().toString().split("\\:");
+					String hora_inicio= inicio[0];
+					String min_inicio=inicio[1];
+							
+					String[]fim=turma.getHora_fim().toString().split("\\:");
+					String hora_fim= fim[0];
+					String min_fim=fim[1];
+							
+							
+							
+							
+   					//Clients.showNotification(result[0].toString());
+					]]>
+				</zscript>
+				
+			
+			<div>
+						<div  align ="center" sclass="titulo" width="100%">
+											<label value = "Atualizar Turma" style = "font-size: 20pt"/>
+						</div>
+						<hlayout>
+							<div hflex="1">
+							
+							</div>
+							<div hflex="3">
+								<vlayout spacing = "10px" height="100%" width="100%">				
+									
+										
+										<space height="10"/>	
+										<hlayout>
+											<div hflex="1">
+											</div>
+										</hlayout>
+										
+											<hlayout>
+												<div hflex = "1">
+													<label  value = "Designação:"/>
+												</div>
+												<div hflex = "2">
+													<textbox width="90%" id = "txt_designacao" value="${turma.nome }"/>
+												</div>
+											</hlayout>
+												
+											<hlayout>
+												<div hflex = "1">
+													<label value = "Lotação:"/>
+												</div>
+												<div hflex = "2" >
+													 <intbox width="15%" id = "spn_lotacao" value="${turma.lotacao }"/>
+												</div>
+											</hlayout>
+											
+											<hlayout spacing = "10px" height="100%">
+											
+												<div hflex = "1">
+													<label  value = "Período:"/>
+												</div>
+												<div hflex = "1">
+													<intbox width = "35%" id ="spn_periodo" value="${hora_inicio}" />:
+													<intbox width = "35%" id ="spn_periodo1" value="${min_fim}"/> H  ->
+												</div>
+													<div hflex = "1">
+														<intbox width = "35%" id ="spn_periodo2" value="${hora_fim}"/>:
+														<intbox width = "38%" id ="spn_periodo3" value="${min_fim}"/> H
+														
+													</div>
+												
+											</hlayout>
+											
+											<hlayout>
+												<div hflex = "1">
+													<label  value = "Sala:"/>
+												</div>
+												<div hflex = "2">
+													<textbox id="txt_sala" width="90%" constraint="no empty" value="${turma.sala}"></textbox>
+												</div>	
+											</hlayout>
+											
+											<hlayout>
+												<div hflex = "1">
+													<label  value = "Descricao:"/>
+												</div>
+												<div hflex = "2">
+													<textbox id="txt_descricao" value="${turma.descricao}" width="90%" rows="5" cols="40" constraint="no empty">
+													</textbox>
+													
+												</div>	
+											</hlayout>
+											<label id="lb_turma_id" visible="false" value="${turma.id}"></label>
+											
+											<space height="10"></space>
+											<hlayout>
+												<div hflex = "3">
+													
+												</div>
+												<div hflex = "4">
+													<button id="btn_act" width="30%" label ="Ok"/>
+												    <button id="btn_cancelar" width="30%" label ="Cancelar" />
+												</div>
+											</hlayout>			
+								</vlayout>
+							</div>	
+							<div hflex ="1">
+							
+							</div>
+						</hlayout>
+				</div>
+		
+		</window>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+</zk>

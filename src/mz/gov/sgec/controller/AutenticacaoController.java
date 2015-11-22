@@ -7,6 +7,7 @@ import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.Button;
+import org.zkoss.zul.Label;
 import org.zkoss.zul.Textbox;
 
 public class AutenticacaoController extends GenericForwardComposer {
@@ -15,12 +16,14 @@ public class AutenticacaoController extends GenericForwardComposer {
 	private Button btn_entrar, btn_cancelar;
 	private UtilizadorDAO dao = new UtilizadorDAO();
 	//private A a_criar_conta;
-	
+	public Label lb_utilizador;
 	public void onClick$btn_entrar(){
 		Utilizador util = dao.vericaUser(txt_utilizador.getText(),txt_senha.getText());
 		
 		if(util != null){
-			Executions.sendRedirect("index.zul");			
+			Executions.getCurrent().getDesktop().getSession().setAttribute("UTIL", util);
+			
+			Executions.sendRedirect("inicio.zul");			
 		}	
 		else
 			Clients.showNotification("Dados invalidos");

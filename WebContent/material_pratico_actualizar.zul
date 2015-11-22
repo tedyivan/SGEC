@@ -1,29 +1,17 @@
-<?page title="Registo Material Teorica" contentType="text/html;charset=UTF-8"?>
-<?init class="org.zkoss.zk.ui.util.Composition" arg0="templateMaterial.zul" ?>
+<?page title="Atualizar material pratico" contentType="text/html;charset=UTF-8"?>
 <zk>
-    <style>
-			.material{
-				Background:#E3DEDB;
-			}
-			.registo{
-				Background:#E3DEDB;
-			}
-			.titulo{
-				Background:#E3DEDB;
-			}
-			.aloca{
-				Background:white;
-			}
-			
-			
-	</style>
 		
-	<window id="registo" self="@define(right)" apply="mz.gov.sgec.controller.MaterialgeralController">
+	<window mode="highlighted" width="70%" height="80%" id="wd_actual_pratico" apply="mz.gov.sgec.controller.MaterialgeralController">
+				<zscript>
+				  import mz.gov.sgec.model.MaterialGeral;
+				  MaterialGeral mtgeral=(MaterialGeral) Executions.getCurrent().getArg().get("1");
+				  
+				</zscript>
 			
 				<div width = "100%" height="100%" >
 					<vlayout height="100%" >
 						<div  width = "100%" align = "center" sclass="titulo">
-						    <label value = "Registo de Material para aulas Teoricas"  style = "font-size:20pt"/>
+						    <label value = "Actualizacao de Material para aulas Praticas"  style = "font-size:20pt"/>
 						</div>
 							<hlayout>
 							<div>
@@ -53,7 +41,7 @@
 										</div>
 										<div hflex="2" align = "left">
 											
-											<textbox id="txt_quantidade" width="80%"/>							
+											<textbox id="txt_quantidade" width="80%"></textbox>							
 										</div>
 									</hlayout>
 									<hlayout  >
@@ -61,7 +49,7 @@
 											<label value = "Designacao:" />
 										</div>
 										<div hflex="2" align = "left">
-											<textbox id="txt_designacao" width="80%" constraint="no empty" />							
+											<textbox id="txt_designacao" width="80%" constraint="no empty" value="${mtgeral.material.nome}" />							
 										</div>
 									</hlayout>
 									<hlayout  >
@@ -69,7 +57,7 @@
 											<label value = "Descrição:" />
 										</div>
 										<div hflex="2" align = "left">
-											<textbox id="txt_descricao" width="80%" rows="5" cols="40" constraint="no empty"/>							
+											<textbox id="txt_descricao" width="80%" rows="5" cols="40" constraint="no empty" value="${mtgeral.material.descricao}"/>							
 											
 										</div>
 									</hlayout>
@@ -79,27 +67,24 @@
 												
 										</div>
 										<div hflex="2">
-											<datebox width="80%" id="dt_aquisicao"/>
+											<datebox width="80%" id="dt_aquisicao" value="${mtgeral.material.data_aquisicao}"></datebox>
+										</div>
+									</hlayout>
+										<hlayout  >
+										<div hflex="1">
+											<label value = "Preco:" />
+										</div>
+										<div hflex="2" align = "left">
+											<textbox id="txt_preco" width="80%" constraint="no empty" value="${mtgeral.material.preco}"/>							
 										</div>
 									</hlayout>
 																		
 									<hlayout  >
 										<div hflex="1">
-											<label value = "Preco:" />
-										</div>
-										<div hflex="2" align = "left">
-											<textbox id="txt_preco" width="80%" constraint="no empty" />							
-										</div>
-									</hlayout>
-									
-									
-									
-									<hlayout  >
-										<div hflex="1">
 											<label value = "Garantia:" />
 										</div>
 										<div hflex="2" align = "left">
-											<textbox id="txt_garantia" width="80%" constraint="no empty" />							
+											<textbox id="txt_garantia" width="80%" constraint="no empty" value="${mtgeral.material.garantia}" />							
 										</div>
 									</hlayout>
 									
@@ -108,33 +93,51 @@
 											<label value = "Alocar:" />
 										</div>
 										<div hflex="2" align = "left">
-											<button id="btn_aloc_turma" label = "turma" width="80%"/>							
+											<button id = "btn_aloc_turma" label = "turma" width="80%"/>							
 										</div>
 									</hlayout>
+									<space height="60px"/>
+									
+								
+									<div align="center">
+									<div hflex="1">
+											
+											<label id="lb_material_id" value="${mtgeral.material.id }" visible="false"></label>
+											<label id="lb_materialgeral_id" value="${mtgeral.id }" visible="false"></label>
+											<label id="lb_tipomat" value="${mtgeral.tipo_mat}" visible="false"/>
+											<label id="lb_created" value="${mtgeral.created_at}" visible="false"/>
+									</div>
+									
+									
+									<hlayout spacing="30px">
+										
+										<button label="Registar" forward="onClick$btn_actual" width="130%"/>
+										<button label="Cancelar" width="130%"/>
+										<space width="100%"/>
+										
+									</hlayout>	
+									</div>	
 															
 								</vlayout>
 								</div>
 								
-								<div hflex="1">
-									<label value = "" />
-									<label id="txt_tipomat" value="1" visible="false"/>
-								</div>										
+																		
 							</hlayout>
 					</vlayout>
-					
+					<!-- 
 					<div align="right">
 					<vlayout>
 						<hlayout>
 							<space height="1000%"/>
 						</hlayout>
 						<hlayout spacing="30px">
-							<button label="Registar" forward="onClick$btn_regi" width="130%"/>
+							<button label="Registar" forward="onClick$btn_actual" width="130%"/>
 							<button label="Cancelar" width="130%"/>
 							<space width="100%"/>
 						</hlayout>
 					</vlayout>	
 					</div>
-					
+					 -->
 					
 				</div>
 			

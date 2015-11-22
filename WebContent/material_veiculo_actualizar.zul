@@ -1,45 +1,29 @@
 <?page title="Registo de Veiculo" contentType="text/html;charset=UTF-8"?>
-<?init class="org.zkoss.zk.ui.util.Composition" arg0="templateMaterial.zul" ?>
+
 <zk>
-    <style>
-			.material{
-				Background:#E3DEDB;
-			}
-			.registo{
-				Background:#E3DEDB;
-			}
-			.titulo{
-				Background:#E3DEDB;
-			}
-			.aloca{
-				Background:white;
-			}
-			
-			
-	</style>
+    
 		
-	<div id="registo" self="@define(right)" apply="mz.gov.sgec.controller.VeiculoController">
-			
+	<window  mode="highlighted" apply="mz.gov.sgec.controller.VeiculoController" width="70%" height="80%">
+				<zscript>
+				  	import mz.gov.sgec.model.Veiculo;
+				    
+				    Veiculo veiculo = (Veiculo)Executions.getCurrent().getArg().get("1");
+			   
+				</zscript>
+				
+				
+				
 				<div width = "100%" height="100%" >
 					<vlayout height="100%" >
 						<div  width = "100%" align = "center" sclass="titulo">
-						    <label value = "Registo do Instruendo"  style = "font-size:20pt"/>
+						    <label value = "Actualizar Veiculo"  style = "font-size:20pt"/>
 						</div>
 							<hlayout>
 							<div>
 								<label value = "" />
 							</div>	
 							</hlayout>
-							<hlayout>
-							<div>
-								<label value = "" />
-							</div>	
-							</hlayout>
-							<hlayout>
-							<div>
-								<label value = "" />
-							</div>	
-							</hlayout>
+							
 							<hlayout>
 								<div hflex="1">
 									<label value = "" />
@@ -51,7 +35,7 @@
 											<label value = "Classe:" />
 										</div>
 										<div hflex="2" align = "left">
-											<textbox id="txt_classe" width="80%" constraint="no empty" />							
+											<textbox id="txt_classe" width="80%" value="${veiculo.classe}"  constraint="no empty" />							
 										</div>
 									</hlayout>
 									<hlayout  >
@@ -60,7 +44,7 @@
 										</div>
 										<div hflex="2" align = "left">
 																		
-											<textbox id="txt_marca" width="80%"/>
+											<textbox id="txt_marca" width="80%" value="${veiculo.marca}"/>
 										</div>
 									</hlayout>
 									<hlayout  >
@@ -68,7 +52,7 @@
 											<label value = "Matricula:" />
 										</div>
 										<div hflex="2" align = "left">
-											<textbox id="txt_matricula" width="80%" constraint="no empty" />							
+											<textbox id="txt_matricula" width="80%" constraint="no empty" value="${veiculo.matricula}" />							
 										</div>
 									</hlayout>
 									<hlayout  >
@@ -77,7 +61,7 @@
 										</div>
 										<div hflex="2" align = "left">
 													
-											<datebox id="dt_fabrico" width="80%" constraint="no empty"></datebox>
+											<datebox id="dt_fabrico" width="80%" constraint="no empty" value="${veiculo.ano_fabrico}"></datebox>
 										</div>
 									</hlayout>
 									<hlayout  >
@@ -85,7 +69,7 @@
 											<label value = "Lotação:" />
 										</div>
 										<div hflex="2" align = "left">
-											<textbox id="txt_lotacao" width="80%" constraint="no empty" />							
+											<textbox id="txt_lotacao" width="80%" constraint="no empty" value="${veiculo.lotacao}" />							
 										</div>
 									</hlayout>
 									<hlayout  >
@@ -93,7 +77,7 @@
 											<label value = "Peso bruto:" />
 										</div>
 										<div hflex="2" align = "left">
-											<textbox id="txt_pesobruto" width="80%" constraint="no empty" />						
+											<textbox id="txt_pesobruto" width="80%" constraint="no empty" value="${veiculo.peso_bruto}"/>						
 										</div>
 									</hlayout>
 									<hlayout  >
@@ -101,7 +85,7 @@
 											<label value = "Descrição:" />
 										</div>
 										<div hflex="2" align = "left">
-											<textbox id="txt_descricao" width="80%" rows="5" cols="40" constraint="no empty" />							
+											<textbox id="txt_descricao" width="80%" rows="5" cols="40" constraint="no empty" value="${veiculo.material.descricao}"/>							
 										</div>
 									</hlayout>
 									<hlayout  >
@@ -109,7 +93,7 @@
 											<label value = "Data de Aquisição:" />
 										</div>
 										<div hflex="2" align = "left">
-											<datebox id="dt_aquisicao" width="80%" />						
+											<datebox id="dt_aquisicao" width="80%" value="${veiculo.material.data_aquisicao}"/>						
 										</div>
 									</hlayout>
 									
@@ -118,7 +102,7 @@
 											<label value = "Garantia:" />
 										</div>
 										<div hflex="2" align = "left">
-											<textbox id="txt_garantia" width="80%" constraint="no empty" />							
+											<textbox id="txt_garantia" width="80%" constraint="no empty" value="${veiculo.material.garantia}"/>							
 										</div>
 									</hlayout>
 															
@@ -131,7 +115,8 @@
 											<label value = "Tipo:" />
 										</div>
 										<div hflex="2" align = "left">
-											<textbox id="txt_tipo" width="80%" constraint="no empty" />							
+											<textbox id="txt_tipo" width="80%" constraint="no empty" value="${veiculo.tipo}"/>							
+											
 										</div>
 									</hlayout>
 									<hlayout  >
@@ -139,7 +124,7 @@
 											<label value = "Modelo:" />
 										</div>
 										<div hflex="2" align = "left">
-											<textbox id="txt_modelo" width="80%" constraint="no empty" />							
+											<textbox id="txt_modelo" width="80%" constraint="no empty" value="${veiculo.modelo}" />							
 										</div>
 									</hlayout>
 									<hlayout  >
@@ -147,7 +132,7 @@
 											<label value = "Preco" />
 										</div>
 										<div hflex="2" align = "left">
-											<textbox id="txt_preco" width="80%" constraint="no empty" />							
+											<textbox id="txt_preco" width="80%" constraint="no empty" value="${veiculo.material.preco}"/>							
 										</div>
 									</hlayout>
 									<hlayout  >
@@ -155,7 +140,7 @@
 											<label value = "Tara:" />
 										</div>
 										<div hflex="2" align = "left">
-											<textbox id="txt_tara" width="80%" constraint="no empty" />							
+											<textbox id="txt_tara" width="80%" constraint="no empty" value="${veiculo.tara}" />							
 										</div>
 									</hlayout>
 									<hlayout  >
@@ -163,7 +148,7 @@
 											<label value = "Tipo de Combustivel:" />
 										</div>
 										<div hflex="2" align = "left">
-											<textbox id="txt_tipocombustivel" width="80%" constraint="no empty" />							
+											<textbox id="txt_tipocombustivel" width="80%" constraint="no empty" value="${veiculo.tipo_combustivel}"/>							
 										</div>
 									</hlayout>
 									<hlayout  >
@@ -185,47 +170,37 @@
 										</div>
 									</hlayout>
 									 -->
-									<hlayout  >
-										<div hflex="1">
-											<label value = "" />
-										</div>
-										<div hflex="2" align = "left">
-											<label value = "" />	
-										</div>
-									</hlayout>
-									<hlayout  >
-										<div hflex="1">
-											<label value = "" />
-										</div>
-										
-									</hlayout>
+														
 								</vlayout>
 								</div>
-								<div hflex="1">
-									<label value = "" />
-								</div>										
+								<label id="lb_veiculo_id" visible="false" value="${veiculo.id}"></label>
+								<label id="lb_material_id" visible="false" value="${veiculo.material.id}"></label>
+																		
 							</hlayout>
+							<div align="center">
+									<vlayout spacing="10px">
+									<space height="30px"></space>
+									</vlayout>
+									<vlayout>
+										<hlayout spacing="30px">
+											<button label="Registar" forward="onClick$actual" width="130%"/>
+											<button label="Cancelar" width="130%"/>
+											<space width="100%"/>
+										</hlayout>
+									</vlayout>	
+							</div>		
+					
+					
 					</vlayout>
 					
 					
-					<div align="right">
-							<vlayout>
-								<hlayout>
-									<space height="1000%"/>
-								</hlayout>
-								<hlayout spacing="30px">
-									<button label="Registar" id="btn_reg" width="130%"/>
-									<button label="Cancelar" width="130%"/>
-									<space width="100%"/>
-								</hlayout>
-							</vlayout>	
-					</div>
+					
 				</div>
 			
 			
 			
 			
-			</div>
+			</window>
 				
 		
 

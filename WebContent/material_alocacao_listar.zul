@@ -1,0 +1,116 @@
+<?page title="Listas Materiais" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="templateMaterial.zul" ?>
+
+<zk>
+		<style>
+			.material{
+				Background:#E3DEDB;
+			}
+			.listar{
+				Background:white;
+			}
+			.titulo{
+				Background:#E3DEDB;
+			}
+			.branco{
+				Background:white;
+			}
+			.aloca{
+				Background:#E3DEDB;
+			}
+			
+			
+			.z-listheader {
+  				background: white;
+  				border:0;
+			}    
+  		  
+			.branco {
+				background: white;
+  				border:0;
+			}
+			
+			.teo.pra.vei{
+				Background:white;
+			}
+			
+		</style>
+		<div  self="@define(right)" apply="mz.gov.sgec.controller.MaterialgeralController">
+		
+		<div   >		
+		<div width = "100%" height="100%" >
+			<vlayout height="100%" spacing = "20px">				
+					<div align = "center" sclass="titulo">
+					    <label value = "lista dos Materiais"  style = "font-size:20pt"/>
+					</div>
+				    <div align="right" hflex="8" >
+								<button  forward="onClick$btn_teste"  label="Pesquisa" sclass="branco" />
+								<textbox id="txt_pesq" width="40%" constraint="no empty" />							
+								<space width="10"/>
+					</div >
+									
+					
+					
+					<div id="wind_teorico" apply="mz.gov.sgec.controller.MaterialgeralController" visible="true">
+								<div vflex = "3" width = "100%"  >
+									<hlayout spacing = "40px">
+									<div >
+									</div>
+									<div hflex = "3" >
+											<listbox id="lst_mat_teorico"  rows="9">
+										        <listhead sizable="true">
+										            <listheader label="Material:" sort="auto" />
+										            <listheader label="Dt alocao:" sort="auto" />
+										            <listheader label="Turma:" sort="auto" />
+										            <listheader label="Estado:" sort="auto" />
+										            <listheader label="Opções:" sort="auto" />
+										            
+										        </listhead>
+										        <listitem value="${each}"  forEach="${wind_teorico$MaterialgeralController.materiaisGerais}" >
+										            
+										            <listcell label="${each.material.nome}" />
+										            <listcell label="${each.data_alocacao}" />
+										            <listcell label="${each.turma.nome}" />
+											       	 
+										            <listcell>
+										            	<button  width="30%"
+										            	 image="/images/14.1.png" sclass="branco"
+										            	/>
+										            </listcell>
+										              
+										             <listcell>
+										            	<button sclass="branco" image="/images/3.2.png" width="30%"/>
+										               	
+										            </listcell>
+										        </listitem>
+									</listbox>	         										        
+										        </div>
+									<div  >
+									</div>
+								    </hlayout>
+								</div>
+								<div vflex = "1" align = "right">
+							    <hlayout>
+							    	<div hflex = "1" >
+							    	</div>
+							    	<div hflex = "3" >	
+							    	 		
+							    	</div>
+							    	<div hflex = "1" >
+							    	</div>
+								</hlayout>							
+								</div>
+					</div>
+					
+			
+			
+			
+			
+			</vlayout>
+		</div>
+	</div>
+			
+				
+		      								      
+		</div>
+</zk>

@@ -14,6 +14,10 @@
 			.material{
 				Background:white;
 			}
+			.zButton{
+				Background:white;
+			}
+			
 			
 	</style>
 	 		
@@ -33,7 +37,7 @@
 				<button label="Listar" id="btn_listar " width="130px" height="30px" href="material_listar.zul" sclass="listar"
 				/>
 				<button id="btn_opreg" label="Registar" width="130px" height="30px"  sclass="registo"/>
-				<button label="Alocacao" width="130px" height="30px" sclass="esquerda"/>
+				<button label="Alocacao" width="130px" height="30px" sclass="aloca" href="material_alocacao_listar.zul"/>
 				
 		</vlayout>
     </center>

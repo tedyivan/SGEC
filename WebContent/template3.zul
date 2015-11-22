@@ -1,5 +1,10 @@
 <zk>
-  <borderlayout>
+	<zscript>
+			boolean logado = Executions.getCurrent().getDesktop().getSession().hasAttribute("UTIL");
+			
+	</zscript>
+	
+  <borderlayout visible="${logado}">
   	<north self="@{insert(header)}" height="10%">
   		<include src="header.zul"></include>
   	</north>

@@ -1,7 +1,16 @@
 
 <zk>
+<zscript>
+	 import mz.gov.sgec.model.Utilizador;
+     boolean logado =   Executions.getCurrent().getDesktop().getSession().hasAttribute("UTIL");
+    
+     
+     Object usuar = Executions.getCurrent().getDesktop().getSession().getAttribute("UTIL").toString();
+	 Utilizador utili=(Utilizador)Executions.getCurrent().getDesktop().getSession().getAttribute("UTIL");
+	
+</zscript>
 	<div align="right">
-		<label value="Macie, Tedy"></label>
+		<label id="lb_utilizador" value="${utili.utilizador}"></label>
 		<image src="/images/14.2.png"></image>
 		<space width="3%"></space>
 	</div>

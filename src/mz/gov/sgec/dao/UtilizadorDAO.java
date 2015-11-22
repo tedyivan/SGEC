@@ -25,5 +25,5 @@ public class UtilizadorDAO extends GenericDAO<Utilizador>{
 			Utilizador util = (Utilizador)criteria.uniqueResult();
 			tx.commit();
 			return util;				
-	}	
+	}
 }

@@ -71,7 +71,7 @@
 					<div>
 							<hlayout>
 						    	<button label="OK" id="detac" onClick="wind_turma_aloc.detach()"/>
-	                            					   
+	                            <button label="Fechar"  id="fechar"/>					   
 						    </hlayout>
 								
 					</div>

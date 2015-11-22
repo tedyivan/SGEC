@@ -1,18 +1,15 @@
-<?init class="org.zkoss.zk.ui.util.Composition" arg0="templateInstruendo.zul" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+
 <zk>
-		<style>
-			
-			.instruendo{
-				Background:#E3DEDB;
-			}
-			.registo{
-				Background:#E3DEDB;
-			}
-		</style>
-		<div id="registo" self="@define(right)" width = "100%" height="100%" style = "border: 1px solid red" apply = "mz.gov.sgec.controller.InstruendoController">
 
-
+	<window border="normal" mode="highlighted" closable="true" width = "50%" height="100%" style = "border: 1px solid red" apply = "mz.gov.sgec.controller.InstruendoController">
 	
+	<zscript>
+	  	import mz.gov.sgec.model.Instruendo;
+	    
+	    Instruendo instruend = (Instruendo)Executions.getCurrent().getArg().get("1");
+   
+	</zscript>
 		<vlayout height="100%" spacing = "10px">
 			<div vflex = "1">
 				<vlayout height="100%" spacing = "10px">
@@ -36,7 +33,7 @@
 								<label value = "Nomes:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox id="txt_nome" width="80%" constraint="no empty" value="${registo$InstruendoController.instruendo.nome}"/>							
+								<textbox id="txt_nome" width="80%" constraint="no empty" value="${instruend.nome}"/>							
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -44,7 +41,7 @@
 								<label value = "Data de nascimento:" />
 							</div>
 							<div hflex="2" align = "left">
-								<datebox id="d_nascimento" width="80%" value="${registo$InstruendoController.instruendo.data_nascimento}"/>							
+								<datebox id="d_nascimento" width="80%" value="${instruend.data_nascimento}"/>							
 							</div>
 						</hlayout>
 						<hlayout>
@@ -52,7 +49,7 @@
 								<label value = "Nomes do Pai:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox id="txt_nome_pai" width="80%" constraint="no empty" value="${registo$InstruendoController.instruendo.nome_pai}"/>							
+								<textbox id="txt_nome_pai" width="80%" constraint="no empty" value="${instruend.nome_pai}"/>							
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -60,7 +57,7 @@
 								<label value = "Nomes da Mãe:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox id="txt_nome_mae" width="80%" constraint="no empty" value="${registo$InstruendoController.instruendo.nome_mae}"/>	
+								<textbox id="txt_nome_mae" width="80%" constraint="no empty" value="${instruend.nome_mae}"/>	
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -68,7 +65,7 @@
 								<label value = "Estado civil:" />
 							</div>
 							<div hflex="2" align = "left">
-								<combobox id="cb_civil" width = "80%" value="${registo$InstruendoController.instruendo.estado_civil}">
+								<combobox id="cb_civil" width = "80%" value="${instruend.estado_civil}">
 									<comboitem label="casado(a)"/>
 									<comboitem label="solterio(a)"/>
 									<comboitem label="viuvo(a)"/>
@@ -91,7 +88,7 @@
 								<label value = "Local de residência:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox id="txt_residencia" width="80%" constraint="no empty" value="${registo$InstruendoController.instruendo.residencia}"/>							
+								<textbox id="txt_residencia" width="80%" constraint="no empty" value="${instruend.residencia}"/>							
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -99,7 +96,7 @@
 								<label value = "Tipo de carta:" />
 							</div>
 							<div hflex="2" align = "left">
-								<combobox id="cb_tipo_carta" width = "80%" value="${registo$InstruendoController.instruendo.tipo_carta}">
+								<combobox id="cb_tipo_carta" width = "80%" value="${instruend.tipo_carta}">
 									<comboitem label="ligeiro"/>
 									<comboitem label="pesado"/>
 								</combobox>						
@@ -118,7 +115,7 @@
 								<label value = "Celular:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox id="txt_celular" width="80%" constraint="no empty" value="${registo$InstruendoController.instruendo.telefone}"/>							
+								<textbox id="txt_celular" width="80%" constraint="no empty" value="${instruend.telefone}"/>							
 							</div>
 						</hlayout>												
 					</vlayout>
@@ -130,7 +127,7 @@
 								<label value = "Apelido:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox id="txt_apelido" width="80%" constraint="no empty" value="${registo$InstruendoController.instruendo.apelido}"/>							
+								<textbox id="txt_apelido" width="80%" constraint="no empty" value="${instruend.apelido}"/>							
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -138,7 +135,7 @@
 								<label value = "Naturalidade:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox id="txt_naturalidade" width="80%" constraint="no empty" value="${registo$InstruendoController.instruendo.naturalidade}"/>							
+								<textbox id="txt_naturalidade" width="80%" constraint="no empty" value="${instruend.naturalidade}"/>							
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -146,7 +143,7 @@
 								<label value = "Apelido:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox id="txt_apelido_pai" width="80%" constraint="no empty" value="${registo$InstruendoController.instruendo.apelido_pai}"/>							
+								<textbox id="txt_apelido_pai" width="80%" constraint="no empty" value="${instruend.apelido_pai}"/>							
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -154,7 +151,7 @@
 								<label value = "Apelido:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox id="txt_apelido_mae" width="80%" constraint="no empty" value="${registo$InstruendoController.instruendo.apelido_mae}"/>							
+								<textbox id="txt_apelido_mae" width="80%" constraint="no empty" value="${instruend.apelido_mae}"/>							
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -162,7 +159,7 @@
 								<label value = "Numero de BI:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox id="txt_numero_bi" width="80%" constraint="no empty" value="${registo$InstruendoController.instruendo.bi}"/>							
+								<textbox id="txt_numero_bi" width="80%" constraint="no empty" value="${instruend.bi}"/>							
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -179,7 +176,7 @@
 								<label value = "Validade de BI:" />
 							</div>
 							<div hflex="2" align = "left">
-								<datebox id="d_validade_bi" width="80%" value="${registo$InstruendoController.instruendo.validade_bi}"/>								
+								<datebox id="d_validade_bi" width="80%" value="${instruend$InstruendoController.instruendo.validade_bi}"/>								
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -196,14 +193,14 @@
 								<label value = "Código de barra:" />
 							</div>
 							<div hflex="2" align = "left">
-								<textbox id="txt_codigo_barra" width="80%" value="${registo$InstruendoController.instruendo.codigo_barra}"/>
+								<textbox id="txt_codigo_barra" width="80%" value="${instruend.codigo_barra}"/>
 							</div>
 						</hlayout>						
 						<hlayout  >
 							<div hflex="1"></div>
 							<div hflex="2" align = "left">
 							<separator spacing = "120px"></separator>
-								<button id ="btn_actualizar" label = "guardar" width="40%"/>
+								<button label = "guardar" id = "btn_actualizar" width="40%"/>	
 								<button label = "voltar" width="40%"/>							
 							</div>
 						</hlayout>
@@ -213,5 +210,5 @@
 				</hlayout>
 			</div>
 		</vlayout>
-	</div>
+	</window>
 </zk>

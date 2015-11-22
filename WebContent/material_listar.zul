@@ -20,31 +20,45 @@
   				background: white;
   				border:0;
 			}    
-  		
+  		  
 			.branco {
 				background: white;
   				border:0;
 			}
+			.aloca{
+				Background:white;
+			}
 			
+			
+			.teo.pra.vei{
+				Background:white;
+			}
 			
 		</style>
-		<div  self="@define(right)" >
+		<window  self="@define(right)" apply="mz.gov.sgec.controller.MaterialgeralController">
 		
-		<div id="wind_veicle"  apply="mz.gov.sgec.controller.VeiculoController">		
+		<div   >		
 		<div width = "100%" height="100%" >
 			<vlayout height="100%" spacing = "20px">				
 					<div align = "center" sclass="titulo">
 					    <label value = "lista dos Materiais"  style = "font-size:20pt"/>
 					</div>
 				    <div align="right" hflex="8" >
-								<button  forward="onClick$btn_teste"  label="Pesquisa" sclass="pesqui" />
+								<button  forward="onClick$btn_teste"  label="Pesquisa" sclass="branco" />
 								<textbox id="txt_pesq" width="40%" constraint="no empty" />							
 								<space width="10"/>
 					</div >
+					<div align="center">
+					<hlayout spacing="20px">
+								<button label="Veiculos" id="btn_veic" width="200px" sclass="branco"/>
+								<button label="Material Teorico" id="btn_teoric" width="200px" sclass="branco"/>
+								<button label="Material Pratico" id="btn_pratic" width="200px" sclass="branco"/>	
+					</hlayout>
+					</div>
 					
 					
 					
-					
+					<div id="wind_veicle" apply="mz.gov.sgec.controller.VeiculoController">
 								<div vflex = "3" width = "100%"  >
 									<hlayout spacing = "40px">
 									<div >
@@ -65,12 +79,12 @@
 										            <listcell label="${each.classe}" />
 											       
 										            <listcell>
-										            	<button type = "submit" width="30%"
+										            	<button  width="30%"
 										            	 image="/images/14.1.png" sclass="branco"
 										            	/>
 										            </listcell>
 										             <listcell>
-										            	<button sclass="branco" image="/images/3.2.png" width="30%"/>
+										            	<button sclass="branco" forward="onClick$actualizar" image="/images/3.2.png" width="30%"/>
 										               	
 										            </listcell>
 										        </listitem>
@@ -91,11 +105,68 @@
 							    	</div>
 								</hlayout>							
 								</div>
+					</div>
+					
+					<div id="wind_teorico" apply="mz.gov.sgec.controller.MaterialgeralController" visible="false">
+								<div vflex = "3" width = "100%"  >
+									<hlayout spacing = "40px">
+									<div >
+									</div>
+									<div hflex = "3" >
+											<listbox id="lst_mat_teorico"  rows="9">
+										        <listhead sizable="true">
+										            <listheader label="Designacao:" sort="auto" />
+										            <listheader label="Dt aquisicao:" sort="auto" />
+										            <listheader label="Preco:" sort="auto" />
+										            <listheader label="Estado:" sort="auto" />
+										            <listheader label="Opções:" sort="auto" />
+										            
+										        </listhead>
+										        <listitem value="${each}"  forEach="${wind_teorico$MaterialgeralController.materialGerais}" >
+										            
+										            <listcell label="${each.material.nome}" />
+										            <listcell label="${each.material.data_aquisicao}" />
+										            <listcell label="${each.material.preco}" />
+											       	 
+										            <listcell>
+										            	<button  width="30%"
+										            	 image="/images/14.1.png" sclass="branco"
+										            	/>
+										            </listcell>
+										              
+										             <listcell>
+										            	<button sclass="branco" image="/images/3.2.png" width="30%" forward="onClick$actualizarpatico"/>
+										               	
+										            </listcell>
+										        </listitem>
+									</listbox>	         										        
+										        </div>
+									<div  >
+									</div>
+								    </hlayout>
+								</div>
+								<div vflex = "1" align = "right">
+							    <hlayout>
+							    	<div hflex = "1" >
+							    	</div>
+							    	<div hflex = "3" >	
+							    	 		
+							    	</div>
+							    	<div hflex = "1" >
+							    	</div>
+								</hlayout>							
+								</div>
+					</div>
+					
+			
+			
+			
+			
 			</vlayout>
 		</div>
 	</div>
 			
 				
-		
-		</div>
+		      								      
+		</window>
 </zk>

@@ -36,7 +36,7 @@ public class CriarContaController  extends GenericForwardComposer{
 			Utilizador utilizador = new Utilizador();
 			utilizador.setUtilizador(txt_utilizador.getText());
 			utilizador.setEmail(txt_email.getText());
-			utilizador.setT‬ipo(cbx_tipo.getText());
+			utilizador.setTipo(cbx_tipo.getText());
 			utilizador.setSenha(txt_senha.getText());
 			
 			utilizadorDAO.create(utilizador);
