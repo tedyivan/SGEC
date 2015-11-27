@@ -42,7 +42,7 @@ public class CriarContaController  extends GenericForwardComposer{
 			utilizadorDAO.create(utilizador);
 			clear();
 			Clients.showNotification("Conta criada com sucesso");
-			Executions.sendRedirect("autenticacao.zul");
+			Executions.sendRedirect("index.zul");
 		}
 		public void clear(){
 			cbx_fun.setValue(null);

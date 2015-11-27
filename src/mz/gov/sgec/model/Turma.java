@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -30,9 +31,13 @@ public class Turma {
 	private Date updated_at;
 	private String lotacao;
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	@JoinColumn(name="turma_id")
-	private List<MaterialAlocacao> alocacoes = new ArrayList<>();
+	private List<MaterialAlocacao> alocacoes = new ArrayList <MaterialAlocacao>();
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@JoinColumn(name = "turma_id")
+	private List<Instruendo> instruendo = new ArrayList <Instruendo> ();
 	
 	public Turma() {
 		// TODO Auto-generated constructor stub
@@ -41,9 +46,7 @@ public class Turma {
 	public long getId() {
 		return id;
 	}
-
-	
-	
+		
 	public void setId(long id) {
 		this.id = id;
 	}
@@ -113,9 +116,6 @@ public class Turma {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
-	
-	
 
 	public String getLotacao() {
 		return lotacao;
@@ -131,6 +131,4 @@ public class Turma {
 				+ ", sala=" + sala + ", descricao=" + descricao + ", existe=" + existe + ", created_at=" + created_at
 				+ ", updated_at=" + updated_at + ", lotacao=" + lotacao + "]";
 	}
-
-
 }

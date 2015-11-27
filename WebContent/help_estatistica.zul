@@ -1,0 +1,46 @@
+<?page title="Help Estatistica" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="templateAjuda.zul" ?>
+<zk>
+		<style>
+			.help{
+				Background:#E3DEDB;
+			}
+			.help_estatistica{
+				Background:#E3DEDB;
+			}
+		</style>
+		<div id = "d_help_f" self="@define(right)" width = "100%" height="100%" >
+					<vlayout height="100%" spacing = "20px">				
+							<div align = "center" sclass="titulo">
+							    <label value = "Sistema de Gestão de Escolas de Condução"  style = "font-size:20pt"/>
+							</div>
+							
+										<div vflex = "3" width = "100%"  >
+											<hlayout spacing = "40px">
+											<div >
+											</div>
+											<div hflex = "3" >
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+							
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+								<label value = "1. Como visualizar Estatísticas de Funcionários, turma, instruendos e materiais?" style = "font-size: 15pt"/>
+							</div>	
+							<div  align ="left">
+							<hlayout><div></div></hlayout>
+								<label value ="  Para visualizar estatísticas Dirija-se com a secta do mouse ao submenu de Estatísticas e clique a opção funcionário, ou instruendo
+								ou material, ou turma." style = "font-size:11pt" />
+								
+							</div>
+			
+							</div>				    
+											</div>
+											<div >
+											</div>
+										    </hlayout>
+										</div>
+										
+							</vlayout>
+				</div>
+</zk>

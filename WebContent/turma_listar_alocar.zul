@@ -46,13 +46,8 @@
 										            	<label value="${each.hora_fim}"/>
 										            </listcell>
 										            <listcell label="${each.lotacao}" />
-											       	
-										            										             
 										        </listitem>
-										          								        
-										           
 										    </listbox>
-										    
 									</div>
 									<div  >
 									</div>
@@ -71,7 +66,7 @@
 					<div>
 							<hlayout>
 						    	<button label="OK" id="detac" onClick="wind_turma_aloc.detach()"/>
-	                            <button label="Fechar"  id="fechar"/>					   
+	                            <button label="Fechar"  id="fechar" onClick="wind_turma_aloc.detach()"/>					   
 						    </hlayout>
 								
 					</div>

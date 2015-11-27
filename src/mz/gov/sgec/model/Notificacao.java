@@ -16,7 +16,7 @@ public class Notificacao {
 	private long id;
 	private String mensagem;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="assunto_id")
 	private Assunto assunto;
 	
@@ -27,6 +27,52 @@ public class Notificacao {
 	@ManyToOne
 	@JoinColumn(name="instruendo_id")
 	private Instruendo instruendo;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getMensagem() {
+		return mensagem;
+	}
+
+	public void setMensagem(String mensagem) {
+		this.mensagem = mensagem;
+	}
+
+	public Assunto getAssunto() {
+		return assunto;
+	}
+
+	public void setAssunto(Assunto assunto) {
+		this.assunto = assunto;
+	}
+
+	public Utilizador getUtilizador() {
+		return Utilizador;
+	}
+
+	public void setUtilizador(Utilizador utilizador) {
+		Utilizador = utilizador;
+	}
+
+	public Instruendo getInstruendo() {
+		return instruendo;
+	}
+
+	public void setInstruendo(Instruendo instruendo) {
+		this.instruendo = instruendo;
+	}
+
+	@Override
+	public String toString() {
+		return "Notificacao [id=" + id + ", mensagem=" + mensagem + ", assunto=" + assunto + ", Utilizador="
+				+ Utilizador + ", instruendo=" + instruendo + "]";
+	}
 	
 	
 	

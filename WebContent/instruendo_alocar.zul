@@ -1,82 +1,60 @@
-<?init class="org.zkoss.zk.ui.util.Composition" arg0="templateInstruendo.zul" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
 <zk>
+	<window border="normal" id="win_inst_a" width="50%" height="80%" apply="mz.gov.sgec.controller.InstruendoController">
 		<style>
-			
-			.instruendo{
+			.titulo{
 				Background:#E3DEDB;
 			}
-			.registo{
-				Background:#E3DEDB;
+			.z-listheader {
+  				background: white;
+  				border:0;
 			}
-		</style>
-	<window closable="true" id="d_inst_p" self="@define(right)" width = "100%" height = "100%" style = "border: 1px solid red" apply = "mz.gov.sgec.controller.InstruendoController">	
-		<vlayout height="100%"  style = "border: 1px solid green">
-				<div  vflex = "1">
-					<vlayout spacing = "10px">
-						<div  width = "100%" align = "center" vflex = "2">
-						    <label value = "Alocacao da carta"  style = "font-size:20pt"/>
-						</div>	
-						<div vflex = "2" width = "80%" align = "left" >
-							<button id="pesq" label="Pesquisa" />
-							<textbox id="txt_pesq" width="18%" />							
-						</div>				
-					</vlayout>
+			.pesqui {
+				background: white;
+  				border:0;
+			}
+			.branco {
+				background: white;
+  				border:0;
+			}
+  		</style>
+  		<hlayout>
+  			<div></div>
+  			<div hflex = "3">
+ 		 		<div align="center" sclass="titulo">
+					<label value="Selecione a turma por alocar" style="font-size:28px;"/>
 				</div>
-				<div height="70%" vflex = "3">
-					<hlayout>
-						<div hflex ="1"></div>
-						<div hflex = "3">
-							<hlayout>
-								<div>
-									<listbox id="lst_instruendo" width="99%" >
-										 <listhead sizable="true">
-										            <listheader label="Código de barra:" sort="auto(model)" />
-										            <listheader label="Nomes:" sort="auto" />
-										            <listheader label="Apelido:" sort="auto" />
-										            <listheader label="Tipo de carta:" sort="auto" />									
-										            <listheader label="Valor pago (MT):" sort="auto" />
-													<listheader label="Divida (MT):" sort="auto" />
-										        </listhead>
-												<listitem value="${each}" forward="onClick$linha" forEach="${d_inst_p$InstruendoController.instruendo}">
-													<listcell label = "${each.codigo_barra}"/>												
-													<listcell label = "${each.nome}"/>											
-													<listcell label = "${each.apelido}"/>											
-													<listcell label = "${each.tipo_carta}"/>													
-													<listcell label = "${each.nome}"/>													
-													<listcell label = "${each.nome}"/>															
-												</listitem>
-									</listbox>
-								</div>
-							</hlayout>
-							<vlayout spacing = "20px" width = "98%">
-								<div vflex = "1">
-								
-								</div>
-								<div align ="left" vflex = "2">
-									<hlayout>
-										<div hflex = "1" >
-											<label value = "Turma:"/>
-											<combobox id="cb_turma" width = "40%">
-												<comboitem  label = "${each.nome}" value = "${each}" forEach = "${d_inst_p$InstruendoController.turmas}"/>
-											</combobox>
-										</div>
-										<div hflex = "1" align ="right">
-											<button label = "turma"  width="40%"/>
-										</div>
-									</hlayout>
-								</div>
-							</vlayout>
-							<vlayout spacing = "300px">
-								<div vflex = "1" ></div>
-								<div vflex = "2" align ="right" >
-									<button label = "guardar"  width="20%"/>
-									<button label = "voltar" width="20%" />
-								</div>
-							</vlayout>
-						</div>
-						<div hflex ="1"></div>
-					</hlayout> 
-				</div>
-		</vlayout>		
+  				<vlayout spacing="12px" >
+					<space height="2px"></space>	
+					<div align="right">
+						<button  forward=""  label="Pesquisa" sclass="pesqui" />
+						<textbox id="txt_pesq" width="40%" constraint="no empty" />							
+					</div >
+					<div vflex = "3" width = "100%"  >
+						<listbox id="lst_turmas" rows="5" multiple="false" checkmark="true">
+							<listhead sizable="true" style="background:white;">
+							<listheader align="center" width="40px" label="" />
+							<listheader label="Designação:" sort="auto" />
+							<listheader label="Periodo:" sort="auto" />
+							<listheader label="Nº do Alunos:" sort="auto" />
+							</listhead>
+							<listitem value="${each}" forward="onClick$registo_tur_alocar" forEach="${win_inst_a$InstruendoController.turmas}">
+							    <listcell label=""/>
+							    <listcell label="${each.nome}" />
+								<listcell >
+							    	<label value="${each.hora_inicio} -> "/>
+								 	<label value="${each.hora_fim}"/>
+								</listcell>
+								<listcell label="${each.lotacao}" />
+							</listitem>		           
+						</listbox>
+					</div>
+					<div align="center">
+					  	<button label="guardar" id="registo_alocar" onClick="win_inst_a.detach()"/>
+					</div>
+				</vlayout>
+  			</div>
+  			<div></div>
+  		</hlayout>
 	</window>
 </zk>

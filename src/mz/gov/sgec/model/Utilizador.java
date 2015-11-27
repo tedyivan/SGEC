@@ -5,11 +5,13 @@ import java.util.ArrayList;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -25,7 +27,13 @@ public class Utilizador {
 	
 	private String email;
     
+
 	private String tipo;
+    /*
+	@OneToOne
+    @JoinColumn(name="funcionario_id", unique=true, nullable=false, updatable=false)
+	private Funcionario funcionario;
+*/
 	
 	@OneToMany
 	@JoinColumn(name="notificacao_id")
@@ -67,6 +75,8 @@ public class Utilizador {
 	}
 
 
+	
+	
 	public String getTipo() {
 		return tipo;
 	}
@@ -76,11 +86,7 @@ public class Utilizador {
 		this.tipo = tipo;
 	}
 
-	
-	
-	
-	
-	
+
 	public String getUtilizador() {
 		return utilizador;
 	}
@@ -93,8 +99,9 @@ public class Utilizador {
 
 	@Override
 	public String toString() {
-		return "Utilizador [id=" + id + ", utilizador=" + utilizador + ", senha=" + senha + ", email=" + email
-				+ ", tipo=" + tipo + "]";
+		return "Utilizador [id=" + id + ", Utilizador =" + utilizador + ", senha=" + senha + ", email=" + email
+				+ ", t‬ipo=" + tipo + "]";
+
 	}
 
 

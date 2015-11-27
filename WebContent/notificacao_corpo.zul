@@ -1,4 +1,4 @@
-<?page title="Listar Turma" contentType="text/html;charset=UTF-8"?>
+<?page title="Notificacao" contentType="text/html;charset=UTF-8"?>
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="templateNotificacao.zul" ?>
 <zk>
 		<style>
@@ -29,8 +29,23 @@
 			}
 		</style>
 		<window self="@define(right)"  id="wind_notifi" apply="mz.gov.sgec.controller.Notificacao_controller" > 
-			
+		<!-- <zscript>
+			<![CDATA[
+				import mz.gov.sgec.model.Turma;
+				import mz.gov.sgec.controller.Turma_controller;
+				import mz.gov.sgec.dao.TurmaDAO;
+				TurmaDAO turmaDAO= new TurmaDAO();
 				
+				List<Turma> lista=turmaDAO.findAll();
+				ListModelList lm2 = new ListModelList(lista);
+			
+			
+			
+			]]>
+		
+		</zscript> 	
+		 -->
+		 		
 		<div width = "100%" height="100%" >
 			<vlayout height="100%" spacing = "20px">				
 					<div align = "center" sclass="titulo" >
@@ -41,7 +56,11 @@
 							
 								<label value="Destinatario"></label>
 								<space width="10"/>
-								<textbox id="txt_pesq" width="70%" constraint="no empty" />							
+								<combobox id="cb_destina"  width="70%">
+									<attribute name="onCreate"> self.setSelectedIndex(0); </attribute>
+									<comboitem label="seleciona destinatario"></comboitem>
+									<comboitem label = "${each.nome}" value = "${each.getNome()}" forEach = "${wind_notifi$Notificacao_controller.instruendos}"/>
+								</combobox>						
 								<space width="10"/>
 							
 							</div >
@@ -49,8 +68,9 @@
 							
 								<label value="Assunto"></label>
 								<space width="21px"/>
-								<combobox id="cbx_assunto" forward="onChange" width="65%">
+								<combobox id="cb_assunto" forward="onChange=onSearch" width="65%">
 									<attribute name="onCreate"> self.setSelectedIndex(0); </attribute>
+									<comboitem label="seleciona assunto"></comboitem>
 									<comboitem label = "${each.nome}" value = "${each.getNome()}" forEach = "${wind_notifi$Notificacao_controller.assuntos}"/>
 								</combobox>
 								<space width="1px"/>
@@ -61,14 +81,14 @@
 							
 								<label value="Mensagem"></label>
 								<space width="6px"/>
-								<textbox id="txt_mensagem" rows="22" cols="40" width="70%" constraint="no empty" />							
+								<textbox id="txt_mensagem" rows="22" cols="40" value="${each.getMessage()}" width="70%" constraint="no empty" />							
 								<space width="1px"/>
 							
 							</div >
 							<div align="center" hflex="8" >
 							
 								<div hflex = "4">
-									<button id="btn_reg" width="10%" label ="Enviar"/>
+									<button id="btn_reg" forward="onClick$addReg"   width="10%" label ="Enviar"/>
 								    <button id="btn_cancelar" width="10%" label ="Cancelar" />
 								</div>						
 							</div >

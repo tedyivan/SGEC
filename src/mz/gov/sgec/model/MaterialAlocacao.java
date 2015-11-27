@@ -25,6 +25,7 @@ public class MaterialAlocacao {
 	/*
 	 * Relacionamento com Turma
 	 */
+	
 	@ManyToOne
 	@JoinColumn(name="turma_id")
 	private Turma turma;
@@ -79,13 +80,10 @@ public class MaterialAlocacao {
 	public void setUpdated_at(Date updated_at) {
 		this.updated_at = updated_at;
 	}
-
-	public Turma getTurma() {
-		return turma;
-	}
-
-	public void setTurma(Turma turma) {
-		this.turma = turma;
+	
+	public long getId() {
+		return id;
+		
 	}
 
 	public Material getMaterial() {
@@ -96,8 +94,16 @@ public class MaterialAlocacao {
 		this.material = material;
 	}
 
-	public long getId() {
-		return id;
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public Turma getTurma() {
+		return turma;
+	}
+
+	public void setTurma(Turma turma) {
+		this.turma = turma;
 	}
 
 	@Override
@@ -106,4 +112,7 @@ public class MaterialAlocacao {
 				+ ", estado=" + estado + ", created_at=" + created_at + ", updated_at=" + updated_at + ", turma="
 				+ turma + ", material=" + material + "]";
 	}
+
+	
+	
 }

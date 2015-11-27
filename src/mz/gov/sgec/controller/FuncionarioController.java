@@ -1,10 +1,13 @@
 package mz.gov.sgec.controller;
 import mz.gov.sgec.dao.FuncionarioDAO;
+import mz.gov.sgec.dao.TurmaDAO;
 import mz.gov.sgec.model.Funcionario;
 //import mz.gov.sgec.model.Instruendo;
+import mz.gov.sgec.model.Turma;
 
 import java.util.List;
 
+import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.util.Clients;
 
@@ -16,6 +19,7 @@ import org.zkoss.zul.Button;
 import org.zkoss.zul.Combobox;
 import org.zkoss.zul.Datebox;
 import org.zkoss.zul.Textbox;
+import org.zkoss.zul.Window;
 
 public class FuncionarioController extends GenericForwardComposer{
 	private FuncionarioDAO fdao = new FuncionarioDAO();
@@ -68,5 +72,8 @@ public class FuncionarioController extends GenericForwardComposer{
 		long id = 2;
 		func.setId(id);
 		return fdao.findById(func.getId());
+	}
+	public List <Turma> getTurmas(){
+		return new TurmaDAO().findAll();
 	}
 }

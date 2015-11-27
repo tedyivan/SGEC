@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Funcionario {
@@ -20,7 +22,7 @@ public class Funcionario {
     private String categoria;
     private String email;
     private Date data_nascimento;
-    
+  
 	public long getId() {
 		return id;
 	}

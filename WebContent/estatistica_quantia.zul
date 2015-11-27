@@ -1,0 +1,120 @@
+<?page title="Estatistica de Funcionarios" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="template_estatistica.zul" ?>
+<zk>
+<style>
+			
+			.estatistica{
+				Background:#E3DEDB;
+			}
+			
+		</style>
+		<div self="@define(right)" width = "100%" height="100%" >
+					<vlayout height="100%" spacing = "20px">				
+							<div align = "center" sclass="titulo">
+							    <label value = "Quantías Totais"  style = "font-size:20pt"/>
+							  
+							</div>
+										<div vflex = "3" width = "100%"  >
+											<hlayout spacing = "40px">
+											<div >
+											</div>
+											<div hflex = "3" >
+											
+											  
+							<div  align ="left">
+						<label value = "Período: " style = "font-size: 15pt"/>
+							</div>	
+							<hlayout><div></div></hlayout>
+							<combobox width="10%" id = " cbx_anoQuant ">
+							</combobox>
+							
+							<hlayout><div></div></hlayout>
+											            <listbox id="lst_quant_estatistica" >
+												        <listhead sizable="true">
+												            <listheader label="Mês:" sort="auto" style = "font-size:10pt"/>
+												            <listheader label="Instruendos activos:" sort="auto" style = "font-size:10pt" />
+												            <listheader label="Funcionários activos:" sort="auto" style = "font-size:10pt"/>
+												            <listheader label="Inscrições:" sort="auto" style = "font-size:10pt" />
+												  			<listheader label="Salário:" sort="auto" style = "font-size:10pt" />
+												            <listheader label="Material:" sort="auto" style = "font-size:10pt"/>
+												  
+												       </listhead>
+												        <listitem>
+												            <listcell label="Instrutor" />
+												            <listcell label="2" />
+												            <listcell label="5" />
+															<listcell label ="44"/>								       
+												            <listcell label ="44"/>	
+												            <listcell label ="44"/>	
+												            
+												        </listitem>
+												          
+												        
+												          <listitem>
+												            <listcell label="Instrutor" />
+												            <listcell label="2" />
+												            <listcell label="5" />
+															<listcell label ="44"/>	
+															<listcell label ="44"/>	
+															<listcell label ="44"/>								       
+												            
+												    
+												        </listitem>    
+												        
+												        <listitem>
+												            <listcell label="Instrutor" />
+												            <listcell label="2" />
+												            <listcell label="5" />
+															<listcell label ="44"/>								       
+												            
+												    
+												        </listitem>												        
+												        
+												        <listitem>
+												            <listcell label="Instrutor" />
+												            <listcell label="2" />
+												            <listcell label="5" />
+															<listcell label ="44"/>
+												        </listitem>
+												        
+												        <listitem>
+												            <listcell label="Instrutor" />
+												            <listcell label="2" />
+												            <listcell label="5" />
+															<listcell label ="44"/>								       
+												    
+												        </listitem>  
+												    </listbox>
+												     <hlayout><div></div></hlayout>
+												    
+												     <div align = "left" sclass="titulo">
+							    							<label value = "1. Material Total: "  style = "font-size:12pt"/>
+													 </div>
+													 
+													 <div align = "left" sclass="titulo">
+							    							<label value = "2. Salário Total: "  style = "font-size:12pt"/>
+													 </div>
+														
+													<div align = "left" sclass="titulo">
+							    							<label value = "3. Total de inscrições: "  style = "font-size:12pt"/>
+													 </div>
+													 
+												    <hlayout><div></div></hlayout>
+													<hlayout><div></div></hlayout>
+												    
+												    <hlayout>
+													<div hflex="1">				
+													</div>
+														<div hflex="2" align = "right">
+															<button id = "btn_relatorio" label = "relatorio" width="15%" style = "font-size:10pt"/>
+															<button id= "btn_voltar" label = "voltar" width="15%" style = "font-size:10pt"/>							
+														</div>
+													</hlayout>
+											</div>
+											<div >
+											</div>
+										    </hlayout>
+										</div>
+							</vlayout>
+				</div>
+</zk>

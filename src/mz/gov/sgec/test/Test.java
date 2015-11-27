@@ -1,23 +1,27 @@
 package mz.gov.sgec.test;
 
 import java.util.Date;
-import java.util.List;
+
 
 import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import mz.gov.sgec.dao.AssuntoDAO;
+import mz.gov.sgec.dao.InstruendoDAO;
 import mz.gov.sgec.dao.MaterialAlocacaoDAO;
+
 import mz.gov.sgec.dao.MaterialDAO;
 import mz.gov.sgec.dao.MaterialGeralDAO;
+import mz.gov.sgec.dao.NotificacaoDAO;
 import mz.gov.sgec.dao.TurmaDAO;
 import mz.gov.sgec.dao.UtilizadorDAO;
 
 import mz.gov.sgec.dao.VeiculoDAO;
 import mz.gov.sgec.model.Assunto;
 import mz.gov.sgec.model.Funcionario;
+import mz.gov.sgec.model.Instruendo;
 import mz.gov.sgec.model.Material;
-import mz.gov.sgec.model.MaterialAlocacao;
 import mz.gov.sgec.model.MaterialGeral;
+import mz.gov.sgec.model.Notificacao;
 import mz.gov.sgec.model.Turma;
 import mz.gov.sgec.model.Utilizador;
 
@@ -87,14 +91,15 @@ public class Test {
 		/*
 		Turma turma = new Turma();
 		turma.setCreated_at(new Date());
-		turma.setHora_inicio("07:00");
-		turma.setHora_fim("10:00");
+		turma.setData_fim(new Date());
 		turma.setExiste(true);
 		turma.setNome("Nome");
 		turma.setSala("Sala");
 		turma.setUpdated_at(new Date());
 		
+		turmaDAO.create(turma);
 		
+<<<<<<< HEAD
 		//turmaDAO.create(turma);
 		VeiculoDAO veiculoDAO = new VeiculoDAO();
 		List<Veiculo> veiculos = veiculoDAO.findAll();
@@ -167,15 +172,26 @@ public class Test {
 		String line="1:value";
 		String[] separated = line.split("\\:");
 		System.out.println(separated[1].toString());
+		
+		
+		Assunto assunto= new Assunto();
+		AssuntoDAO assuntoDAO= new AssuntoDAO();
+		assunto.setNome("Teste");
+		assunto.setMesage("O senhor tem uma divida");
+		assuntoDAO.create(assunto);
+		*/
+		//System.out.println(assuntoDAO.findAll().get(1).toString());
+		/*Utilizador util= new Utilizador();
+		UtilizadorDAO utilDao= new UtilizadorDAO();
+		util.setUtilizador("tedy");
+		util.setSenha("tedy");
+		utilDao.create(util);
 		*/
 		
-		//Assunto assunto= new Assunto();
+		
 		AssuntoDAO assuntoDAO= new AssuntoDAO();
-		/*assunto.setNome("Teste");
-		assunto.setMesage("O senhor tem uma divida");
-		assuntoDAO.create(assunto);*/
-	
-		System.out.println(assuntoDAO.findAll().get(1).toString());
-	
+		Assunto assunto=assuntoDAO.findAll().get(0);
+		System.out.println(assunto.getMesage());
+		
 	}
 }

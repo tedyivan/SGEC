@@ -23,7 +23,7 @@ public class MaterialGeral {
 	
 	/*Relacionamento com Material*/
 	@ManyToOne
-	@JoinColumn(name="material_id")
+	@JoinColumn(name="material_geral_id")
 	private Material material;
 	
 	public MaterialGeral() {

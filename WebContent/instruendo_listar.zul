@@ -2,8 +2,12 @@
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="templateInstruendo.zul" ?>
 
 <zk>
-    <window id="bl_servico"  self="@define(right)" apply="mz.gov.sgec.controller.InstruendoController" >
+
+    <window id="win_inst" height="100%" self="@define(right)" apply="mz.gov.sgec.controller.InstruendoController" >
 	    <style>
+	    	.titulo{
+				Background:#E3DEDB;
+			}
 			.instruendo{
 				Background:#E3DEDB;
 			}
@@ -13,21 +17,24 @@
 			.z-listheader {
 	  			background: white;
 	  			border:0;
-			} 
+			}
+			.pesqui {
+				background: white;
+  				border:0;
+			}
+			.branco {
+				background: white;
+  				border:0;
+			}
 		</style>
-		<vlayout height="100%" spacing = "20px" style = "border: 1px solid red">				
-			<div align = "center">
-			    <label value = "lista dos Instruendo"  style = "font-size:20pt"/>
-			</div>
-			<div  >
-				<button id="pesq" label="Pesquisa" />
-				<textbox id="txt_pesq" width="18%" constraint="no empty" />							
-			</div >
-			<div vflex = "3" width = "100%"  >
-				<hlayout spacing = "40px">
-					<div ></div>
-					<div hflex = "3" >
-					    <listbox id="lista_instruendo" rows="7" >
+		<!-- <vlayout height="100%" spacing = "20px" >				
+			<div align = "center" sclass="titulo"> <label value = "lista dos Instruendo"  style = "font-size:20pt"/> </div>
+			
+			<div align="right">
+				<button  forward=""  label="Pesquisa" sclass="pesqui" />
+				<textbox id="txt_pesq" width="40%" constraint="no empty" />							
+					<div hflex = "3" align = "center">
+					    <listbox id="lista_instruendo" rows="7" width = "100%" height="450px">
 					        <listhead >
 					            <listheader label="Código de barra:" sort="auto" />
 								<listheader label="Nomes:" sort="auto" />
@@ -37,37 +44,38 @@
 								<listheader label="Pagamento:" sort="auto" />
 								<listheader label="Actualizar:" sort="auto" />
 					        </listhead>
-					            <listitem value="${each}" forEach="${bl_servico$InstruendoController.instruendos}">
+					            <listitem value="${each}" forEach="${win_inst$InstruendoController.instruendos}">
 					            <listcell label="${each.codigo_barra}" />            
 					            <listcell label="${each.nome}" />
 					            <listcell label="${each.apelido}"  />
 					            <listcell label="${each.tipo_carta}" />
 					            <listcell >
-					                 <button   forward="onClick$alocar" image="/widgets/Imagens/actualizar.png" />
+					                 <button  forward="onClick$alocar_i" image="/images/18.12.png" sclass="branco"/>
 					            </listcell>
 					            <listcell >
-					                 <button   forward="onClick$pagar" image="/widgets/Imagens/actualizar.png" />
+					                 <button  forward="onClick$pagamento_i" image="/images/18.21.png" sclass="branco"/>
 					            </listcell>
 					            <listcell>
-					                 <button label = "e" forward="onClick$actualizar" image="/widgets/Imagens/remove.png" />
+					                 <button  forward="onClick$actualizar_i" image="/images/3.1.png" sclass="branco"/>
 					            </listcell>
 					        </listitem>
 					    </listbox>
 	   		 		</div>
-					<div >	<button id = "btn_act" label = "act" href="instruendo_actualizar.zul" width="15%"/></div>
-				</hlayout>
+					</div>
+
+			
 			</div>
 			<div vflex = "1" align = "right">
-				<separator spacing = "80px"></separator>
+				<separator spacing = "60px"></separator>
 				<hlayout>
 					<div hflex = "1" >	</div>
 					    <div hflex = "3" align = "right">	
 							<button type = "submit" label = "guardar" width="15%"/>
-							<button type = "submit" label = "voltar" width="15%"/>
+							<button forward="onClick$voltar_l" type = "submit" label = "voltar" width="15%"/>
 				     	</div>
 			       	<div hflex = "1" ></div>
 				</hlayout>							
 			</div>
-		</vlayout>
+		</vlayout>-->
      </window>
 </zk> 

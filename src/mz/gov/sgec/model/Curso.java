@@ -1,12 +1,18 @@
 package mz.gov.sgec.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -14,7 +20,7 @@ import javax.persistence.TemporalType;
 public class Curso {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long curso_id;
+	private long id;
 	
 	private String nome;
 	private String descticao;
@@ -26,6 +32,14 @@ public class Curso {
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updated_at;
+	
+	@ManyToOne
+	@JoinColumn(name="curso_preco_id")
+	private CursoPreco curso_preco;
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@JoinColumn(name="matricula_curso_id")
+	private List <Matricula> matricula = new ArrayList <Matricula> ();
 	
 	public Curso() {
 		// TODO Auto-generated constructor stub
@@ -71,10 +85,6 @@ public class Curso {
 		this.existe = existe;
 	}
 
-	public long getCurso_id() {
-		return curso_id;
-	}
-
 	public Date getCreated_at() {
 		return created_at;
 	}
@@ -83,9 +93,25 @@ public class Curso {
 		return updated_at;
 	}
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public void setCreated_at(Date created_at) {
+		this.created_at = created_at;
+	}
+
+	public void setUpdated_at(Date updated_at) {
+		this.updated_at = updated_at;
+	}
+
 	@Override
 	public String toString() {
-		return "Curso [curso_id=" + curso_id + ", nome=" + nome + ", descticao=" + descticao + ", duracao=" + duracao
-				+ ", existe=" + existe + ", created_at=" + created_at + ", updated_at=" + updated_at + "]";
+		return "Curso [id=" + id + ", nome=" + nome + ", descticao=" + descticao + ", duracao=" + duracao + ", existe="
+				+ existe + ", created_at=" + created_at + ", updated_at=" + updated_at + "]";
 	}
 }

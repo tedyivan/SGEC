@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class InstruendoTurma {
@@ -22,17 +23,17 @@ public class InstruendoTurma {
 	/*
 	 * Relacionamento com Instruendo atraves de Matricula
 	 * */
-	@ManyToOne
+	/*@ManyToOne
 	@JoinColumn(name="matricula_id")
 	private Matricula matricula;
-
+	*/
 	/*
 	 * Relacionamento com Turma
 	 * */
-	@ManyToOne
-	@JoinColumn(name="turma_id")
-	private Turma turma;
-	
+	/*@ManyToOne
+	@JoinColumn(name="instruendo_turma_id")
+	private Instruendo inst_turma;
+	*/
 	public InstruendoTurma() {
 		// TODO Auto-generated constructor stub
 	}

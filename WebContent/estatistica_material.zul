@@ -1,0 +1,59 @@
+<?page title="Estatistica de Funcionarios" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="template_estatistica.zul" ?>
+<zk>
+<style>
+			
+			.estatistica{
+				Background:#E3DEDB;
+			}
+			
+		</style>
+		<div id = "d_est_mat" self="@define(right)" width = "100%" height="100%" >
+					<vlayout height="100%" spacing = "20px">				
+							<div align = "center" sclass="titulo">
+							    <label value = "Estatistica de materiais"  style = "font-size:20pt"/>
+							  
+							</div>
+										<div vflex = "3" width = "100%"  >
+											<hlayout spacing = "40px">
+											<div >
+											</div>
+											<div hflex = "3" >
+											
+											  
+							<div  align ="left">
+						<label value = "Materiais registados: " style = "font-size: 15pt"/>
+							</div>	
+							<hlayout><div></div></hlayout>
+							<hlayout><div></div></hlayout>
+											            <listbox id="lst_mat_estatistica">
+												        <listhead sizable="true">
+												            <listheader label="Tipo de Material:" sort="auto" />
+												            <listheader label="Disponiveis:" sort="auto" />
+												            <listheader label="Indisponiveis:" sort="auto" />
+												            <listheader label="Compra:" sort="auto" />
+												  
+												       </listhead>
+												       <listitem label = "${each}" value = "${each.getNome()}" forEach = "${d_est_mat$EstatisticaController.materiais}" >
+												       </listitem>
+												       
+												       </listbox>
+												    <hlayout><div></div></hlayout>
+													<hlayout><div></div></hlayout>
+												    
+												    <hlayout>
+													<div hflex="1">				
+													</div>
+														<div hflex="2" align = "right">
+															<button id = "btn_relatorio" label = "relatorio" width="15%" style = "font-size:10pt"/>
+															<button id= "btn_voltar" label = "voltar" width="15%" style = "font-size:10pt"/>							
+														</div>
+													</hlayout>
+											</div>
+											<div >
+											</div>
+										    </hlayout>
+										</div>
+							</vlayout>
+				</div>
+</zk>

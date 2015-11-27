@@ -87,6 +87,20 @@ public class Turma_controller extends GenericForwardComposer{
 	    
 	}
 	
+	public void onClick$dados (ForwardEvent e){
+        
+		//Button b = (Button)e.getOrigin().getTarget();
+		
+		Turma Turma = (Turma)((Listitem) e.getOrigin().getTarget()).getValue();
+		
+	    Map<String, Turma> j = new HashMap<>();
+	    j.put("1", Turma);
+	    
+	    Executions.createComponents("turma_dados.zul", null, j);
+	    
+	}
+	
+	
 	public void onClick$btn_act(Event e){
 		Turma turma= new Turma();
 		TurmaDAO turmaDao= new TurmaDAO();
@@ -114,7 +128,21 @@ public class Turma_controller extends GenericForwardComposer{
 	}
 	
 	
-	
+	public void onClick$activa(ForwardEvent e){
+	////////////
+		Button b = (Button)e.getOrigin().getTarget();
+		
+		Turma turma = (Turma)((Listitem)b.getParent().getParent()).getValue();
+		if(turma.isExiste())
+			{turma.setExiste(false);
+			dao.update(turma);
+			}
+		else{
+			turma.setExiste(true);
+			dao.update(turma);
+		}
+		
+	}
 	
 	public List<Turma> getTurmas(){
 		return new TurmaDAO().findAll();

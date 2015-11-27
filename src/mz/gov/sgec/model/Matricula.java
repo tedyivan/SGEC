@@ -1,6 +1,8 @@
 package mz.gov.sgec.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,13 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 
 @Entity
 public class Matricula {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long matricula_id;
+	private long id;
 	
 	private double valor_curso;
 	private Date data_inicio;
@@ -23,28 +26,28 @@ public class Matricula {
 	private Date updated_at;
 	
 	@ManyToOne
-	@JoinColumn(name="instruendo_id")
-	private Instruendo instruendo;
+	@JoinColumn(name="matricula_id")
+	private Pagamento pagamento;
 	
 	@ManyToOne
-	@JoinColumn(name="curso_id")
+	@JoinColumn(name="matricula_teste_id")
+	private InstruendoTeste instruendo_teste;
+	
+	@ManyToOne
+	@JoinColumn(name="matricula_solicitacao_id")
+	private SolicitacaoExame solicitacao;
+	
+	@ManyToOne
+	@JoinColumn(name="matricula_instruendo_id")
+	private Instruendo instruendo;
+	
+	
+	@ManyToOne
+	@JoinColumn(name="matricula_curso_id")
 	private Curso curso;
 	
 	public Matricula() {
 		// TODO Auto-generated constructor stub
-	}
-	
-	
-	public Matricula(long matricula_id, double valor_curso, Date data_inicio, Date data_fim) {
-		super();
-		this.matricula_id = matricula_id;
-		this.valor_curso = valor_curso;
-		this.data_inicio = data_inicio;
-		this.data_fim = data_fim;
-	}
-
-	public long getMatricula_id() {
-		return matricula_id;
 	}
 	
 	public double getValor_curso() {
@@ -76,32 +79,28 @@ public class Matricula {
 	
 
 	
-	public Instruendo getInstruendo() {
-		return instruendo;
-	}
-
-
-	public void setInstruendo(Instruendo instruendo) {
-		this.instruendo = instruendo;
-	}
-
-
-	public Curso getCurso() {
-		return curso;
-	}
-
-
-	public void setCurso(Curso curso) {
-		this.curso = curso;
-	}
-
-
-	@Override
-	public String toString() {
-		return "Matricula [matricula_id=" + matricula_id + ", valor_curso=" + valor_curso + ", data_inicio="
-				+ data_inicio + ", data_fim=" + data_fim + ", created_at=" + created_at + ", updated_at=" + updated_at
-				+ "]";
-	}
 	
+
+
+	
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
+
+	public void setCreated_at(Date created_at) {
+		this.created_at = created_at;
+	}
+
+	public void setUpdated_at(Date updated_at) {
+		this.updated_at = updated_at;
+	}
+
 	
 }

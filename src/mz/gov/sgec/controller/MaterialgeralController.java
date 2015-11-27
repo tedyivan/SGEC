@@ -58,14 +58,16 @@ public class MaterialgeralController extends GenericForwardComposer {
 	private Div wind_veicle;
 	private Window window,wd;
 	private Div wind_teorico;
+
 	private Button btn_veic;
 		
-	public void onClick$btn_regi(ForwardEvent e){
-		materialGDAO = new MaterialGeralDAO();
-		matgeral = new MaterialGeral();
-		mat = new Material();
-		materialDao= new MaterialDAO();
-		
+	
+	public void onClick$btn_reg(Event e){
+		Material mat = new Material();
+		MaterialAlocacao matAlo= new MaterialAlocacao();
+		matgeral= new MaterialGeral();
+		Date dt_aqui=dt_aquisicao.getValue();
+		quant = Integer.parseInt(txt_quantidade.getValue());
 		mat.setNome(txt_designacao.getValue());
 		mat.setGarantia(txt_garantia.getValue());
 		
@@ -172,8 +174,12 @@ public class MaterialgeralController extends GenericForwardComposer {
 	public void onClick$linha(ForwardEvent e) {
 		
 		t = (Turma)((Listitem) e.getOrigin().getTarget()).getValue();
+
 		turma_id= t.getId();
 		Executions.getCurrent().getDesktop().getSession().setAttribute("TURMALINHA", t);
+
+		
+	
 		//window.detach();
         //window =(Window) Executions.getCurrent().getDesktop();
         //window.detach();
@@ -183,6 +189,7 @@ public class MaterialgeralController extends GenericForwardComposer {
 	
 	public void onClick$btn_veic(){
 		wind_veicle.setVisible(true);
+
 		wind_teorico.setVisible(false);	
 	}
 	
@@ -221,7 +228,6 @@ public class MaterialgeralController extends GenericForwardComposer {
 		
 	    Executions.createComponents("material_pratico_actualizar.zul", null, m);
 	}
-	
 	
 	
 

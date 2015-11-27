@@ -1,15 +1,33 @@
+
 <?page title="new page title" contentType="text/html;charset=UTF-8"?>
+
 
 <zk>
 
-	<window border="normal" mode="highlighted" closable="true" width = "50%" height="100%" style = "border: 1px solid red" apply = "mz.gov.sgec.controller.InstruendoController">
+
+	<window border="normal" mode = "highlighted" width = "50%" height="100%" apply = "mz.gov.sgec.controller.InstruendoController">
+
 	
 	<zscript>
-	  	import mz.gov.sgec.model.Instruendo;
-	    
-	    Instruendo instruend = (Instruendo)Executions.getCurrent().getArg().get("1");
-   
+
+   	<![CDATA[
+			
+	        import java.util.ArrayList;
+   	    	import mz.gov.sgec.model.Instruendo;
+   	    	Instruendo instruend = (Instruendo) Executions.getCurrent().getArg().get("1");
+   		 		String str = instruend.getAltura() + "";
+   		    	String [] altura =  str.split("\\.");
+				String inteira = altura[0];
+				String decimal = altura[1];
+					
+				//Radiogroup rg = new Radiogroup();
+				
+				String genero = instruend.getGenero();
+			
+			    Clients.showNotification("Registo de Instruendo"+ genero);
+					]]>
 	</zscript>
+
 		<vlayout height="100%" spacing = "10px">
 			<div vflex = "1">
 				<vlayout height="100%" spacing = "10px">
@@ -67,7 +85,7 @@
 							<div hflex="2" align = "left">
 								<combobox id="cb_civil" width = "80%" value="${instruend.estado_civil}">
 									<comboitem label="casado(a)"/>
-									<comboitem label="solterio(a)"/>
+									<comboitem label="solteiro(a)"/>
 									<comboitem label="viuvo(a)"/>
 								</combobox>						
 							</div>
@@ -107,7 +125,7 @@
 								<label value = "Alocar:" />
 							</div>
 							<div hflex="2" align = "left">
-								<button type = "submit" id="btn_turma" label = "turma" width="80%"/>							
+								<button type = "submit" id="act_alocar" label = "turma" width="80%"/>							
 							</div>
 						</hlayout>	
 						<hlayout  >
@@ -167,8 +185,8 @@
 								<label value = "Altura:" />
 							</div>
 							<div hflex="2" align = "left">
-								<spinner constraint="no empty" id="sp_inteiro"  width="39%" />.
-								<spinner constraint="no empty" id="sp_decimal" width="39%" />							
+								<spinner constraint="no empty" id="sp_inteiro" value = "${inteira}"  width="39%" />.
+								<spinner constraint="no empty" id="sp_decimal" value = "${decimal}" width="39%" />							
 							</div>
 						</hlayout>
 						<hlayout  >
@@ -176,7 +194,8 @@
 								<label value = "Validade de BI:" />
 							</div>
 							<div hflex="2" align = "left">
-								<datebox id="d_validade_bi" width="80%" value="${instruend$InstruendoController.instruendo.validade_bi}"/>								
+								<datebox id="d_validade_bi" width="80%" value="${instruend.validade_bi}"/>								
+
 							</div>
 						</hlayout>
 						<hlayout  >

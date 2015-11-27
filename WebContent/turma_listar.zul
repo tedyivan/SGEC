@@ -54,7 +54,7 @@
 									</div>
 									
 									<div hflex = "3" >
-											<listbox id="lst_turmas" rows="9">
+											<listbox id="lst_turmas" rows="9" >
 										        <listhead sizable="true">
 										            <listheader label="Designação:" sort="auto" />
 										            <listheader label="Periodo:" sort="auto" />
@@ -63,18 +63,27 @@
 										            <listheader label="Opções:" sort="auto" />
 										            
 										        </listhead>
-										        <listitem value="${each}" forEach="${wind_turma$Turma_controller.turmas}">
+										        <listitem value="${each}" forward="onClick$dados" forEach="${wind_turma$Turma_controller.turmas}">
 										            <listcell label="${each.nome}" />
 										            <listcell  >
 										            	<label value="${each.hora_inicio} -> "/>
 										            	<label value="${each.hora_fim}"/>
 										            </listcell>
 										            <listcell label="${each.lotacao}" />
-											       	<listcell label="${each.descricao}" />
+											       	<listcell >
+											       		<button sclass="branco" if="${each.existe}" image="/images/14.1.png" 
+										            	 forward="onClick$activa"/>
+										            	<button sclass="branco" if="${!each.existe}" image="/images/14.6.png" 
+										            	 forward="onClick$activa"/>
+										            	
+											       	</listcell>
 										            <listcell >
-										            	<button sclass="branco" image="/images/3.2.png" width="30%" 
+										            	<button sclass="branco" image="/images/3.2.png" 
 										            	 forward="onClick$actualiz"
 										            	/>
+
+									            	 
+
 										            </listcell>
 										             
 										        </listitem>
@@ -94,14 +103,5 @@
 						
 		
 		</window>
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 </zk>
