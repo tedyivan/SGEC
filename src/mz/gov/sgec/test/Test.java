@@ -30,6 +30,7 @@ import mz.gov.sgec.model.Veiculo;
 public class Test {
 
 	public static void main(String[] args) {
+<<<<<<< HEAD
 		//UtilizadorDAO ud = new UtilizadorDAO();
 		//Utilizador u = new Utilizador();
 		/*
@@ -42,6 +43,8 @@ public class Test {
 		u.setEmail("hjh");
 		u.setTipo("yaa");
 		ud.create(u);
+=======
+>>>>>>> 4ac3a9f2fb91849dfa25f2a3fb8af2a39414028d
 		
 		// TODO Auto-generated method stub
 		MaterialDAO materialDAO = new MaterialDAO();
@@ -91,7 +94,6 @@ public class Test {
 		/*
 		Turma turma = new Turma();
 		turma.setCreated_at(new Date());
-		turma.setData_fim(new Date());
 		turma.setExiste(true);
 		turma.setNome("Nome");
 		turma.setSala("Sala");

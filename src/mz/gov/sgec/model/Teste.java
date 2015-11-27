@@ -28,10 +28,9 @@ public class Teste {
 	/*
 	 * Relacionamento com InstruendoTeste
 	 */
-	
-	@ManyToOne
+	@OneToMany
 	@JoinColumn(name="teste_id")
-	private InstruendoTeste instruendoTestes;
+	private List<InstruendoTeste> instruendoTestes = new ArrayList<>();
 	
 	/*
 	 * Contrutor
@@ -79,13 +78,15 @@ public class Teste {
 	public void setUpdated_at(Date updated_at) {
 		this.updated_at = updated_at;
 	}
-	public InstruendoTeste getInstruendoTestes() {
+
+	public List<InstruendoTeste> getInstruendoTestes() {
 		return instruendoTestes;
 	}
 
-	public void setInstruendoTestes(InstruendoTeste instruendoTestes) {
+	public void setInstruendoTestes(List<InstruendoTeste> instruendoTestes) {
 		this.instruendoTestes = instruendoTestes;
 	}
+
 	@Override
 	public String toString() {
 		return "Teste [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", created_at=" + created_at

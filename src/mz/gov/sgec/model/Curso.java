@@ -33,9 +33,8 @@ public class Curso {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updated_at;
 	
-	@ManyToOne
-	@JoinColumn(name="curso_preco_id")
-	private CursoPreco curso_preco;
+	@OneToMany(fetch=FetchType.EAGER)
+	private List<CursoPreco> cursoPrecos = new ArrayList<>();
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	@JoinColumn(name="matricula_curso_id")
@@ -109,6 +108,8 @@ public class Curso {
 		this.updated_at = updated_at;
 	}
 
+	
+	
 	@Override
 	public String toString() {
 		return "Curso [id=" + id + ", nome=" + nome + ", descticao=" + descticao + ", duracao=" + duracao + ", existe="

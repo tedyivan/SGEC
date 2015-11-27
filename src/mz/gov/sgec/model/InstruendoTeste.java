@@ -11,7 +11,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import mz.gov.sgec.test.Test;
 
 @Entity
 public class InstruendoTeste {
@@ -28,19 +31,18 @@ public class InstruendoTeste {
 	/*
 	 * Relacionemto com Instruendo
 	 */
+	@ManyToOne
+	@JoinColumn(name="matricula_id")
+	private Matricula matricula;
 	
 	/*
 	 * Relacionamento com Teste
 	 */
-	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name="teste_id")
-	private List <Teste> teste = new ArrayList <Teste> ();
+	private Teste teste;
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-	@JoinColumn(name="matricula_teste_id")
-	private List <Matricula> matricula = new ArrayList <Matricula> ();
-	
+
 	
 	public InstruendoTeste() {
 		// TODO Auto-generated constructor stub
@@ -94,5 +96,19 @@ public class InstruendoTeste {
 		this.updated_at = updated_at;
 	}
 
-	
+	public Teste getTeste() {
+		return teste;
+	}
+
+	public void setTeste(Teste teste) {
+		this.teste = teste;
+	}
+
+	public Matricula getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(Matricula matricula) {
+		this.matricula = matricula;
+	}
 }

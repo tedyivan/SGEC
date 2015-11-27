@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -29,17 +30,16 @@ public class SolicitacaoExame {
 	/*
 	 * Relacionamento com Matricula
 	 */
-	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-	@JoinColumn(name="matricula_solicitacao_id")
-	private List<Matricula> matricula = new ArrayList<Matricula>();
+	@ManyToOne
+	@JoinColumn(name="matricula_id")
+	private Matricula matricula;
 	
 	/*
 	 * Relacionmerto com Tipo de Exame
 	 */
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name="exame_id")
-	private List <Exame> exame = new ArrayList<Exame>();
+	private Exame exame;
 	
 	/*
 	 * Construtor
@@ -95,12 +95,20 @@ public class SolicitacaoExame {
 	public void setUpdated_at(Date updated_at) {
 		this.updated_at = updated_at;
 	}
-	
-	public List<Exame> getExame() {
+
+	public Matricula getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(Matricula matricula) {
+		this.matricula = matricula;
+	}
+
+	public Exame getExame() {
 		return exame;
 	}
 
-	public void setExame(List<Exame> exame) {
+	public void setExame(Exame exame) {
 		this.exame = exame;
 	}
 }

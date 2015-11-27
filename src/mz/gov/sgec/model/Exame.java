@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Exame {
@@ -26,9 +27,9 @@ public class Exame {
 	/*
 	 * Relacionamento com SolicitacaoExame
 	 */
-	@ManyToOne
+	@OneToMany(fetch=FetchType.EAGER)
 	@JoinColumn(name="exame_id")
-	private SolicitacaoExame solicitacaoExames;
+	private List<SolicitacaoExame> solicitacaoExames = new ArrayList<>();
 	
 	/*
 	 * Contrutor
@@ -76,6 +77,15 @@ public class Exame {
 	public void setUpdated_at(Date updated_at) {
 		this.updated_at = updated_at;
 	}
+	
+
+	public List<SolicitacaoExame> getSolicitacaoExames() {
+		return solicitacaoExames;
+	}
+
+	public void setSolicitacaoExames(List<SolicitacaoExame> solicitacaoExames) {
+		this.solicitacaoExames = solicitacaoExames;
+	}
 
 	@Override
 	public String toString() {
@@ -83,11 +93,5 @@ public class Exame {
 				+ ", updated_at=" + updated_at + "]";
 	}
 
-	public SolicitacaoExame getSolicitacaoExames() {
-		return solicitacaoExames;
-	}
 
-	public void setSolicitacaoExames(SolicitacaoExame solicitacaoExames) {
-		this.solicitacaoExames = solicitacaoExames;
-	}
 }
