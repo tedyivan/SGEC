@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -27,7 +28,7 @@ public class TipoPagamento {
 	/*
 	 * Relacionamento com Pagamento
 	 */
-	@OneToMany(fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	@JoinColumn(name="tipopagamento_id")
 	private List<Pagamento> pagamentos = new ArrayList<>();
 	

@@ -77,8 +77,16 @@ public class Funcionario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
 	@Override
 	public String toString() {
-		return getNome();
+		return "Funcionario [id=" + id + ", nome=" + nome + ", apelido=" + apelido + ", nr_bi=" + nr_bi + ", nuit="
+				+ nuit + ", contacto=" + contacto + ", categoria=" + categoria + ", email=" + email
+				+ ", data_nascimento=" + data_nascimento + "]";
 	}
+	
+	
+	
+	
+	
 }

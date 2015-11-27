@@ -3,6 +3,7 @@ package mz.gov.sgec.model;
 import java.util.List;
 import java.util.ArrayList;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -35,7 +36,7 @@ public class Utilizador {
 	private Funcionario funcionario;
 */
 	
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	@JoinColumn(name="notificacao_id")
 	private List<Notificacao> notificacao= new ArrayList <Notificacao>();
     

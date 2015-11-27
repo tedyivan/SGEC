@@ -1,11 +1,14 @@
 package mz.gov.sgec.test;
 
 import java.util.Date;
+import java.util.List;
 
+import org.apache.poi.util.SystemOutLogger;
 
 import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import mz.gov.sgec.dao.AssuntoDAO;
+import mz.gov.sgec.dao.FuncionarioDAO;
 import mz.gov.sgec.dao.InstruendoDAO;
 import mz.gov.sgec.dao.MaterialAlocacaoDAO;
 
@@ -30,7 +33,7 @@ import mz.gov.sgec.model.Veiculo;
 public class Test {
 
 	public static void main(String[] args) {
-<<<<<<< HEAD
+
 		//UtilizadorDAO ud = new UtilizadorDAO();
 		//Utilizador u = new Utilizador();
 		/*
@@ -43,8 +46,7 @@ public class Test {
 		u.setEmail("hjh");
 		u.setTipo("yaa");
 		ud.create(u);
-=======
->>>>>>> 4ac3a9f2fb91849dfa25f2a3fb8af2a39414028d
+
 		
 		// TODO Auto-generated method stub
 		MaterialDAO materialDAO = new MaterialDAO();
@@ -101,37 +103,7 @@ public class Test {
 		
 		turmaDAO.create(turma);
 		
-<<<<<<< HEAD
-		//turmaDAO.create(turma);
-		VeiculoDAO veiculoDAO = new VeiculoDAO();
-		List<Veiculo> veiculos = veiculoDAO.findAll();
-		
-		for (int i = 0; i < veiculos.size(); i++) {
-			System.out.println(veiculos.get(i)+"\n");
-		}
-		*/
-		
-		/*MaterialAlocacaoDAO materialAlocacaoDAO = new MaterialAlocacaoDAO();
-		List<MaterialAlocacao> veiculos = materialAlocacaoDAO.findAll();
-		
-		for (int i = 0; i < veiculos.size(); i++) {
-			System.out.println(veiculos.get(i).getTurma()+"\n");
-		}*/
-		
-		/*
-		MaterialGeralDAO materialGeral= new MaterialGeralDAO();
-		List<MaterialGeral> mtgeral =materialGeral.findAll();
-		for(int i = 0; i<mtgeral.size(); i++){
-			System.out.println(mtgeral.get(i).toString()+"\n");
-		}
-		*/
-		/*
-		MaterialAlocacaoDAO matAl = new MaterialAlocacaoDAO();
-		List<MaterialAlocacao> mtAlo= matAl.findAll();
-		for (int i = 0; i < mtAlo.size(); i++) {
-			System.out.println(mtAlo.get(i).toString()+"\n");
-		}*/
-		//////////////////////////////////
+
 		/*
 		MaterialGeralDAO mtgeralDAO= new MaterialGeralDAO();
 		MaterialGeral mtgeral= new MaterialGeral();
@@ -181,19 +153,28 @@ public class Test {
 		assunto.setNome("Teste");
 		assunto.setMesage("O senhor tem uma divida");
 		assuntoDAO.create(assunto);
-		*/
+		
 		//System.out.println(assuntoDAO.findAll().get(1).toString());
-		/*Utilizador util= new Utilizador();
+		Utilizador util= new Utilizador();
 		UtilizadorDAO utilDao= new UtilizadorDAO();
 		util.setUtilizador("tedy");
 		util.setSenha("tedy");
 		utilDao.create(util);
 		*/
 		
-		
+		/*
 		AssuntoDAO assuntoDAO= new AssuntoDAO();
 		Assunto assunto=assuntoDAO.findAll().get(0);
 		System.out.println(assunto.getMesage());
+		*/
+		FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+		List <Funcionario> fun= funcionarioDAO.findAll();
+		
+		System.out.println(fun.get(0).toString());
+		
+		
+		
+		
 		
 	}
 }

@@ -26,12 +26,9 @@ public class CriarContaController  extends GenericForwardComposer{
 		private FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 		private UtilizadorDAO utilizadorDAO = new UtilizadorDAO();
 		
-		public CriarContaController() {	}
+		//public CriarContaController() {	}
 		
-		public List<Funcionario> getFuncionarios(){
-			return funcionarioDAO.findAll();
-		}
-		
+			
 		public void onClick$btn_criar(Event e){
 			Utilizador utilizador = new Utilizador();
 			utilizador.setUtilizador(txt_utilizador.getText());
@@ -44,6 +41,7 @@ public class CriarContaController  extends GenericForwardComposer{
 			Clients.showNotification("Conta criada com sucesso");
 			Executions.sendRedirect("index.zul");
 		}
+		
 		public void clear(){
 			cbx_fun.setValue(null);
 			txt_utilizador.setText(" ");
@@ -52,11 +50,13 @@ public class CriarContaController  extends GenericForwardComposer{
 			txt_senha.setText(" ");
 		}
 			
-		//public void onClick$btn_voltar(Event e){
-			//	Executions.sendRedirect("Autenticacao.zul");
-			
-		//}
-		//public void onClick$rtn_mostrarSenha(Event e){
-			
-		//}
+		public List<Funcionario> getFuncionarios(){
+			return new FuncionarioDAO().findAll();
+		}
+		
+		
+		
+		
+		
+		
 }
